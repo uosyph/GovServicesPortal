@@ -1,4 +1,19 @@
-from app import db
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from os import getcwd, getenv
+from dotenv import load_dotenv
+
+load_dotenv()
+
+cwd = getcwd()
+
+app = Flask(__name__)
+app.url_map.strict_slashes = False
+
+app.config["SECRET_KEY"] = getenv("SECRET_KEY")
+app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{cwd}/{getenv('DB')}.db"
+
+db = SQLAlchemy(app)
 
 
 class User(db.Model):
@@ -30,7 +45,5 @@ class Service(db.Model):
 
 
 if __name__ == "__main__":
-    from app import app
-
     with app.app_context():
         db.create_all()
