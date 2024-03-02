@@ -1,6 +1,5 @@
 from flask import abort, request, session, render_template, redirect, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
-from jwt import encode, decode
 
 from models import *
 
@@ -24,55 +23,6 @@ def clear_trailing():
 @app.route("/", methods=["GET"])
 def index():
     return render_template("index.html")
-
-
-@app.route("/departments")
-def departments():
-    departments = Department.query.all()
-    return render_template(
-        "list.html", list_title="Departments", departments=departments
-    )
-
-
-@app.route("/departments/<department_id>")
-def department(department_id):
-    department = Department.query.filter_by(id=department_id).first()
-    if not department:
-        abort(404)
-    return render_template(
-        "listing.html",
-        title=department.title,
-        description=department.description,
-    )
-
-
-@app.route("/departments/<department_id>/services")
-def department_services(department_id):
-    department = Department.query.filter_by(id=department_id).first()
-    if not department:
-        abort(404)
-    services = Service.query.filter_by(department_id=department_id).all()
-    return render_template(
-        "list.html", list_title=f"{department.title} Services", services=services
-    )
-
-
-@app.route("/services")
-def services():
-    services = Department.query.all()
-    return render_template("list.html", list_title="Services", services=services)
-
-
-@app.route("/services/<service_id>")
-def service(service_id):
-    service = Service.query.filter_by(id=service_id).first()
-    if not service:
-        abort(404)
-    return render_template(
-        "listing.html",
-        title=service.title,
-        description=service.description,
-    )
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -209,6 +159,55 @@ def logout():
 def account():
     user = User.query.filter_by(id=session["id"]).first()
     return render_template("account.html", user=user)
+
+
+@app.route("/departments")
+def departments():
+    departments = Department.query.all()
+    return render_template(
+        "list.html", list_title="Departments", departments=departments
+    )
+
+
+@app.route("/departments/<department_id>")
+def department(department_id):
+    department = Department.query.filter_by(id=department_id).first()
+    if not department:
+        abort(404)
+    return render_template(
+        "listing.html",
+        title=department.title,
+        description=department.description,
+    )
+
+
+@app.route("/departments/<department_id>/services")
+def department_services(department_id):
+    department = Department.query.filter_by(id=department_id).first()
+    if not department:
+        abort(404)
+    services = Service.query.filter_by(department_id=department_id).all()
+    return render_template(
+        "list.html", list_title=f"{department.title} Services", services=services
+    )
+
+
+@app.route("/services")
+def services():
+    services = Department.query.all()
+    return render_template("list.html", list_title="Services", services=services)
+
+
+@app.route("/services/<service_id>")
+def service(service_id):
+    service = Service.query.filter_by(id=service_id).first()
+    if not service:
+        abort(404)
+    return render_template(
+        "listing.html",
+        title=service.title,
+        description=service.description,
+    )
 
 
 @app.errorhandler(404)
