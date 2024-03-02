@@ -164,37 +164,44 @@ def account():
 @app.route("/departments", methods=["GET", "POST"])
 def departments():
     departments = Department.query.all()
-    return render_template("list.html", list_title="Departments", items=departments)
+    return render_template(
+        "list.html", list_title="Departments", path="department", items=departments
+    )
 
 
-@app.route("/departments/<department_id>")
-def department(department_id):
-    department = Department.query.filter_by(id=department_id).first()
+@app.route("/departments/<id>")
+def department(id):
+    department = Department.query.filter_by(id=id).first()
     if not department:
         abort(404)
     return render_template("listing.html", item=department)
 
 
-@app.route("/departments/<department_id>/services")
-def department_services(department_id):
-    department = Department.query.filter_by(id=department_id).first()
+@app.route("/departments/<id>/services")
+def department_services(id):
+    department = Department.query.filter_by(id=id).first()
     if not department:
         abort(404)
-    services = Service.query.filter_by(department_id=department_id).all()
+    services = Service.query.filter_by(department_id=id).all()
     return render_template(
-        "list.html", list_title=f"{department.title} Services", items=services
+        "list.html",
+        list_title=f"{department.title} Services",
+        path="service",
+        items=services,
     )
 
 
 @app.route("/services", methods=["GET", "POST"])
 def services():
     services = Service.query.all()
-    return render_template("list.html", list_title="Services", items=services)
+    return render_template(
+        "list.html", list_title="Services", path="service", items=services
+    )
 
 
-@app.route("/services/<service_id>")
-def service(service_id):
-    service = Service.query.filter_by(id=service_id).first()
+@app.route("/services/<id>")
+def service(id):
+    service = Service.query.filter_by(id=id).first()
     if not service:
         abort(404)
     return render_template("listing.html", item=service)

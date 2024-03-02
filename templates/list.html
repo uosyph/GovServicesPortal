@@ -11,7 +11,7 @@
 <div class="wrapper">
     <ul class="cards">
         {% for item in items %}
-            <a href="#">
+            <a href="{{ url_for(path, id=item.id) }}">
                 <li>
                     <h2 style="color: white;">{{ item.title }}</h2>
                     <p style="color: white;">{{ item.description }}</p>
