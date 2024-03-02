@@ -1,6 +1,6 @@
 from flask import abort, request, session, render_template, redirect, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
-from jwt import encode
+from jwt import encode, decode
 
 from models import *
 
@@ -20,9 +20,59 @@ def clear_trailing():
     if rp != "/" and rp.endswith("/"):
         return redirect(rp[:-1])
 
+
 @app.route("/", methods=["GET"])
 def index():
-        return render_template("index.html")
+    return render_template("index.html")
+
+
+@app.route("/departments")
+def departments():
+    departments = Department.query.all()
+    return render_template(
+        "list.html", list_title="Departments", departments=departments
+    )
+
+
+@app.route("/departments/<department_id>")
+def department(department_id):
+    department = Department.query.filter_by(id=department_id).first()
+    if not department:
+        abort(404)
+    return render_template(
+        "listing.html",
+        title=department.title,
+        description=department.description,
+    )
+
+
+@app.route("/departments/<department_id>/services")
+def department_services(department_id):
+    department = Department.query.filter_by(id=department_id).first()
+    if not department:
+        abort(404)
+    services = Service.query.filter_by(department_id=department_id).all()
+    return render_template(
+        "list.html", list_title=f"{department.title} Services", services=services
+    )
+
+
+@app.route("/services")
+def services():
+    services = Department.query.all()
+    return render_template("list.html", list_title="Services", services=services)
+
+
+@app.route("/services/<service_id>")
+def service(service_id):
+    service = Service.query.filter_by(id=service_id).first()
+    if not service:
+        abort(404)
+    return render_template(
+        "listing.html",
+        title=service.title,
+        description=service.description,
+    )
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -87,6 +137,7 @@ def register():
             user = User.query.filter_by(id=id).first()
             session["loggedin"] = True
             session["id"] = user.id
+            session["is_admin"] = user.is_admin
             msg = "Your account has been successfully created."
 
             return redirect(url_for("index"))
@@ -121,6 +172,7 @@ def login():
             if check_password_hash(user.password, password):
                 session["loggedin"] = True
                 session["id"] = user.id
+                session["is_admin"] = user.is_admin
                 msg = "You're logged in successfully."
 
                 return redirect(url_for("index"))
@@ -144,6 +196,7 @@ def logout():
 
     session.pop("loggedin", None)
     session.pop("id", None)
+    session.pop("is_admin", None)
     return redirect(url_for("index"))
 
 
@@ -175,6 +228,3 @@ def unauthorized(e):
     """
 
     return redirect(url_for("index"))
-
-
-
