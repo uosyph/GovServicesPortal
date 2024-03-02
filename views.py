@@ -161,12 +161,10 @@ def account():
     return render_template("account.html", user=user)
 
 
-@app.route("/departments")
+@app.route("/departments", methods=["GET", "POST"])
 def departments():
     departments = Department.query.all()
-    return render_template(
-        "list.html", list_title="Departments", departments=departments
-    )
+    return render_template("list.html", list_title="Departments", items=departments)
 
 
 @app.route("/departments/<department_id>")
@@ -174,11 +172,7 @@ def department(department_id):
     department = Department.query.filter_by(id=department_id).first()
     if not department:
         abort(404)
-    return render_template(
-        "listing.html",
-        title=department.title,
-        description=department.description,
-    )
+    return render_template("listing.html", item=department)
 
 
 @app.route("/departments/<department_id>/services")
@@ -188,14 +182,14 @@ def department_services(department_id):
         abort(404)
     services = Service.query.filter_by(department_id=department_id).all()
     return render_template(
-        "list.html", list_title=f"{department.title} Services", services=services
+        "list.html", list_title=f"{department.title} Services", items=services
     )
 
 
-@app.route("/services")
+@app.route("/services", methods=["GET", "POST"])
 def services():
-    services = Department.query.all()
-    return render_template("list.html", list_title="Services", services=services)
+    services = Service.query.all()
+    return render_template("list.html", list_title="Services", items=services)
 
 
 @app.route("/services/<service_id>")
@@ -203,11 +197,7 @@ def service(service_id):
     service = Service.query.filter_by(id=service_id).first()
     if not service:
         abort(404)
-    return render_template(
-        "listing.html",
-        title=service.title,
-        description=service.description,
-    )
+    return render_template("listing.html", item=service)
 
 
 @app.errorhandler(404)

@@ -31,20 +31,23 @@ class Department(db.Model):
     __tablename__ = "departments"
     id = db.Column(db.String(14), primary_key=True)
     title = db.Column(db.String(128))
-    description = db.Column(db.String(16384))
+    description = db.Column(db.String(432))
+    readme = db.Column(db.String(16384))
 
 
 class Service(db.Model):
     __tablename__ = "services"
     id = db.Column(db.String(14), primary_key=True)
     title = db.Column(db.String(128))
-    description = db.Column(db.String(16384))
+    description = db.Column(db.String(432))
+    readme = db.Column(db.String(16384))
     department_id = db.Column(db.String(14))
 
 
 class Order(db.Model):
     __tablename__ = "orders"
     id = db.Column(db.String(14), primary_key=True)
+    details = db.Column(db.String(4096))
     start_date = db.Column(db.DateTime)
     end_date = db.Column(db.DateTime)
     is_done = db.Column(db.Boolean)

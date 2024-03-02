@@ -2,6 +2,22 @@
 
 {% block title %}{{ list_title }} | GSP{% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/cards.css') }}">
+{% endblock %}
+
 {% block body %}
 <h1 style="color: white;">{{ list_title }}</h1>
+<div class="wrapper">
+    <ul class="cards">
+        {% for item in items %}
+            <a href="#">
+                <li>
+                    <h2 style="color: white;">{{ item.title }}</h2>
+                    <p style="color: white;">{{ item.description }}</p>
+                </li>
+            </a>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
