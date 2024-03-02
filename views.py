@@ -130,6 +130,11 @@ def register():
             new_user = User(
                 id=id,
                 password=hashed_password,
+                name=name,
+                phone=phone,
+                email=email,
+                address=address,
+                is_admin=0,
             )
 
             db.session.add(new_user)
@@ -198,6 +203,12 @@ def logout():
     session.pop("id", None)
     session.pop("is_admin", None)
     return redirect(url_for("index"))
+
+
+@app.route("/account")
+def account():
+    user = User.query.filter_by(id=session["id"]).first()
+    return render_template("account.html", user=user)
 
 
 @app.errorhandler(404)

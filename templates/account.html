@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Account | GSP{% endblock %}
+
+{% block body %}
+<h1 style="color: white;">{{ user.id }}</h1>
+<h1 style="color: white;">{{ user.name }}</h1>
+<h1 style="color: white;">{{ user.phone }}</h1>
+<h1 style="color: white;">{{ user.email }}</h1>
+<h1 style="color: white;">{{ user.address }}</h1>
+<h1 style="color: white;">{{ user.is_admin }}</h1>
+{% endblock %}
