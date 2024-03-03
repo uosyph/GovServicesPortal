@@ -56,12 +56,17 @@ nav li a {
 	transition: 0.3s ease;
 }
 
-nav li a svg {
-	vertical-align: text-top;
-}
-
 nav li a:hover {
 	color: #6db6c0;
+}
+
+nav li a svg {
+	vertical-align: text-top;
+	transition: 0.3s ease;
+}
+
+nav li a svg:hover {
+	fill: #6db6c0;
 }
 
 #active {

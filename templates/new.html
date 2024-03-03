@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Create New | GSP{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/new.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="form-box">
+    <h2>Create New</h2>
+    {% if msg: %}<div class="form-msg">{{ msg }}</div>{% endif %}
+    <form action="{{ url_for('new') }}" method="post">
+        <div class="input-box">
+            <label for="title">Title</label>
+            <input required type="text" name="title">
+        </div>
+        <div class="input-box">
+            <label for="description">Brief Description</label>
+            <input required type="text" name="description">
+        </div>
+        <div class="input-box">
+            <label for="readme">Extended Description (Supports Markdown)</label>
+            <textarea rows="6" name="readme"></textarea>
+        </div>
+        <!-- TODO: Choose a type from radio or drop down -->
+        <!-- TODO: if type is service show associated with drop down with all departments -->
+        <div class="input-box">
+            <label for="type">Type</label>
+            <input required type="text" name="type">
+        </div>
+        <div class="input-box">
+            <label for="associated">Associated with a Department</label>
+            <input required type="text" name="associated">
+        </div>
+        <input class="submit-btn" type="submit" value="Create">
+    </form>
+</div>
+{% endblock %}

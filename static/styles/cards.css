@@ -1,6 +1,36 @@
 h1 {
+	font-size: 36px;
 	text-align: center;
-	text-transform: uppercase;
+}
+
+.admin {
+	margin-top: 40px;
+	color: #ffffffe3;
+	background: rgba(0, 0, 0, 0.3);
+	padding: 25px;
+	text-align: center;
+}
+
+.admin a {
+	color: #ffffffe3;
+	transition: all 0.2s ease;
+}
+
+.admin a:hover {
+	opacity: 80%;
+}
+
+.admin h2 {
+	display: inline-block;
+}
+
+.admin span {
+	color: #6db6c0;
+	text-transform: capitalize;
+}
+
+.admin svg {
+	vertical-align: top;
 }
 
 .wrapper {

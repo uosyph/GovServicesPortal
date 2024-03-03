@@ -161,7 +161,7 @@ def account():
     return render_template("account.html", user=user)
 
 
-@app.route("/departments", methods=["GET", "POST"])
+@app.route("/departments")
 def departments():
     departments = Department.query.all()
     return render_template(
@@ -191,7 +191,7 @@ def department_services(id):
     )
 
 
-@app.route("/services", methods=["GET", "POST"])
+@app.route("/services")
 def services():
     services = Service.query.all()
     return render_template(
@@ -205,6 +205,12 @@ def service(id):
     if not service:
         abort(404)
     return render_template("listing.html", item=service)
+
+
+@app.route("/new", methods=["GET", "POST"])
+def new():
+    recommend = request.args.get('recommend')
+    return render_template("new.html", recommend=recommend)
 
 
 @app.errorhandler(404)
