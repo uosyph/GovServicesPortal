@@ -21,20 +21,24 @@
             <li>
                 <a href="{{ url_for('departments') }}" {% if request.path == '/departments' %} id="active" {% endif %}>Departments</a>
             </li>
-            <li>
+            <li class="acc_separator_right">
                 <a href="{{ url_for('services') }}" {% if request.path == '/services' %} id="active" {% endif %}>Services</a>
             </li>
+            <li class="separator"></li>
             {% if session["loggedin"] == True: %}
+                <li class="acc_separator_left">
+                    <a href="#">My Services</a>
+                </li>
                 <li>
                     <a href="{{ url_for('account') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="18" width="18" {% if request.path == '/account' %} fill="#6db6c0" {% else %} fill="white" {% endif %}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="18" width="18" {% if request.path == '/account' %} fill="#6db6c0" {% else %} fill="#2d3436" {% endif %}>
                             <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
                         </svg>
                     </a>
                 </li>
             {% else: %}
-                <li>
-                    <a href="{{ url_for('register') }}" {% if request.path == '/register' %} id="active" {% endif %}>Sign up</a>
+                <li class="reg_separator">
+                    <a href="{{ url_for('register') }}" {% if request.path == '/register' %} id="active_reg" {% endif %} class="register_btn">Sign up</a>
                 </li>
                 <li>
                     <a href="{{ url_for('login') }}" {% if request.path == '/login' %} id="active" {% endif %}>Login</a>

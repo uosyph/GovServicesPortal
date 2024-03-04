@@ -14,7 +14,7 @@ a {
 }
 
 body {
-	background: #202425;
+	background: #fff;
 	font-family: 'Lato';
 }
 
@@ -28,7 +28,7 @@ nav {
 nav .logo p {
 	float: left;
 	font-size: 22px;
-	color: #fff;
+	color: #2d3436;
 	cursor: pointer;
 }
 
@@ -51,7 +51,7 @@ nav li a {
 	font-size: 14px;
 	text-transform: uppercase;
 	padding: 0 15px;
-	color: #fff;
+	color: #2d3436;
 	text-decoration: none;
 	transition: 0.3s ease;
 }
@@ -69,6 +69,41 @@ nav li a svg:hover {
 	fill: #6db6c0;
 }
 
+nav li .register_btn {
+	background: #6db6c0;
+	border-radius: 10px;
+	padding: 9px 15px;
+}
+
+nav li .register_btn:hover {
+	background: #62a1a8;
+	color: #000;
+}
+
+.acc_separator_left {
+	margin-left: 10px;
+}
+
+.acc_separator_right {
+	margin-right: 10px;
+}
+
+.reg_separator {
+	margin-left: 20px;
+}
+
+.separator {
+	border-left: 1px solid #2d343654;
+	height: 30px;
+	position: absolute;
+	margin-top: 25px;
+}
+
 #active {
 	color: #6db6c0;
+}
+
+#active_reg {
+	background: #62a1a8;
+	color: #000;
 }

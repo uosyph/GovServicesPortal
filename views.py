@@ -165,7 +165,11 @@ def account():
 def departments():
     departments = Department.query.all()
     return render_template(
-        "list.html", list_title="Departments", path="department", items=departments
+        "list.html",
+        list_title="Departments",
+        list_description="You may select a department to access further details or view its services.",
+        path="department",
+        items=departments,
     )
 
 
@@ -186,6 +190,7 @@ def department_services(id):
     return render_template(
         "list.html",
         list_title=f"{department.title} Services",
+        list_description="You may select a service to access additional details or place an order.",
         path="service",
         items=services,
     )
@@ -195,7 +200,11 @@ def department_services(id):
 def services():
     services = Service.query.all()
     return render_template(
-        "list.html", list_title="Services", path="service", items=services
+        "list.html",
+        list_title="Services",
+        list_description="You may select a service to access additional details or place an order.",
+        path="service",
+        items=services,
     )
 
 
@@ -209,7 +218,7 @@ def service(id):
 
 @app.route("/new", methods=["GET", "POST"])
 def new():
-    recommend = request.args.get('recommend')
+    recommend = request.args.get("recommend")
     return render_template("new.html", recommend=recommend)
 
 

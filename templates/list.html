@@ -7,7 +7,10 @@
 {% endblock %}
 
 {% block body %}
-<h1 style="color: white;">{{ list_title }}</h1>
+<div class="list_details">
+    <h1 class="list_title">{{ list_title }}</h1>
+    <p class="list_description">{{ list_description }}</p>
+</div>
 
 {% if session["is_admin"] == True: %}
     <div class="admin">
@@ -25,8 +28,8 @@
         {% for item in items %}
             <a href="{{ url_for(path, id=item.id) }}">
                 <li>
-                    <h2 style="color: white;">{{ item.title }}</h2>
-                    <p style="color: white;">{{ item.description }}</p>
+                    <h2>{{ item.title }}</h2>
+                    <p>{{ item.description }}</p>
                 </li>
             </a>
         {% endfor %}

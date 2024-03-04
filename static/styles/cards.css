@@ -1,23 +1,42 @@
-h1 {
+.list_details {
+	color: #fff;
+	background: #6db6c0;
+	padding-block: 25px;
+	padding-left: 100px;
+}
+
+.list_title {
 	font-size: 36px;
-	text-align: center;
+}
+
+.list_description {
+	margin-top: 10px;
+	font-size: 20px;
 }
 
 .admin {
-	margin-top: 40px;
-	color: #ffffffe3;
+	margin-top: 15px;
+	color: #fff;
 	background: rgba(0, 0, 0, 0.3);
 	padding: 25px;
-	text-align: center;
+	padding-left: 100px;
 }
 
 .admin a {
-	color: #ffffffe3;
+	color: #fff;
 	transition: all 0.2s ease;
 }
 
 .admin a:hover {
 	opacity: 80%;
+}
+
+.admin svg {
+	transition: transform 0.2s ease;
+}
+
+.admin a:hover svg {
+	transform: translateX(3px) translateY(-3px)
 }
 
 .admin h2 {
@@ -48,22 +67,21 @@ h1 {
 }
 
 .cards li {
-	color: #fff;
-	background: rgba(0, 0, 0, 0.5);
-	box-sizing: border-box;
-	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+	color: #2d3436;
+	border: 1px solid #2d343654;
 	border-radius: 10px;
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 	flex: 1 1 200px;
 	transition: all 0.2s ease;
 }
 
 .cards li:hover {
-	background: rgba(0, 0, 0, 0.6);
-	box-shadow: 0 17px 27px rgba(0, 0, 0, 0.7);
+	box-shadow: 0 17px 27px rgba(0, 0, 0, 0.2);
 }
 
 .cards h2 {
-	background: rgba(0, 0, 0, 0.2);
+	background: rgba(0, 0, 0, 0.15);
 	border-radius: 10px;
 	margin: 0;
 	padding: 1.3rem;
