@@ -203,8 +203,10 @@ def services():
         "list.html",
         list_title="Services",
         list_description="You may select a service to access additional details or place an order.",
+        item_type="all_services",
         path="service",
         items=services,
+        Department=Department,
     )
 
 

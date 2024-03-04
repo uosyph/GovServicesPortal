@@ -10,7 +10,7 @@
 }
 
 a {
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
 body {
@@ -61,7 +61,7 @@ nav li a:hover {
 }
 
 nav li a svg {
-	vertical-align: text-top;
+	vertical-align: middle;
 	transition: 0.3s ease;
 }
 
@@ -106,4 +106,137 @@ nav li .register_btn:hover {
 #active_reg {
 	background: #62a1a8;
 	color: #000;
+}
+
+footer {
+	background-color: #dddddd;
+	padding: 45px 0 20px;
+	font-size: 15px;
+	line-height: 24px;
+	color: #2d3436;
+}
+
+footer hr {
+	border-top-color: #999999;
+	opacity: 0.5;
+}
+
+footer h6 {
+	color: #000;
+	font-size: 16px;
+	text-transform: uppercase;
+	margin-top: 5px;
+	letter-spacing: 2px;
+}
+
+.footer-links {
+	padding-left: 0;
+	list-style: none;
+}
+
+.footer-links li {
+	display: block;
+}
+
+.footer-links a {
+	color: #2d3436;
+}
+
+.footer-links a:active,
+.footer-links a:focus,
+.footer-links a:hover {
+	color: #6db6c0;
+	text-decoration: none;
+}
+
+footer .social-icons {
+	text-align: right;
+}
+
+footer .social-icons a {
+	width: 35px;
+	height: 35px;
+	line-height: 35px;
+	margin-left: 6px;
+	margin-right: 0;
+	border-radius: 100%;
+	background-color: #b6b6b6;
+}
+
+.copyright-text {
+	margin: 0;
+}
+
+@media (max-width: 991px) {
+	footer [class^='col-'] {
+		margin-bottom: 30px;
+	}
+	footer .quick-links {
+		text-align: left;
+	}
+}
+
+@media (max-width: 767px) {
+	footer {
+		padding-bottom: 0;
+	}
+	footer .copyright-text,
+	footer .social-icons {
+		text-align: center;
+	}
+	footer .quick-links {
+		text-align: left;
+	}
+}
+
+.social-icons {
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+}
+
+.social-icons li {
+	display: inline-block;
+	margin-bottom: 4px;
+}
+
+.social-icons a {
+	background-color: #eceeef;
+	color: #2d3436;
+	font-size: 16px;
+	display: inline-block;
+	line-height: 44px;
+	width: 44px;
+	height: 44px;
+	text-align: center;
+	margin-right: 8px;
+	border-radius: 100%;
+	-webkit-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+.social-icons a:active,
+.social-icons a:focus,
+.social-icons a:hover {
+	color: #fff;
+	background-color: #6db6c0;
+}
+
+.social-icons a svg {
+	vertical-align: middle;
+}
+
+.social-icons.size-sm a {
+	line-height: 34px;
+	height: 34px;
+	width: 34px;
+	font-size: 14px;
+}
+
+@media (max-width: 767px) {
+	.social-icons li.title {
+		display: block;
+		margin-right: 0;
+		font-weight: 600;
+	}
 }
