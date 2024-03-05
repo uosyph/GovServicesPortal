@@ -12,7 +12,6 @@
     {% block head %}{% endblock %}
 </head>
 <body>
-    <!-- TODO: check w/ & w/o bootstrap and correct the difference -->
     <nav>
         <div class="logo">
             <a href="{{ url_for('index') }}">
@@ -26,7 +25,7 @@
             <li class="acc_separator_right">
                 <a href="{{ url_for('services') }}" {% if request.path == '/services' %} id="active" {% endif %}>Services</a>
             </li>
-            <li class="separator"></li>
+            <li class="vr"></li>
             {% if session["loggedin"] == True: %}
                 <li class="acc_separator_left">
                     <a href="#">My Services</a>
