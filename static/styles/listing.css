@@ -1,0 +1,69 @@
+.item-box {
+	color: #2d3436;
+	border: 1px solid #2d343654;
+	margin: auto;
+	margin-top: 40px;
+	width: 85%;
+	padding: 40px;
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+	border-radius: 10px;
+	margin-bottom: 65px;
+}
+
+.item-box .item_title {
+	background: rgba(0, 0, 0, 0.15);
+	border-radius: 10px;
+	padding: 1.3rem;
+	margin: 20px 0 30px;
+}
+
+.item-box .item_title h2 {
+	font-size: 40px;
+	padding: 0;
+	color: #2d3436;
+}
+
+.item-box .item_title h4 {
+	display: inline-block;
+	font-size: 12px;
+	background: #6db6c0;
+	border-radius: 5px;
+	padding: 4px 8px;
+	margin-top: 10px;
+}
+
+.item-box p {
+	font-size: 22px;
+	padding: 0;
+	color: #2d3436b9;
+}
+
+.item-box .all-services-btn {
+	position: relative;
+	display: inline-block;
+	padding: 10px 20px;
+	color: #6db6c0;
+	font-size: 16px;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	transition: 0.5s;
+	margin-top: 50px;
+	margin-bottom: 5px;
+	border: 1px solid #6db6c0;
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.item-box .all-services-btn:hover {
+	background: #6db6c0;
+	color: #fff;
+	box-shadow: 0 0 1px #6db6c018, 0 0 15px #6db6c018, 0 0 20px #6db6c018,
+		0 0 30px #6db6c018;
+}
+
+.item-box .all-services-btn svg {
+	vertical-align: text-bottom;
+}

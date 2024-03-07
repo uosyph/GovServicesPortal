@@ -2,8 +2,33 @@
 
 {% block title %}{{ item.title }} | GSP{% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/listing.css') }}">
+{% endblock %}
+
 {% block body %}
-<h1>{{ item.title }}</h1>
-<h4>{{ item.description }}</h4>
-<p>{{ item.readme }}</p>
+<div class="item-box">
+    <div class="item_title">
+        <h2>{{ item.title }}</h2>
+        {% if item.department_id %}
+            {% set department = Department.query.filter_by(id=item.department_id).first() %}
+            <h4>{{ department.title }}</h4>
+        {% endif %}
+    </div>
+
+    <p>{{ item.description }}</p>
+
+    {% if item.readme %}
+        <p>{{ item.readme }}</p>
+    {% endif %}
+
+    {% if all_services_url %}
+        <a class="all-services-btn" href="{{ all_services_url }}">
+            See all services this department offers
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
+            </svg>
+        </a>
+    {% endif %}
+</div>
 {% endblock %}

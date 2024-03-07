@@ -178,7 +178,13 @@ def department(id):
     department = Department.query.filter_by(id=id).first()
     if not department:
         abort(404)
-    return render_template("listing.html", item=department)
+    all_services_url = url_for("department_services", id=department.id)
+    return render_template(
+        "listing.html",
+        type="department",
+        item=department,
+        all_services_url=all_services_url,
+    )
 
 
 @app.route("/departments/<id>/services")
@@ -215,7 +221,9 @@ def service(id):
     service = Service.query.filter_by(id=id).first()
     if not service:
         abort(404)
-    return render_template("listing.html", item=service)
+    return render_template(
+        "listing.html", type="service", item=service, Department=Department
+    )
 
 
 @app.route("/new", methods=["GET", "POST"])
