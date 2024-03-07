@@ -33,10 +33,14 @@
 	margin-top: 10px;
 }
 
-.item-box p {
+.item-box .item-desc {
 	font-size: 22px;
 	padding: 0;
 	color: #2d3436b9;
+}
+
+.item-box .item-readme {
+	
 }
 
 .item-box .all-services-btn {

@@ -1,5 +1,6 @@
 from flask import abort, request, session, render_template, redirect, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
+from markdown import markdown
 
 from models import *
 
@@ -221,8 +222,13 @@ def service(id):
     service = Service.query.filter_by(id=id).first()
     if not service:
         abort(404)
+    readme = markdown(service.readme)
     return render_template(
-        "listing.html", type="service", item=service, Department=Department
+        "listing.html",
+        type="service",
+        item=service,
+        Department=Department,
+        readme=readme,
     )
 
 

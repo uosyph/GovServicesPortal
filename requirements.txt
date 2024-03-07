@@ -4,4 +4,5 @@ SQLAlchemy
 Werkzeug
 PyJWT
 humanize
+markdown
 python-dotenv

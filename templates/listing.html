@@ -16,10 +16,12 @@
         {% endif %}
     </div>
 
-    <p>{{ item.description }}</p>
+    <p class="item-desc">{{ item.description }}</p>
 
-    {% if item.readme %}
-        <p>{{ item.readme }}</p>
+    {% if readme %}
+        <div class="item-readme">
+            {{ readme | safe }}
+        </div>
     {% endif %}
 
     {% if all_services_url %}
