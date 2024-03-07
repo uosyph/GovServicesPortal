@@ -220,8 +220,11 @@ def service(id):
 
 @app.route("/new", methods=["GET", "POST"])
 def new():
+    if "loggedin" not in session or session["is_admin"] == False:
+        abort(401)
+    departments = Department.query.all()
     recommend = request.args.get("recommend")
-    return render_template("new.html", recommend=recommend)
+    return render_template("new.html", departments=departments, recommend=recommend)
 
 
 @app.errorhandler(404)

@@ -22,9 +22,14 @@
             <li>
                 <a href="{{ url_for('departments') }}" {% if request.path == '/departments' %} id="active" {% endif %}>Departments</a>
             </li>
-            <li class="acc_separator_right">
+            <li {% if session["is_admin"] == False %} class="acc_separator_right" {% endif %}>
                 <a href="{{ url_for('services') }}" {% if request.path == '/services' %} id="active" {% endif %}>Services</a>
             </li>
+            {% if session["is_admin"] == True: %}
+                <li class="acc_separator_right">
+                    <a href="{{ url_for('new') }}" {% if request.path == '/new' %} id="active" {% endif %}>New</a>
+                </li>
+            {% endif %}
             <li class="vr"></li>
             {% if session["loggedin"] == True: %}
                 <li class="acc_separator_left">

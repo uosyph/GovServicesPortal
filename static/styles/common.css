@@ -71,13 +71,14 @@ nav li a svg:hover {
 
 nav li .register_btn {
 	background: #6db6c0;
+	color: #fff;
 	border-radius: 10px;
 	padding: 9px 15px;
 }
 
 nav li .register_btn:hover {
 	background: #62a1a8;
-	color: #000;
+	color: #e4e4e4;
 }
 
 .acc_separator_left {
@@ -105,7 +106,7 @@ nav li .register_btn:hover {
 
 #active_reg {
 	background: #62a1a8;
-	color: #000;
+	color: #e4e4e4;
 }
 
 footer {

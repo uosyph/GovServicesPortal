@@ -1,10 +1,12 @@
 .form-box {
+	color: #2d3436;
+	border: 1px solid #2d343654;
 	margin: auto;
+	margin-top: 40px;
 	width: 85%;
 	padding: 40px;
-	background: rgba(0, 0, 0, 0.5);
 	box-sizing: border-box;
-	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 	border-radius: 10px;
 	margin-bottom: 65px;
 }
@@ -12,7 +14,7 @@
 .form-box h2 {
 	margin: 0 0 30px;
 	padding: 0;
-	color: #fff;
+	color: #2d3436;
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -26,10 +28,10 @@
 	width: 100%;
 	padding: 10px 0;
 	font-size: 16px;
-	color: #fff;
+	color: #2d3436;
 	margin-top: 10px;
 	margin-bottom: 30px;
-	border: 1px solid #fff;
+	border: 1px solid #2d34368c;
 	border-radius: 5px;
 	outline: none;
 	background: transparent;
@@ -41,7 +43,37 @@
 
 .form-box .input-box label {
 	font-size: 16px;
-	color: #fff;
+	color: #2d3436;
+}
+
+.form-box .radio-box {
+	font-size: 16px;
+	margin-top: 5px;
+}
+
+.form-box .option-box {
+	display: none;
+	font-size: 16px;
+	margin-top: 20px;
+}
+
+.form-box .option-box select {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #2d34368c;
+	border-radius: 5px;
+	background-color: transparent;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.form-box .option-box select::after {
+	content: '\25BC';
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
+	pointer-events: none;
 }
 
 .form-box form .submit-btn {
@@ -54,7 +86,7 @@
 	text-transform: uppercase;
 	overflow: hidden;
 	transition: 0.5s;
-	margin-top: 20px;
+	margin-top: 50px;
 	margin-bottom: 5px;
 	letter-spacing: 4px;
 	border: 1px solid #6db6c0;
@@ -71,6 +103,6 @@
 }
 
 .form-box .form-msg {
-	color: #fff;
+	color: #2d3436;
 	margin-bottom: 20px;
 }

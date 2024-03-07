@@ -23,17 +23,33 @@
             <label for="readme">Extended Description (Supports Markdown)</label>
             <textarea rows="6" name="readme"></textarea>
         </div>
-        <!-- TODO: Choose a type from radio or drop down -->
-        <!-- TODO: if type is service show associated with drop down with all departments -->
-        <div class="input-box">
-            <label for="type">Type</label>
-            <input required type="text" name="type">
-        </div>
-        <div class="input-box">
+        <div class="radio-box">
+            <input required type="radio" id="service" name="type" value="Service" onclick="toggleOptionBox()">
+            <label for="service">Service</label>
+            <br>
+            <input required type="radio" id="department" name="type" value="Department" onclick="toggleOptionBox()">
+            <label for="department">Department</label>
+        </div>        
+        <div class="option-box" id="option-box">
             <label for="associated">Associated with a Department</label>
-            <input required type="text" name="associated">
+            <br>
+            <select id="associated" name="associated">
+                <option value="none">None</option>
+                {% for department in departments %}
+                    <option value="{{ department.id }}">{{ department.title }}</option>
+                {% endfor %}
+            </select>
         </div>
         <input class="submit-btn" type="submit" value="Create">
     </form>
 </div>
+<script>
+    function toggleOptionBox() {
+        var departmentRadio = document.getElementById("department");
+        var optionBox = document.getElementById("option-box");
+
+        if (departmentRadio.checked) optionBox.style.display = "block";
+        else optionBox.style.display = "none";
+    }
+</script>
 {% endblock %}
