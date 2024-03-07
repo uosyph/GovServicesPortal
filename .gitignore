@@ -3,3 +3,4 @@ __pycache__/
 *.sqlite3
 *.db
 .env
+db_dump.py

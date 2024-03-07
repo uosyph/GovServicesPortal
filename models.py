@@ -18,7 +18,7 @@ db = SQLAlchemy(app)
 
 class User(db.Model):
     __tablename__ = "users"
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = db.Column(db.String(14), primary_key=True)
     password = db.Column(db.String(64))
     name = db.Column(db.String(128))
     phone = db.Column(db.String(16))
@@ -52,7 +52,7 @@ class Order(db.Model):
     end_date = db.Column(db.DateTime)
     is_done = db.Column(db.Boolean)
     service_id = db.Column(db.Integer, db.ForeignKey("services.id"))
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    user_id = db.Column(db.String(14), db.ForeignKey("users.id"))
 
 
 if __name__ == "__main__":
