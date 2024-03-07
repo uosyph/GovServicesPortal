@@ -8,7 +8,12 @@
 
 {% block body %}
 <div class="form-box">
-    <h2>Create New</h2>
+    <h2>
+        Create New
+        {% if 'recommend' in request.args and request.args.get('recommend') in ['department', 'service'] %}
+            {{ request.args.get('recommend').capitalize() }}
+        {% endif %}
+    </h2>
     {% if msg: %}<div class="form-msg">{{ msg }}</div>{% endif %}
     <form action="{{ url_for('new') }}" method="post">
         <div class="input-box">
@@ -24,13 +29,16 @@
             <textarea rows="6" name="readme"></textarea>
         </div>
         <div class="radio-box">
-            <input required type="radio" id="service" name="type" value="Service" onclick="toggleOptionBox()">
+            <input required type="radio" id="service" name="type" value="Service" onclick="toggleOptionBox()"
+                {% if 'recommend' in request.args and request.args.get('recommend') == 'service' %} checked {% endif %}>
             <label for="service">Service</label>
             <br>
-            <input required type="radio" id="department" name="type" value="Department" onclick="toggleOptionBox()">
+            <input required type="radio" id="department" name="type" value="Department" onclick="toggleOptionBox()"
+                {% if 'recommend' in request.args and request.args.get('recommend') == 'department' %} checked {% endif %}>
             <label for="department">Department</label>
-        </div>        
-        <div class="option-box" id="option-box">
+        </div>
+        <div class="option-box" id="option-box"
+            {% if 'recommend' in request.args and request.args.get('recommend') == 'service' %} style="display: block;" {% endif %}>
             <label for="associated">Associated with a Department</label>
             <br>
             <select id="associated" name="associated">
