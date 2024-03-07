@@ -224,7 +224,64 @@ def new():
         abort(401)
     departments = Department.query.all()
     recommend = request.args.get("recommend")
-    return render_template("new.html", departments=departments, recommend=recommend)
+
+    msg = ""
+    if (
+        request.method == "POST"
+        and "title" in request.form
+        and "description" in request.form
+        and "type" in request.form
+        and "associated" in request.form
+    ):
+        title = request.form["title"]
+        description = request.form["description"]
+        readme = request.form["readme"] if "readme" in request.form else None
+        type_of = request.form["type"]
+        associated_with = (
+            request.form["associated"] if request.form["associated"] != "none" else None
+        )
+
+        existing = (
+            Department.query.filter_by(title=title).first()
+            or Service.query.filter_by(title=title).first()
+        )
+        if existing:
+            msg = f"A Service or Department already exists with the same name."
+        elif type_of == "Department":
+            new = Department(
+                title=title,
+                description=description,
+                readme=readme,
+            )
+            db.session.add(new)
+            db.session.commit()
+            msg = "Department was created successfully."
+        elif type_of == "Service":
+            department = Department.query.filter_by(id=associated_with).first()
+            if department:
+                new = Service(
+                    title=title,
+                    description=description,
+                    readme=readme,
+                    department_id=department.id,
+                )
+            else:
+                new = Service(
+                    title=title,
+                    description=description,
+                    readme=readme,
+                )
+
+            db.session.add(new)
+            db.session.commit()
+            msg = "Service was created successfully."
+
+    elif request.method == "POST":
+        msg = "Please make sure you filled out the form before you continue."
+
+    return render_template(
+        "new.html", departments=departments, recommend=recommend, msg=msg
+    )
 
 
 @app.errorhandler(404)

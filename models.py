@@ -18,7 +18,7 @@ db = SQLAlchemy(app)
 
 class User(db.Model):
     __tablename__ = "users"
-    id = db.Column(db.String(14), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     password = db.Column(db.String(64))
     name = db.Column(db.String(128))
     phone = db.Column(db.String(16))
@@ -29,7 +29,7 @@ class User(db.Model):
 
 class Department(db.Model):
     __tablename__ = "departments"
-    id = db.Column(db.String(14), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String(128))
     description = db.Column(db.String(432))
     readme = db.Column(db.String(16384))
@@ -37,22 +37,22 @@ class Department(db.Model):
 
 class Service(db.Model):
     __tablename__ = "services"
-    id = db.Column(db.String(14), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String(128))
     description = db.Column(db.String(432))
     readme = db.Column(db.String(16384))
-    department_id = db.Column(db.String(14))
+    department_id = db.Column(db.Integer, db.ForeignKey("departments.id"))
 
 
 class Order(db.Model):
     __tablename__ = "orders"
-    id = db.Column(db.String(14), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     details = db.Column(db.String(4096))
     start_date = db.Column(db.DateTime)
     end_date = db.Column(db.DateTime)
     is_done = db.Column(db.Boolean)
-    service_id = db.Column(db.String(14))
-    user_id = db.Column(db.String(14))
+    service_id = db.Column(db.Integer, db.ForeignKey("services.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
 
 if __name__ == "__main__":
