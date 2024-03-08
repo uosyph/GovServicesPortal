@@ -1,16 +1,20 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from os import getcwd, getenv
+from os import getcwd, path, makedirs, getenv
 from dotenv import load_dotenv
 
 load_dotenv()
 
 cwd = getcwd()
+uploads_dir = path.join(cwd, "uploads")
+if not path.exists(uploads_dir):
+    makedirs(uploads_dir)
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 app.config["SECRET_KEY"] = getenv("SECRET_KEY")
+app.config["UPLOAD_DIRECTORY"] = uploads_dir
 app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{cwd}/{getenv('DB')}.db"
 
 db = SQLAlchemy(app)
@@ -48,6 +52,7 @@ class Order(db.Model):
     __tablename__ = "orders"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     details = db.Column(db.String(4096))
+    file_paths = db.Column(db.String(4096))
     start_date = db.Column(db.DateTime)
     end_date = db.Column(db.DateTime)
     is_done = db.Column(db.Boolean)

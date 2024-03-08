@@ -1,7 +1,10 @@
 from flask import abort, request, session, render_template, redirect, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 from markdown import markdown
 from datetime import datetime
+from uuid import uuid4
+from os import path
 
 from models import *
 
@@ -245,11 +248,20 @@ def new_order():
         service = request.form["service"]
         details = request.form["details"] if "details" in request.form else None
 
+        files = request.files.getlist("file")
+        file_paths = []
+        if files:
+            for file in files:
+                filename = str(uuid4()) + "_" + secure_filename(file.filename)
+                file.save(path.join(app.config["UPLOAD_DIRECTORY"], filename))
+                file_paths.append(filename)
+
         new_order = Order(
             details=details,
             start_date=datetime.now(),
             service_id=int(service),
             user_id=session["id"],
+            file_paths=",".join(file_paths) if file_paths else None,
         )
         db.session.add(new_order)
         db.session.commit()
