@@ -58,7 +58,7 @@
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 40px;
 	list-style: none;
-	margin: 0;
+	margin: 75px 0 100px;
 	padding: 0;
 }
 
