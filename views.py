@@ -240,8 +240,14 @@ def new_order():
     recommend = request.args.get("recommend")
     msg = ""
 
+    
+
     return render_template(
-        "new_order.html", services=services, recommend=recommend, msg=msg
+        "new_order.html",
+        services=services,
+        recommend=recommend,
+        int=int,
+        msg=msg,
     )
 
 

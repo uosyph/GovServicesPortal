@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Create a New Order | GSP{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/new_order.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="order-box">
+    <h2>
+        Create a New Order
+    </h2>
+    {% if msg: %}<div class="form-msg">{{ msg }}</div>{% endif %}
+    <form action="{{ url_for('new') }}" method="post">
+        <div class="option-box" id="option-box">
+            <label for="service">Choose a Service</label>
+            <br>
+            <select required id="service" name="service">
+                <option disabled selected value="">Choose a Service</option>
+                {% for service in services %}
+                    <option value="{{ service.id }}"
+                        {% if 'recommend' in request.args and int(request.args.get('recommend')) == service.id %} selected {% endif %}>
+                        {{ service.title }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="input-box">
+            <label for="details">Provide Additional Details</label>
+            <textarea rows="6" name="details"></textarea>
+        </div>
+        <div class="upload_box">
+            
+        </div>
+        <input class="submit-btn" type="submit" value="Create">
+    </form>
+</div>
+{% endblock %}
