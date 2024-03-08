@@ -250,7 +250,7 @@ def new_order():
 
         files = request.files.getlist("file")
         file_paths = []
-        if files:
+        if not all(file.filename == '' for file in files):
             for file in files:
                 filename = str(uuid4()) + "_" + secure_filename(file.filename)
                 file.save(path.join(app.config["UPLOAD_DIRECTORY"], filename))
