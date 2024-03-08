@@ -4,6 +4,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/new_order.css') }}">
+<script src="{{ url_for('static', filename='scripts/fileUpload.js') }}" defer></script>
 {% endblock %}
 
 {% block body %}
@@ -31,7 +32,8 @@
             <textarea rows="6" name="details"></textarea>
         </div>
         <div class="upload-box">
-
+            <input type="file" id="file-input" multiple>
+            <div id="file-list"></div>
         </div>
         <p class="attention-msg">
             <span>*</span>

@@ -4,6 +4,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/new.css') }}">
+<script src="{{ url_for('static', filename='scripts/radioToggler.js') }}" defer></script>
 {% endblock %}
 
 {% block body %}
@@ -51,13 +52,4 @@
         <input class="submit-btn" type="submit" value="Create">
     </form>
 </div>
-<script>
-    function toggleOptionBox() {
-        var serviceRadio = document.getElementById("service");
-        var optionBox = document.getElementById("option-box");
-
-        if (serviceRadio.checked) optionBox.style.display = "block";
-        else optionBox.style.display = "none";
-    }
-</script>
 {% endblock %}
