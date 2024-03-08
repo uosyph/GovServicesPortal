@@ -79,7 +79,7 @@
 	text-transform: uppercase;
 	overflow: hidden;
 	transition: 0.5s;
-	margin-top: 50px;
+	margin-top: 20px;
 	margin-bottom: 5px;
 	letter-spacing: 4px;
 	border: 1px solid #6db6c0;
@@ -98,4 +98,15 @@
 .order-box .form-msg {
 	color: #2d3436;
 	margin-bottom: 20px;
+}
+
+.order-box .attention-msg span {
+	color: #ff0000;
+	cursor: default;
+	user-select: none;
+}
+
+.order-box .attention-msg {
+	margin-top: 60px;
+	font-size: 18px;
 }
