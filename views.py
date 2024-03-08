@@ -1,6 +1,7 @@
 from flask import abort, request, session, render_template, redirect, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 from markdown import markdown
+from datetime import datetime
 
 from models import *
 
@@ -240,7 +241,22 @@ def new_order():
     recommend = request.args.get("recommend")
     msg = ""
 
-    
+    if request.method == "POST" and "service" in request.form:
+        service = request.form["service"]
+        details = request.form["details"] if "details" in request.form else None
+
+        new_order = Order(
+            details=details,
+            start_date=datetime.now(),
+            service_id=int(service),
+            user_id=session["id"],
+        )
+        db.session.add(new_order)
+        db.session.commit()
+        msg = "Order was created successfully."
+
+    elif request.method == "POST":
+        msg = "Please make sure you filled out the form before you continue."
 
     return render_template(
         "new_order.html",

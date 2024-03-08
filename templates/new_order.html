@@ -12,7 +12,7 @@
         Create a New Order
     </h2>
     {% if msg: %}<div class="form-msg">{{ msg }}</div>{% endif %}
-    <form action="{{ url_for('new') }}" method="post">
+    <form action="{{ url_for('new_order') }}" method="post">
         <div class="option-box" id="option-box">
             <label for="service">Choose a Service</label>
             <br>
@@ -31,7 +31,7 @@
             <textarea rows="6" name="details"></textarea>
         </div>
         <div class="upload-box">
-            
+
         </div>
         <p class="attention-msg">
             <span>*</span>
