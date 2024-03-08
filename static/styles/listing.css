@@ -43,7 +43,7 @@
 	
 }
 
-.item-box .all-services-btn {
+.item-box .listing-btn {
 	position: relative;
 	display: inline-block;
 	padding: 10px 20px;
@@ -61,13 +61,13 @@
 	background-color: transparent;
 }
 
-.item-box .all-services-btn:hover {
+.item-box .listing-btn:hover {
 	background: #6db6c0;
 	color: #fff;
 	box-shadow: 0 0 1px #6db6c018, 0 0 15px #6db6c018, 0 0 20px #6db6c018,
 		0 0 30px #6db6c018;
 }
 
-.item-box .all-services-btn svg {
+.item-box .listing-btn svg {
 	vertical-align: text-bottom;
 }

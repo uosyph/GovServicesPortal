@@ -232,14 +232,27 @@ def service(id):
     )
 
 
+@app.route("/new_order", methods=["GET", "POST"])
+def new_order():
+    if "loggedin" not in session:
+        return url_for("login")
+    services = Service.query.all()
+    recommend = request.args.get("recommend")
+    msg = ""
+
+    return render_template(
+        "new_order.html", services=services, recommend=recommend, msg=msg
+    )
+
+
 @app.route("/new", methods=["GET", "POST"])
 def new():
     if "loggedin" not in session or session["is_admin"] == False:
         abort(401)
     departments = Department.query.all()
     recommend = request.args.get("recommend")
-
     msg = ""
+
     if (
         request.method == "POST"
         and "title" in request.form
