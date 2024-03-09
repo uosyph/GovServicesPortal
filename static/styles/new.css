@@ -11,12 +11,21 @@
 	margin-bottom: 65px;
 }
 
-.form-box h2 {
-	margin: 0 0 30px;
+.form-box .form-title {
+	margin: 25px auto 10px;
 	padding: 0;
+	font-size: 34px;
+	font-weight: bold;
 	color: #2d3436;
-	text-align: center;
-	text-transform: uppercase;
+}
+
+.form-box .form-description {
+	font-size: 18px;
+	color: #2d3436;
+}
+
+.form-box form {
+	margin-top: 40px;
 }
 
 .form-box .input-box {
@@ -105,5 +114,5 @@
 
 .form-box .form-msg {
 	color: #2d3436;
-	margin-bottom: 20px;
+	margin-top: 20px;
 }

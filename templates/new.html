@@ -9,13 +9,18 @@
 
 {% block body %}
 <div class="form-box">
-    <h2>
-        Create New
-        {% if 'recommend' in request.args and request.args.get('recommend') in ['department', 'service'] %}
-            {{ request.args.get('recommend').capitalize() }}
-        {% endif %}
-    </h2>
+    {% if 'recommend' in request.args and request.args.get('recommend') in ['department', 'service'] %}
+        <h2 class="form-title">
+            Create New {{ request.args.get('recommend').capitalize() }}
+        </h2>
+        <p class="form-description">Create a new {{ request.args.get('recommend') }}.</p>
+    {% else %}
+        <h2 class="form-title">Create New</h2>
+        <p class="form-description">Create a new service or a department.</p>
+    {% endif %}
+
     {% if msg: %}<div class="form-msg">{{ msg }}</div>{% endif %}
+
     <form action="{{ url_for('new') }}" method="post">
         <div class="input-box">
             <label for="title">Title</label>

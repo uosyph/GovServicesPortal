@@ -9,10 +9,11 @@
 
 {% block body %}
 <div class="order-box">
-    <h2>
-        Create a New Order
-    </h2>
+    <h2 class="order-title">Create an Order</h2>
+    <p class="order-description">Create a new order.</p>
+
     {% if msg: %}<div class="form-msg">{{ msg }}</div>{% endif %}
+
     <form action="{{ url_for('new_order') }}" method="post" enctype="multipart/form-data">
         <div class="option-box" id="option-box">
             <label for="service">Choose a Service</label>

@@ -11,12 +11,21 @@
 	margin-bottom: 65px;
 }
 
-.order-box h2 {
-	margin: 0 0 30px;
+.order-box .order-title {
+	margin: 25px auto 10px;
 	padding: 0;
+	font-size: 34px;
+	font-weight: bold;
 	color: #2d3436;
-	text-align: center;
-	text-transform: uppercase;
+}
+
+.order-box .order-description {
+	font-size: 18px;
+	color: #2d3436;
+}
+
+.order-box form {
+	margin-top: 40px;
 }
 
 .order-box .option-box {
@@ -154,7 +163,7 @@
 
 .order-box .form-msg {
 	color: #2d3436;
-	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 .order-box .attention-msg span {
