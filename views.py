@@ -239,7 +239,7 @@ def service(id):
 @app.route("/new_order", methods=["GET", "POST"])
 def new_order():
     if "loggedin" not in session:
-        return url_for("login")
+        return redirect(url_for("login"))
     services = Service.query.all()
     recommend = request.args.get("recommend")
     msg = ""
