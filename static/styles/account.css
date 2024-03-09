@@ -21,9 +21,78 @@
 
 .account-box .account-description {
 	font-size: 18px;
-	color: #2d3436;
+	color: #666;
 }
 
 .account-box .content {
 	margin-top: 40px;
+}
+
+.settings-container {
+	display: flex;
+	flex-direction: row;
+	margin-top: 45px;
+	border: 1px solid #2d343654;
+	border-radius: 10px;
+}
+
+.navigation {
+	width: 30%;
+	color: #2d3436;
+	border: 1px solid #2d343654;
+	border-radius: 10px;
+	padding-top: 45px;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+
+.navigation ul {
+	list-style: none;
+	padding: 0;
+}
+
+.navigation li {
+	padding: 14px;
+	padding-left: 75px;
+	border-radius: 5px;
+}
+
+.navigation li svg {
+	vertical-align: text-top;
+	margin-right: 15px;
+}
+
+.navigation a {
+	text-decoration: none;
+	color: #2d3436;
+	transition: all 0.2s ease;
+}
+
+.navigation a.active,
+.navigation a:hover {
+	color: #6db6c0;
+}
+
+.settings {
+	width: 70%;
+	padding: 20px;
+}
+
+.settings-section {
+	padding: 20px;
+	margin-bottom: 20px;
+	display: none;
+}
+
+.settings-section:first-child {
+	display: block;
+}
+
+.settings h2 {
+	margin-bottom: 10px;
+	color: #2d3436;
+}
+
+.settings p {
+	color: #666;
 }
