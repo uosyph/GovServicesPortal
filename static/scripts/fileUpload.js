@@ -1,14 +1,19 @@
-const fileInput = document.getElementById('file-input');
-const fileList = document.getElementById('file-list');
+function allowDrop(ev) {
+    ev.preventDefault();
+}
 
-fileInput.addEventListener('change', function () {
-    fileList.innerHTML = '';
+function drop(ev) {
+    ev.preventDefault();
+    const files = ev.dataTransfer.files;
+    handleFiles(files);
+}
 
-    for (let i = 0; i < fileInput.files.length; i++) {
-        const file = fileInput.files[i];
+function handleFiles(files) {
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
         const fileItem = document.createElement('div');
         fileItem.classList.add('file-item');
-        fileItem.textContent = `${file.name} (${formatBytes(file.size)})`;
+        fileItem.textContent = `${file.name} (${formatBytes(file.size)}`;
 
         // Generate thumbnail
         const thumbnail = document.createElement('img');
@@ -18,7 +23,7 @@ fileInput.addEventListener('change', function () {
         thumbnail.style.height = '50px';
         fileItem.appendChild(thumbnail);
 
-        fileList.appendChild(fileItem);
+        document.getElementById('file-list').appendChild(fileItem);
 
         // Display thumbnail
         const reader = new FileReader();
@@ -30,7 +35,7 @@ fileInput.addEventListener('change', function () {
 
         reader.readAsDataURL(file);
     }
-});
+}
 
 function formatBytes(bytes) {
     if (bytes === 0) return '0 Bytes';
