@@ -2,11 +2,14 @@
 
 {% block title %}Account | GSP{% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/account.css') }}">
+{% endblock %}
+
 {% block body %}
-<h1>{{ user.id }}</h1>
-<h1>{{ user.name }}</h1>
-<h1>{{ user.phone }}</h1>
-<h1>{{ user.email }}</h1>
-<h1>{{ user.address }}</h1>
-<h1>{{ user.is_admin }}</h1>
+<div class="account-box">
+    <h2 class="account-title">Account Settings</h2>
+    <p class="account-description">Change your profile and account settings.</p>
+
+</div>
 {% endblock %}
