@@ -9,6 +9,9 @@ function drop(ev) {
 }
 
 function handleFiles(files) {
+    const fileList = document.getElementById('file-list');
+    fileList.innerHTML = '';
+
     for (let i = 0; i < files.length; i++) {
         const file = files[i];
         const fileItem = document.createElement('div');
@@ -23,7 +26,7 @@ function handleFiles(files) {
         thumbnail.style.height = '50px';
         fileItem.appendChild(thumbnail);
 
-        document.getElementById('file-list').appendChild(fileItem);
+        fileList.appendChild(fileItem);
 
         // Display thumbnail
         const reader = new FileReader();
