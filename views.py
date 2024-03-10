@@ -42,6 +42,7 @@ def register():
     logout()
 
     msg = ""
+
     if (
         request.method == "POST"
         and "id" in request.form
@@ -119,6 +120,7 @@ def login():
     logout()
 
     msg = ""
+
     if request.method == "POST" and "id" in request.form and "password" in request.form:
         id = request.form["id"]
         password = request.form["password"]
@@ -157,11 +159,15 @@ def logout():
     session.pop("loggedin", None)
     session.pop("id", None)
     session.pop("is_admin", None)
+
     return redirect(url_for("index"))
 
 
 @app.route("/account")
 def account():
+    if "loggedin" not in session:
+        abort(401)
+
     user = User.query.filter_by(id=session["id"]).first()
     return render_template("account.html", user=user)
 
@@ -183,6 +189,7 @@ def department(id):
     department = Department.query.filter_by(id=id).first()
     if not department:
         abort(404)
+
     all_services_url = url_for("department_services", id=department.id)
     return render_template(
         "listing.html",
@@ -197,6 +204,7 @@ def department_services(id):
     department = Department.query.filter_by(id=id).first()
     if not department:
         abort(404)
+
     services = Service.query.filter_by(department_id=id).all()
     return render_template(
         "list.html",
@@ -226,6 +234,7 @@ def service(id):
     service = Service.query.filter_by(id=id).first()
     if not service:
         abort(404)
+
     readme = markdown(service.readme)
     return render_template(
         "listing.html",
@@ -239,7 +248,8 @@ def service(id):
 @app.route("/new_order", methods=["GET", "POST"])
 def new_order():
     if "loggedin" not in session:
-        return redirect(url_for("login"))
+        abort(401)
+
     services = Service.query.all()
     recommend = request.args.get("recommend")
     msg = ""
@@ -250,7 +260,7 @@ def new_order():
 
         files = request.files.getlist("file")
         file_paths = []
-        if not all(file.filename == '' for file in files):
+        if not all(file.filename == "" for file in files):
             for file in files:
                 filename = str(uuid4()) + "_" + secure_filename(file.filename)
                 file.save(path.join(app.config["UPLOAD_DIRECTORY"], filename))
@@ -282,7 +292,8 @@ def new_order():
 @app.route("/new", methods=["GET", "POST"])
 def new():
     if "loggedin" not in session or session["is_admin"] == False:
-        abort(401)
+        abort(403)
+
     departments = Department.query.all()
     recommend = request.args.get("recommend")
     msg = ""
@@ -345,6 +356,36 @@ def new():
     )
 
 
+@app.errorhandler(401)
+def unauthorized(e):
+    """
+    Handle an unauthorized (401) error.
+
+    Args:
+        e: The error object.
+
+    Returns:
+        redirect: Redirects to the login page for an unauthorized user.
+    """
+
+    return redirect(url_for("login"))
+
+
+@app.errorhandler(403)
+def forbidden(e):
+    """
+    Handle an unauthorized (403) error.
+
+    Args:
+        e: The error object.
+
+    Returns:
+        redirect: Redirects to the index page for an unauthorized user.
+    """
+
+    return redirect(url_for("index"))
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     """
@@ -358,18 +399,3 @@ def page_not_found(e):
     """
 
     return render_template("404.html"), 404
-
-
-@app.errorhandler(401)
-def unauthorized(e):
-    """
-    Handle an unauthorized (401) error.
-
-    Args:
-        e: The error object.
-
-    Returns:
-        redirect: Redirects to the index page for an unauthorized user.
-    """
-
-    return redirect(url_for("index"))
