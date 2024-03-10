@@ -1,4 +1,4 @@
-from flask import abort, request, session, render_template, redirect, url_for
+from flask import abort, request, session, render_template, redirect, url_for, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from markdown import markdown
@@ -231,35 +231,71 @@ def account():
     return render_template("account.html", user=user, msg=msg)
 
 
-@app.route("/my_orders")
-def my_orders():
-    if "loggedin" not in session:
-        abort(401)
-    elif session["is_admin"] == True:
+@app.route("/new", methods=["GET", "POST"])
+def new():
+    if "loggedin" not in session or session["is_admin"] == False:
         abort(403)
 
-    orders = Order.query.filter_by(user_id=session["id"], is_done=False).all()
-    done_orders = Order.query.filter_by(user_id=session["id"], is_done=True).all()
+    departments = Department.query.all()
+    recommend = request.args.get("recommend")
+    msg = ""
+
+    if (
+        request.method == "POST"
+        and "title" in request.form
+        and "description" in request.form
+        and "type" in request.form
+        and "associated" in request.form
+    ):
+        title = request.form["title"]
+        description = request.form["description"]
+        readme = request.form["readme"] if "readme" in request.form else None
+        type_of = request.form["type"]
+        associated_with = (
+            request.form["associated"] if request.form["associated"] != "none" else None
+        )
+
+        existing = (
+            Department.query.filter_by(title=title).first()
+            or Service.query.filter_by(title=title).first()
+        )
+        if existing:
+            msg = f"A Service or Department already exists with the same name."
+        elif type_of == "Department":
+            new = Department(
+                title=title,
+                description=description,
+                readme=readme,
+            )
+            db.session.add(new)
+            db.session.commit()
+            msg = "Department was created successfully."
+        elif type_of == "Service":
+            department = Department.query.filter_by(id=associated_with).first()
+            if department:
+                new = Service(
+                    title=title,
+                    description=description,
+                    readme=readme,
+                    department_id=department.id,
+                )
+            else:
+                new = Service(
+                    title=title,
+                    description=description,
+                    readme=readme,
+                )
+
+            db.session.add(new)
+            db.session.commit()
+            msg = "Service was created successfully."
+
+    elif request.method == "POST":
+        msg = "Please make sure you filled out the form before you continue."
 
     return render_template(
-        "my_orders.html", orders=orders, done_orders=done_orders, service=Service
+        "new.html", departments=departments, recommend=recommend, msg=msg
     )
-
-
-@app.route("/my_orders/<id>")
-def order(id):
-    order = Order.query.filter_by(id=id).first()
-    if not order:
-        abort(404)
-    elif order.user_id != session["id"]:
-        abort(403)
-
-    return render_template("order.html", order=order, service=Service)
-
-
-@app.route("/orders")
-def orders():
-    abort(403)
 
 
 @app.route("/departments")
@@ -366,7 +402,9 @@ def new_order():
         )
         db.session.add(new_order)
         db.session.commit()
-        msg = "Order was created successfully."
+
+        flash("Order was created successfully.", "success")
+        return redirect(url_for("order", id=new_order.id))
 
     elif request.method == "POST":
         msg = "Please make sure you filled out the form before you continue."
@@ -380,71 +418,40 @@ def new_order():
     )
 
 
-@app.route("/new", methods=["GET", "POST"])
-def new():
-    if "loggedin" not in session or session["is_admin"] == False:
+@app.route("/my_orders")
+def my_orders():
+    if "loggedin" not in session:
+        abort(401)
+    elif session["is_admin"] == True:
         abort(403)
 
-    departments = Department.query.all()
-    recommend = request.args.get("recommend")
-    msg = ""
-
-    if (
-        request.method == "POST"
-        and "title" in request.form
-        and "description" in request.form
-        and "type" in request.form
-        and "associated" in request.form
-    ):
-        title = request.form["title"]
-        description = request.form["description"]
-        readme = request.form["readme"] if "readme" in request.form else None
-        type_of = request.form["type"]
-        associated_with = (
-            request.form["associated"] if request.form["associated"] != "none" else None
-        )
-
-        existing = (
-            Department.query.filter_by(title=title).first()
-            or Service.query.filter_by(title=title).first()
-        )
-        if existing:
-            msg = f"A Service or Department already exists with the same name."
-        elif type_of == "Department":
-            new = Department(
-                title=title,
-                description=description,
-                readme=readme,
-            )
-            db.session.add(new)
-            db.session.commit()
-            msg = "Department was created successfully."
-        elif type_of == "Service":
-            department = Department.query.filter_by(id=associated_with).first()
-            if department:
-                new = Service(
-                    title=title,
-                    description=description,
-                    readme=readme,
-                    department_id=department.id,
-                )
-            else:
-                new = Service(
-                    title=title,
-                    description=description,
-                    readme=readme,
-                )
-
-            db.session.add(new)
-            db.session.commit()
-            msg = "Service was created successfully."
-
-    elif request.method == "POST":
-        msg = "Please make sure you filled out the form before you continue."
+    orders = Order.query.filter_by(user_id=session["id"], is_done=False).all()
+    done_orders = Order.query.filter_by(user_id=session["id"], is_done=True).all()
 
     return render_template(
-        "new.html", departments=departments, recommend=recommend, msg=msg
+        "my_orders.html", orders=orders, done_orders=done_orders, service=Service
     )
+
+
+@app.route("/my_orders/<id>")
+def order(id):
+    order = Order.query.filter_by(id=id).first()
+    if not order:
+        abort(404)
+    elif order.user_id != session["id"]:
+        abort(403)
+
+    return render_template("order.html", order=order, service=Service)
+
+
+@app.route("/orders")
+def orders():
+    abort(403)
+
+
+@app.route("/orders/<id>")
+def user_order(id):
+    abort(403)
 
 
 @app.errorhandler(401)

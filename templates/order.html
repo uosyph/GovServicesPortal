@@ -1,11 +1,57 @@
 {% extends 'base.html' %}
 
-{% block title %} | GSP{% endblock %}
+{% block title %}Order {{ order.id }} | GSP{% endblock %}
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/order.css') }}">
 {% endblock %}
 
 {% block body %}
+<div class="order-box">
+    {% with msg = get_flashed_messages() %}
+        {% if msg: %}<div class="order-msg">{{ msg[0] }}</div>{% endif %}
+    {% endwith %}
 
+    <div class="order-service">
+        {% set service = service.query.filter_by(id=order.service_id).first() %}
+        <h2>
+            <b>Order For:</b>
+            <a href="{{ url_for('service', id=order.service_id) }}">
+                {{ service.title }}
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
+                </svg>
+            </a>
+        </h2>
+    </div>
+    <p class="order-id"><b>Reference Number:</b> <span>{{ order.id }}</span></p>
+    <p class="attention-msg">
+        <span>*</span>
+        You may be asked for your reference number later to complete any necessary transactions, receive paperwork, or finalize your order.
+    </p>
+
+    <p><b>Order at:</b> {{ order.start_date }}</p>
+    {% if order.is_done == True %}
+        <p><b>Done at:</b> {{ order.end_date }}</p>
+        <p><b>Status:</b> <span class="status-done">Finished</span></p>
+    {% else  %}
+        <p><b>Status:</b> <span class="status-active">Active</span></p>
+    {% endif %}
+
+    {% if order.details %}
+        <p class="order-details">
+            <b>Details Included:</b>
+            <br>
+            {{ order.details }}
+        </p>
+    {% endif %}
+
+    {% if order.file_paths %}
+    <p class="order-files">
+        <b>Files Included:</b>
+        <br>
+        {{ order.file_paths }}
+    </p>
+    {% endif %}
+</div>
 {% endblock %}
