@@ -96,3 +96,76 @@
 .settings p {
 	color: #666;
 }
+
+.settings-section form {
+	margin-top: 35px;
+}
+
+.settings-section .input-box {
+	position: relative;
+}
+
+.settings-section .input-box input {
+	width: 100%;
+	padding: 5px 0;
+	font-size: 14px;
+	color: #2d3436;
+	margin-top: 5px;
+	margin-bottom: 30px;
+	border: 1px solid #2d34368c;
+	border-radius: 5px;
+	outline: none;
+	background: transparent;
+}
+
+.settings-section .input-box label {
+	font-size: 16px;
+	color: #2d3436;
+}
+
+.settings-section form .form-btn {
+	position: relative;
+	display: inline-block;
+	padding: 8px 16px;
+	color: #6db6c0;
+	font-size: 16px;
+	text-decoration: none;
+	overflow: hidden;
+	transition: 0.5s;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	letter-spacing: 0.2px;
+	border: 1px solid #6db6c0;
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.settings-section form .form-btn:hover {
+	background: #6db6c0;
+	color: #fff;
+	box-shadow: 0 0 1px #6db6c018, 0 0 15px #6db6c018, 0 0 20px #6db6c018,
+		0 0 30px #6db6c018;
+}
+
+.danger {
+	color: #d65959 !important;
+	border: 1px solid #d65959 !important;
+}
+
+.danger:hover {
+	background: #d65959 !important;
+	color: #fff !important;
+}
+
+.settings-section .attention-msg span {
+	color: #ff0000;
+	cursor: default;
+	user-select: none;
+}
+
+.settings-section .attention-msg {
+	margin-top: 5px;
+	margin-bottom: 15px;
+	font-size: 16px;
+}

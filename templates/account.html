@@ -49,16 +49,70 @@
         </div>
         <div class="settings">
             <div class="settings-section" id="general">
-                <h2>Account</h2>
-                <p>This is where you can customize your general settings.</p>
+                <h2>Personal Info</h2>
+                <p>This is where you can customize personal info.</p>
+
+                <form action="{{ url_for('account') }}" method="post">
+                    <input type="hidden" name="action" value="update_info">
+                    <div class="input-box">
+                        <label for="fullname">Full Name</label>
+                        <input required class="form-field" type="text" name="fullname">
+                    </div>
+                    <div class="input-box">
+                        <label for="phone">Phone Number</label>
+                        <input required class="form-field" type="text" name="phone">
+                    </div>
+                    <div class="input-box">
+                        <label for="email">Email</label>
+                        <input required class="form-field" type="text" name="email">
+                    </div>
+                    <div class="input-box">
+                        <label for="address">Address</label>
+                        <input required class="form-field" type="text" name="address">
+                    </div>
+                    <input class="form-btn" type="submit" value="Update Personal Info">
+                </form>
+
             </div>
             <div class="settings-section" id="security">
                 <h2>Security</h2>
-                <p>This is where you can manage your security settings.</p>
+                <p>This is where you can update your password.</p>
+
+                <form action="{{ url_for('account') }}" method="post">
+                    <input type="hidden" name="action" value="update_password">
+                    <div class="input-box">
+                        <label for="old_password">Old Password</label>
+                        <input required class="form-field" type="text" name="old_password">
+                    </div>
+                    <div class="input-box">
+                        <label for="new_password">New Password</label>
+                        <input required class="form-field" type="text" name="new_password">
+                    </div>
+                    <div class="input-box">
+                        <label for="confirm_password">Confirm Password</label>
+                        <input required class="form-field" type="text" name="confirm_password">
+                    </div>
+                    <input class="form-btn" type="submit" value="Update Password">
+                </form>
+
             </div>
             <div class="settings-section" id="privacy">
                 <h2>Privacy</h2>
-                <p>This is where you can control your privacy settings.</p>
+                <p>This is where you can delete you account.</p>
+
+                <form action="{{ url_for('account') }}" method="post">
+                    <input type="hidden" name="action" value="delete_account">
+                    <div class="input-box">
+                        <label for="password">Enter Your Password</label>
+                        <input required class="form-field" type="text" name="password">
+                    </div>
+                    <p class="attention-msg">
+                        <span>*</span>
+                        Please note that this process is irreversible and will result in the deletion of your account and all related orders.
+                    </p>
+                    <input class="form-btn danger" type="submit" value="Delete Account">
+                </form>
+
             </div>
         </div>
     </div>
