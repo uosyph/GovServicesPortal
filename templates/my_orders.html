@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}My Orders | GSP{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/my_orders.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="page_details">
+    <h1 class="page_title">My Orders</h1>
+    <p class="page_description">All your orders will be listed here including the finished ones.</p>
+</div>
+
+{% if orders or done_orders %}
+    {% if orders %}
+        <div class="wrapper">
+            <h2 class="wrapper-title">Active Orders</h2>
+            <ul class="cards">
+                {% for order in orders %}
+                    <a href="{{ url_for('order', id=order.id) }}">
+                        <li>
+                            <div class="order_title">
+                                {% set service = service.query.filter_by(id=order.service_id).first() %}
+                                <h3>{{ service.title }}</h3>
+                                <h4>{{ order.id }}</h4>
+                            </div>
+                            <p><b>Order at:</b> {{ order.start_date }}</p>
+                            <p><b>Status:</b> <span class="status-active">Active</span></p>
+                        </li>
+                    </a>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    {% if done_orders %}
+        <div class="wrapper">
+            <h2 class="wrapper-title">Finished Orders</h2>
+            <ul class="cards">
+                {% for order in done_orders %}
+                    <a href="{{ url_for('order', id=order.id) }}">
+                        <li>
+                            <div class="order_title">
+                                {% set service = service.query.filter_by(id=order.service_id).first() %}
+                                <h3>{{ service.title }}</h3>
+                                <h4>{{ order.id }}</h4>
+                            </div>
+                            <p><b>Order at:</b> {{ order.start_date }}</p>
+                            <p><b>Done at:</b> {{ order.end_date }}</p>
+                            <p><b>Status:</b> <span class="status-done">Finished</span></p>
+                        </li>
+                    </a>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% else %}
+    <div class="wrapper">
+        <h2 class="wrapper-title no-orders">You don't have any orders yet.</h2>
+    </div>
+{% endif %}
+{% endblock %}

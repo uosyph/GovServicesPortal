@@ -1,0 +1,85 @@
+.page_details {
+	color: #fff;
+	background: #6db6c0;
+	padding-block: 20px;
+	padding-left: 100px;
+}
+
+.page_title {
+	font-size: 36px;
+}
+
+.page_description {
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+.wrapper {
+	margin: 3.5rem auto;
+	width: 90%;
+}
+
+.wrapper .wrapper-title {
+	margin-top: 75px;
+	text-align: center;
+}
+
+.wrapper .no-orders {
+	margin-bottom: 100px;
+}
+
+.cards {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 40px;
+	list-style: none;
+	margin: 45px 0 100px;
+	padding: 0;
+}
+
+.cards li {
+	color: #2d3436;
+	border: 1px solid #2d343654;
+	border-radius: 10px;
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+	flex: 1 1 200px;
+	transition: all 0.2s ease;
+}
+
+.cards li:hover {
+	box-shadow: 0 17px 27px rgba(0, 0, 0, 0.2);
+}
+
+.cards .order_title {
+	background: rgba(0, 0, 0, 0.15);
+	border-radius: 10px;
+	margin: 0;
+	padding: 1.3rem;
+	margin-bottom: 20px;
+}
+
+.cards .order_title h4 {
+	display: inline-block;
+	font-size: 12px;
+	background: #6db6c0;
+	border-radius: 5px;
+	padding: 4px 8px;
+	margin-top: 10px;
+}
+
+.cards p {
+	padding-inline: 20px;
+}
+
+.cards p:last-child {
+	padding-bottom: 20px;
+}
+
+.status-active {
+	color: #6dc074;
+}
+
+.status-done {
+	color: #7c7c7c;
+}

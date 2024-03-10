@@ -238,6 +238,24 @@ def my_orders():
     elif session["is_admin"] == True:
         abort(403)
 
+    orders = Order.query.filter_by(user_id=session["id"], is_done=False).all()
+    done_orders = Order.query.filter_by(user_id=session["id"], is_done=True).all()
+
+    return render_template(
+        "my_orders.html", orders=orders, done_orders=done_orders, service=Service
+    )
+
+
+@app.route("/my_orders/<id>")
+def order(id):
+    order = Order.query.filter_by(id=id).first()
+    if not order:
+        abort(404)
+    elif order.user_id != session["id"]:
+        abort(403)
+
+    return render_template("order.html", order=order, service=Service)
+
 
 @app.route("/orders")
 def orders():
@@ -344,6 +362,7 @@ def new_order():
             service_id=int(service),
             user_id=session["id"],
             file_paths=",".join(file_paths) if file_paths else None,
+            is_done=False,
         )
         db.session.add(new_order)
         db.session.commit()
