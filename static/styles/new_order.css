@@ -71,6 +71,7 @@
 
 .order-box .input-box textarea {
 	resize: vertical;
+	padding: 10px;
 }
 
 .order-box .input-box label {

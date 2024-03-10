@@ -118,6 +118,10 @@
 	background: transparent;
 }
 
+.settings-section .input-box input {
+	padding-inline: 10px;
+}
+
 .settings-section .input-box label {
 	font-size: 16px;
 	color: #2d3436;

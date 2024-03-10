@@ -56,19 +56,19 @@
                     <input type="hidden" name="action" value="update_info">
                     <div class="input-box">
                         <label for="fullname">Full Name</label>
-                        <input required class="form-field" type="text" name="fullname">
+                        <input required class="form-field" type="text" name="fullname" value="{{ user.name }}">
                     </div>
                     <div class="input-box">
                         <label for="phone">Phone Number</label>
-                        <input required class="form-field" type="text" name="phone">
+                        <input required class="form-field" type="text" name="phone" value="{{ user.phone }}">
                     </div>
                     <div class="input-box">
                         <label for="email">Email</label>
-                        <input required class="form-field" type="text" name="email">
+                        <input required class="form-field" type="text" name="email" value="{{ user.email }}">
                     </div>
                     <div class="input-box">
                         <label for="address">Address</label>
-                        <input required class="form-field" type="text" name="address">
+                        <input required class="form-field" type="text" name="address" value="{{ user.address }}">
                     </div>
                     <input class="form-btn" type="submit" value="Update Personal Info">
                 </form>

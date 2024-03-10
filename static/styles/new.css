@@ -48,6 +48,11 @@
 
 .form-box .input-box textarea {
 	resize: vertical;
+	padding: 10px;
+}
+
+.form-box .input-box input {
+	padding-inline: 10px;
 }
 
 .form-box .input-box label {
