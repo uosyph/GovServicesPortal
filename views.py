@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from markdown import markdown
 from datetime import datetime
+from humanize import naturaltime
 from uuid import uuid4
 from os import path
 
@@ -441,7 +442,14 @@ def order(id):
     elif order.user_id != session["id"]:
         abort(403)
 
-    return render_template("order.html", order=order, service=Service)
+    return render_template(
+        "order.html",
+        order=order,
+        service=Service,
+        naturaltime=naturaltime,
+        strptime=datetime.strptime,
+        str=str,
+    )
 
 
 @app.route("/orders")

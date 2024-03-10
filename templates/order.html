@@ -30,7 +30,13 @@
         You may be asked for your reference number later to complete any necessary transactions, receive paperwork, or finalize your order.
     </p>
 
-    <p><b>Order at:</b> {{ order.start_date }}</p>
+    <p>
+        <b>Order at:</b>
+        {{ naturaltime(order.start_date) }}
+        -
+        {% set time = strptime(str(order.start_date), "%Y-%m-%d %H:%M:%S.%f") %}
+        {{ time.strftime("%d %b, %Y at %I:%M %p") }}
+    </p>
     {% if order.is_done == True %}
         <p><b>Done at:</b> {{ order.end_date }}</p>
         <p><b>Status:</b> <span class="status-done">Finished</span></p>
