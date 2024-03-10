@@ -163,13 +163,72 @@ def logout():
     return redirect(url_for("index"))
 
 
-@app.route("/account")
+@app.route("/account", methods=["GET", "POST"])
 def account():
     if "loggedin" not in session:
         abort(401)
 
     user = User.query.filter_by(id=session["id"]).first()
-    return render_template("account.html", user=user)
+    msg = ""
+
+    if (
+        request.method == "POST"
+        and "fullname" in request.form
+        and "phone" in request.form
+        and "email" in request.form
+        and "address" in request.form
+        and request.form["action"] == "update_info"
+    ):
+        user.name = request.form["fullname"]
+        user.phone = request.form["phone"]
+        user.email = request.form["email"]
+        user.address = request.form["address"]
+        db.session.commit()
+
+        msg = "Your account information has been successfully updated."
+    elif (
+        request.method == "POST"
+        and "old_password" in request.form
+        and "new_password" in request.form
+        and "confirm_password" in request.form
+        and request.form["action"] == "update_password"
+    ):
+        old_password = request.form["old_password"]
+        new_password = request.form["new_password"]
+        confirm_password = request.form["confirm_password"]
+
+        if check_password_hash(user.password, old_password):
+            if len(new_password) < 6 or len(new_password) > 28:
+                msg = "Your password must be between 6 and 28 letters. Try again."
+            elif confirm_password != new_password:
+                msg = "Your passwords don't match. Try again."
+            elif new_password == old_password:
+                msg = "You can't change your password to the same one you already have."
+            else:
+                hashed_password = generate_password_hash(new_password)
+                user.password = hashed_password
+                db.session.commit()
+
+                msg = "Your password has been successfully updated."
+        else:
+            msg = "Wrong password entered, please try again."
+    elif (
+        request.method == "POST"
+        and "password" in request.form
+        and request.form["action"] == "delete_account"
+    ):
+        if check_password_hash(user.password, request.form["password"]):
+            db.session.delete(user)
+            db.session.commit()
+
+            return logout()
+        else:
+            msg = "Wrong password entered, please try again."
+
+    elif request.method == "POST":
+        msg = "Please make sure you filled out the form before you continue."
+
+    return render_template("account.html", user=user, msg=msg)
 
 
 @app.route("/departments")

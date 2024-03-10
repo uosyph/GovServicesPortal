@@ -24,6 +24,12 @@
 	color: #666;
 }
 
+.account-box .form-msg {
+	color: #2d3436;
+	font-size: 16px;
+	margin-top: 20px;
+}
+
 .account-box .content {
 	margin-top: 40px;
 }
@@ -120,6 +126,10 @@
 
 .settings-section .input-box input {
 	padding-inline: 10px;
+}
+
+.settings-section .input-box input:disabled {
+	background-color: #cccccc8c;
 }
 
 .settings-section .input-box label {
