@@ -38,11 +38,11 @@
             {% if session["loggedin"] == True: %}
                 {% if session["is_admin"] == False %}
                     <li class="acc_separator_left">
-                        <a href="#" {% if request.path == '/my_orders' %} id="active" {% endif %}>My Orders</a>
+                        <a href="{{ url_for('my_orders') }}" {% if request.path == '/my_orders' %} id="active" {% endif %}>My Orders</a>
                     </li>
                 {% elif session["is_admin"] == True %}
                     <li class="acc_separator_left">
-                        <a href="#" {% if request.path == '/orders' %} id="active" {% endif %}>Orders</a>
+                        <a href="{{ url_for('orders') }}" {% if request.path == '/orders' %} id="active" {% endif %}>Orders</a>
                     </li>
                 {% endif %}
                 <li>
@@ -78,7 +78,11 @@
                         <li><a href="{{ url_for('departments') }}">Departments</a></li>
                         <li><a href="{{ url_for('services') }}">Services</a></li>
                         {% if session["loggedin"] == True: %}
-                            <li><a href="#">My Services</a></li>
+                            {% if session["is_admin"] == False %}
+                                <li><a href="{{ url_for('my_orders') }}">My Orders</a></li>
+                            {% elif session["is_admin"] == True %}
+                                <li><a href="{{ url_for('orders') }}">Orders</a></li>
+                            {% endif %}
                             <li><a href="{{ url_for('account') }}">Account</a></li>
                         {% else: %}
                             <li><a href="{{ url_for('register') }}">Sign Up</a></li>

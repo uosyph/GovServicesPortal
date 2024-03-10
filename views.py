@@ -231,6 +231,19 @@ def account():
     return render_template("account.html", user=user, msg=msg)
 
 
+@app.route("/my_orders")
+def my_orders():
+    if "loggedin" not in session:
+        abort(401)
+    elif session["is_admin"] == True:
+        abort(403)
+
+
+@app.route("/orders")
+def orders():
+    abort(403)
+
+
 @app.route("/departments")
 def departments():
     departments = Department.query.all()
