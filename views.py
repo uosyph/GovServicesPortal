@@ -430,7 +430,13 @@ def my_orders():
     done_orders = Order.query.filter_by(user_id=session["id"], is_done=True).all()
 
     return render_template(
-        "my_orders.html", orders=orders, done_orders=done_orders, service=Service
+        "my_orders.html",
+        orders=orders,
+        done_orders=done_orders,
+        service=Service,
+        naturaltime=naturaltime,
+        strptime=datetime.strptime,
+        str=str,
     )
 
 
