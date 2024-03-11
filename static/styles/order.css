@@ -77,7 +77,7 @@
 	user-select: none;
 }
 
-.order-box .order-details {
+.order-box .order-details, .order-box .order-files {
 	margin-top: 25px;
 }
 

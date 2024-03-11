@@ -479,7 +479,21 @@ def orders():
 
 @app.route("/orders/<id>")
 def user_order(id):
-    abort(403)
+    order = Order.query.filter_by(id=id).first()
+    if not order:
+        abort(404)
+    elif "loggedin" not in session or session["is_admin"] == False:
+        abort(403)
+
+    return render_template(
+        "user_order.html",
+        order=order,
+        Service=Service,
+        Department=Department,
+        naturaltime=naturaltime,
+        strptime=datetime.strptime,
+        str=str,
+    )
 
 
 @app.errorhandler(401)

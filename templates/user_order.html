@@ -32,11 +32,8 @@
             </h3>
         {% endif %}
     </div>
-    <p class="order-id" style="margin-bottom: 25px;"><b>Reference Number:</b> <span>{{ order.id }}</span></p>
-    <p class="attention-msg">
-        <span>*</span>
-        You may be asked for your reference number later to complete any necessary transactions, receive paperwork, or finalize your order.
-    </p>
+    <p class="order-id"><b>Reference Number:</b> <span>{{ order.id }}</span></p>
+    <p class="order-id" style="margin-bottom: 25px;"><b>User National ID:</b> <span>{{ order.user_id }}</span></p>
 
     <p>
         <b>Order at:</b>
