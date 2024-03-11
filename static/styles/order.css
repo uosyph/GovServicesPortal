@@ -39,6 +39,24 @@
 	transform: translateX(3px) translateY(-3px);
 }
 
+.order-box .order-service h3 {
+	display: inline-block;
+	font-size: 16px;
+	background: #6db6c0;
+	border-radius: 5px;
+	padding: 4px 8px;
+	margin-top: 10px;
+}
+
+.order-box .order-service h3 a {
+	color: #2d3436;
+	transition: all 0.2s ease;
+}
+
+.order-box .order-service h3 a:hover {
+	color: #2d3436b4;
+}
+
 .order-box .order-id {
 	font-size: 20px;
 	padding: 0;

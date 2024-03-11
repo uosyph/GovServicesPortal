@@ -21,7 +21,7 @@
                     <a href="{{ url_for('order', id=order.id) }}">
                         <li>
                             <div class="order_title">
-                                {% set service = service.query.filter_by(id=order.service_id).first() %}
+                                {% set service = Service.query.filter_by(id=order.service_id).first() %}
                                 <h3>{{ service.title }}</h3>
                                 <h4>{{ order.id }}</h4>
                             </div>
@@ -48,7 +48,7 @@
                     <a href="{{ url_for('order', id=order.id) }}">
                         <li>
                             <div class="order_title">
-                                {% set service = service.query.filter_by(id=order.service_id).first() %}
+                                {% set service = Service.query.filter_by(id=order.service_id).first() %}
                                 <h3>{{ service.title }}</h3>
                                 <h4>{{ order.id }}</h4>
                             </div>

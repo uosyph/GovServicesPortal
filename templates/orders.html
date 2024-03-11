@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}User Orders | GSP{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/my_orders.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="page_details">
+    <h1 class="page_title">User Orders</h1>
+    <p class="page_description">User orders will be listed here.</p>
+</div>
+
+{% if orders %}
+    <div class="wrapper" style="margin-top: 80px;">
+        <ul class="cards">
+            {% for order in orders %}
+                <a href="{{ url_for('user_order', id=order.id) }}">
+                    <li>
+                        <div class="order_title">
+                            {% set service = Service.query.filter_by(id=order.service_id).first() %}
+                            <h3>{{ service.title }}</h3>
+                            {% set department = Department.query.filter_by(id=order.service_id).first() %}
+                            {% if department %}
+                                <h4>{{ department.title }}</h4>
+                            {% endif %}
+                        </div>
+                        <p style="font-size: 15px;"><b>Reference Number:</b> {{ order.id }}</p>
+                        <p>
+                            <b>Order at:</b>
+                            {{ naturaltime(order.start_date) }}
+                            -
+                            {% set time = strptime(str(order.start_date), "%Y-%m-%d %H:%M:%S.%f") %}
+                            {{ time.strftime("%d %b, %Y at %I:%M %p") }}
+                        </p>
+                        <p><b>Status:</b> <span class="status-active">Active</span></p>
+                    </li>
+                </a>
+            {% endfor %}
+        </ul>
+    </div>
+{% else %}
+    <div class="wrapper">
+        <h2 class="wrapper-title no-orders">There are no orders left.</h2>
+    </div>
+{% endif %}
+{% endblock %}

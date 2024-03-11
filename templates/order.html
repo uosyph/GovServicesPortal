@@ -13,16 +13,24 @@
     {% endwith %}
 
     <div class="order-service">
-        {% set service = service.query.filter_by(id=order.service_id).first() %}
+        {% set service = Service.query.filter_by(id=order.service_id).first() %}
         <h2>
             <b>Order For:</b>
-            <a href="{{ url_for('service', id=order.service_id) }}">
+            <a href="{{ url_for('service', id=order.service_id) }}" target="_blank">
                 {{ service.title }}
                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
                 </svg>
             </a>
         </h2>
+        {% set department = Department.query.filter_by(id=order.service_id).first() %}
+        {% if department %}
+            <h3>
+                <a href="{{ url_for('department', id=department.id) }}" target="_blank">
+                    {{ department.title }}
+                </a>
+            </h3>
+        {% endif %}
     </div>
     <p class="order-id"><b>Reference Number:</b> <span>{{ order.id }}</span></p>
     <p class="attention-msg">

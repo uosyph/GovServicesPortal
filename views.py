@@ -433,7 +433,8 @@ def my_orders():
         "my_orders.html",
         orders=orders,
         done_orders=done_orders,
-        service=Service,
+        Service=Service,
+        Department=Department,
         naturaltime=naturaltime,
         strptime=datetime.strptime,
         str=str,
@@ -451,7 +452,8 @@ def order(id):
     return render_template(
         "order.html",
         order=order,
-        service=Service,
+        Service=Service,
+        Department=Department,
         naturaltime=naturaltime,
         strptime=datetime.strptime,
         str=str,
@@ -460,7 +462,19 @@ def order(id):
 
 @app.route("/orders")
 def orders():
-    abort(403)
+    if "loggedin" not in session or session["is_admin"] == False:
+        abort(403)
+
+    orders = Order.query.filter_by(is_done=False).all()
+    return render_template(
+        "orders.html",
+        orders=orders,
+        Service=Service,
+        Department=Department,
+        naturaltime=naturaltime,
+        strptime=datetime.strptime,
+        str=str,
+    )
 
 
 @app.route("/orders/<id>")
