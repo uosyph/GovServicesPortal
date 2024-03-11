@@ -54,7 +54,7 @@
                 <h2>Personal Info</h2>
                 <p>This is where you can customize personal info.</p>
 
-                <form action="{{ url_for('account') }}" method="post">
+                <form id="updateForm" action="{{ url_for('account') }}" method="post">
                     <input type="hidden" name="action" value="update_info">
                     <div class="input-box">
                         <label for="fullname">National ID</label>
@@ -76,7 +76,7 @@
                         <label for="address">Address</label>
                         <input required class="form-field" type="text" name="address" value="{{ user.address }}">
                     </div>
-                    <input class="form-btn" type="submit" value="Update Personal Info">
+                    <input id="submitButton" class="form-btn" type="submit" value="Update Personal Info" disabled>
                 </form>
 
             </div>

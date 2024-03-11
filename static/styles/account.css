@@ -162,6 +162,16 @@
 		0 0 30px #6db6c018;
 }
 
+.settings-section form .form-btn:disabled {
+	color: #666;
+	border: 1px solid #666;
+}
+
+.settings-section form .form-btn:disabled:hover {
+	background: transparent;
+	cursor: default;
+}
+
 .danger {
 	color: #d65959 !important;
 	border: 1px solid #d65959 !important;

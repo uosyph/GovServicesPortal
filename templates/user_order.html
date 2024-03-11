@@ -72,10 +72,12 @@
     </p>
     {% endif %}
 
-    <form action="{{ url_for('user_order', id=order.id) }}" method="post" class="first-form">
-        <input type="hidden" name="action" value="finish_order">
-        <input class="form-btn" type="submit" value="Finish Order">
-    </form>
+    {% if order.is_done == False %}
+        <form action="{{ url_for('user_order', id=order.id) }}" method="post" class="first-form">
+            <input type="hidden" name="action" value="finish_order">
+            <input class="form-btn" type="submit" value="Finish Order">
+        </form>
+    {% endif %}
     <form action="{{ url_for('user_order', id=order.id) }}" method="post">
         <input type="hidden" name="action" value="delete_order">
         <input class="form-btn danger" type="submit" value="Delete Order">
