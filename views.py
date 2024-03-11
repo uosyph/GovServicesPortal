@@ -477,13 +477,32 @@ def orders():
     )
 
 
-@app.route("/orders/<id>")
+@app.route("/orders/<id>", methods=["GET", "POST"])
 def user_order(id):
     order = Order.query.filter_by(id=id).first()
     if not order:
         abort(404)
     elif "loggedin" not in session or session["is_admin"] == False:
         abort(403)
+
+    if request.method == "POST" and request.form["action"] == "finish_order":
+        order.end_date = datetime.now()
+        order.is_done = True
+        db.session.commit()
+
+        flash(
+            f"Order was successfully marked as Done.",
+            "success",
+        )
+    elif request.method == "POST" and request.form["action"] == "delete_order":
+        db.session.delete(order)
+        db.session.commit()
+
+        flash(
+            f"Order with Reference Number <span class='attention-order-id'>{order.id}</span> was deleted successfully.",
+            "success",
+        )
+        return redirect(url_for("orders"))
 
     return render_template(
         "user_order.html",

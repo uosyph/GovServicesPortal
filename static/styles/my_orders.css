@@ -83,3 +83,19 @@
 .status-done {
 	color: #7c7c7c;
 }
+
+.order-msg {
+	color: #2d3436;
+	font-size: 20px;
+	margin: 50px 100px;
+}
+
+.order-msg .attention-order-id {
+	color: #6db6c0;
+}
+
+.order-msg .attention {
+	color: #ff0000;
+	cursor: default;
+	user-select: none;
+}

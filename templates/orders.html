@@ -12,6 +12,15 @@
     <p class="page_description">User orders will be listed here.</p>
 </div>
 
+{% with msg = get_flashed_messages() %}
+    {% if msg: %}
+        <div class="order-msg">
+            <span class="attention">*</span>
+            {{ msg[0] | safe }}
+        </div>
+    {% endif %}
+{% endwith %}
+
 {% if orders %}
     <div class="wrapper" style="margin-top: 80px;">
         <ul class="cards">
