@@ -1,0 +1,82 @@
+.profile-box {
+	color: #2d3436;
+	border: 1px solid #2d343654;
+	margin: auto;
+	margin-top: 40px;
+	width: 30%;
+	padding: 40px;
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+	border-radius: 10px;
+	margin-bottom: 65px;
+}
+
+.profile-box h2 {
+	margin: 0 0 35px;
+	padding: 0;
+	color: #2d3436;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.profile-box .profile-info-section {
+	display: flex;
+	align-items: flex-start;
+	padding-inline: 15%;
+	margin-bottom: 22px;
+}
+
+.profile-box .profile-info-section svg {
+	margin-right: 25px;
+	margin-top: 5px;
+	color: #2d2d2dce;
+}
+
+.profile-box .profile-info-section .text-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.profile-box .profile-info-section h5 {
+	margin: 0;
+	color: #666;
+}
+
+.profile-box .redirect-box {
+	font-size: 15px;
+	color: #2d3436;
+	margin-top: 30px;
+}
+
+.profile-box .redirect-box a {
+	color: #6db6c0;
+	transition: 0.3s ease;
+}
+
+.profile-box .redirect-box a:hover {
+	color: #6db6c0ad;
+}
+
+.profile-box form .form-btn {
+	position: relative;
+	display: inline-block;
+	padding: 8px 16px;
+	color: #6db6c0;
+	font-size: 16px;
+	text-decoration: none;
+	overflow: hidden;
+	transition: 0.5s;
+	margin-top: 30px;
+	letter-spacing: 0.2px;
+	border: 1px solid #6db6c0;
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.profile-box form .form-btn:hover {
+	background: #6db6c0;
+	color: #fff;
+	box-shadow: 0 0 1px #6db6c018, 0 0 15px #6db6c018, 0 0 20px #6db6c018,
+		0 0 30px #6db6c018;
+}

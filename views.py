@@ -164,6 +164,19 @@ def logout():
     return redirect(url_for("index"))
 
 
+@app.route("/profile/<id>")
+def profile(id):
+    if "loggedin" not in session:
+        abort(403)
+    elif id == session["id"] or session["is_admin"] == True:
+        viewer = "current_user" if session["id"] == id else "admin"
+        user = User.query.filter_by(id=id).first()
+
+        return render_template("profile.html", user=user, viewer=viewer)
+    else:
+        abort(403)
+
+
 @app.route("/account", methods=["GET", "POST"])
 def account():
     if "loggedin" not in session:
