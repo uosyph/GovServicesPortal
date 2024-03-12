@@ -335,6 +335,7 @@ def department(id):
         "listing.html",
         type="department",
         item=department,
+        markdown=markdown,
         all_services_url=all_services_url,
     )
 
@@ -375,13 +376,12 @@ def service(id):
     if not service:
         abort(404)
 
-    readme = markdown(service.readme)
     return render_template(
         "listing.html",
         type="service",
         item=service,
         Department=Department,
-        readme=readme,
+        markdown=markdown,
     )
 
 

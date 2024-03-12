@@ -4,6 +4,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/listing.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/markdown.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -18,9 +19,9 @@
 
     <p class="item-desc">{{ item.description }}</p>
 
-    {% if readme %}
-        <div class="item-readme">
-            {{ readme | safe }}
+    {% if item.readme %}
+        <div class="item-readme markdown">
+            {{ markdown(item.readme) | safe }}
         </div>
     {% endif %}
 
