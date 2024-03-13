@@ -28,9 +28,20 @@ function handleFiles(files) {
         // File name and size
         const fileInfo = document.createElement('div');
         fileInfo.classList.add('file-info');
-        fileInfo.textContent = `${file.name} (${formatBytes(file.size)})`;
-        fileItem.appendChild(fileInfo);
 
+        const fileNameSpan = document.createElement('span');
+        fileNameSpan.classList.add('file-name');
+        fileNameSpan.textContent = `${file.name}`;
+
+        const fileSizeSpan = document.createElement('span');
+        fileSizeSpan.classList.add('file-size');
+        fileSizeSpan.textContent = `(${formatBytes(file.size)})`;
+
+        fileItem.title = `${file.name} (${formatBytes(file.size)})`
+
+        fileInfo.appendChild(fileNameSpan);
+        fileInfo.appendChild(fileSizeSpan);
+        fileItem.appendChild(fileInfo);
         fileList.appendChild(fileItem);
 
         // Display thumbnail

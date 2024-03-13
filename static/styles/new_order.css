@@ -86,6 +86,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	text-align: center;
 }
 
 .upload-box .file-upload-label input {
@@ -134,6 +135,58 @@
 
 .upload-box .browse-button:hover {
 	background-color: rgb(14, 14, 14);
+}
+
+#file-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-left: 25px;
+}
+
+.file-item {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 0 10px 10px 0;
+	min-width: 300px;
+	max-width: 300px;
+}
+
+.thumbnail {
+	width: 50px;
+	height: 50px;
+	margin-bottom: 15px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+
+.file-info,
+.file-name,
+.file-size {
+	display: inline-block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.file-info {
+	font-size: 14px;
+	font-weight: bold;
+	color: #2d3436;
+	text-align: center;
+	margin-left: 15px;
+	max-width: 100%;
+}
+
+.file-name {
+	max-width: 135px;
+}
+
+.file-size {
+	color: #666;
+	font-size: 13px;
+	margin-left: 5px;
 }
 
 .order-box form .submit-btn {
