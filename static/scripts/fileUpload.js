@@ -16,7 +16,6 @@ function handleFiles(files) {
         const file = files[i];
         const fileItem = document.createElement('div');
         fileItem.classList.add('file-item');
-        fileItem.textContent = `${file.name} (${formatBytes(file.size)}`;
 
         // Generate thumbnail
         const thumbnail = document.createElement('img');
@@ -25,6 +24,12 @@ function handleFiles(files) {
         thumbnail.style.width = '50px';
         thumbnail.style.height = '50px';
         fileItem.appendChild(thumbnail);
+
+        // File name and size
+        const fileInfo = document.createElement('div');
+        fileInfo.classList.add('file-info');
+        fileInfo.textContent = `${file.name} (${formatBytes(file.size)})`;
+        fileItem.appendChild(fileInfo);
 
         fileList.appendChild(fileItem);
 
