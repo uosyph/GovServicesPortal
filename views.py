@@ -1,4 +1,13 @@
-from flask import abort, request, session, render_template, redirect, url_for, flash
+from flask import (
+    abort,
+    request,
+    send_from_directory,
+    session,
+    render_template,
+    redirect,
+    url_for,
+    flash,
+)
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from markdown import markdown
@@ -24,6 +33,11 @@ def clear_trailing():
     rp = request.path
     if rp != "/" and rp.endswith("/"):
         return redirect(rp[:-1])
+
+
+@app.route("/files/<path:filename>")
+def serve_file(filename):
+    return send_from_directory(app.config["UPLOAD_DIRECTORY"], filename)
 
 
 @app.route("/", methods=["GET"])

@@ -79,7 +79,12 @@
     <p class="order-files">
         <b>Files Included:</b>
         <br>
-        {{ order.file_paths }}
+        <br>
+        {% for file in order.file_paths.split(',') %}
+            <img src="{{ url_for('serve_file', filename=file) }}" width="250px" style="margin-bottom: 20px !important;">
+            {{ file.split('_', maxsplit=1)[-1] }}
+            <br>
+        {% endfor %}
     </p>
     {% endif %}
 
