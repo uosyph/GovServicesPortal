@@ -1,6 +1,7 @@
 Flask
 Flask-SQLAlchemy
 SQLAlchemy
+pymysql
 Werkzeug
 PyJWT
 humanize
