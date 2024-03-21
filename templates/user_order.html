@@ -81,7 +81,7 @@
         <br>
         <br>
         {% for file in order.file_paths.split(',') %}
-            <img src="{{ url_for('serve_file', filename=file) }}" width="250px" style="margin-bottom: 20px !important;">
+            <img src="{{ url_for('serve_file', filename=file) }}" width="300px" style="margin-bottom: 20px !important;">
             {{ file.split('_', maxsplit=1)[-1] }}
             <br>
         {% endfor %}
