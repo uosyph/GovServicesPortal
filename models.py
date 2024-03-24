@@ -16,13 +16,9 @@ app.url_map.strict_slashes = False
 
 app.config["SECRET_KEY"] = getenv("SECRET_KEY")
 app.config["UPLOAD_DIRECTORY"] = uploads_dir
-
-if getenv("ENV") == "dev":
-    app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{cwd}/{getenv('LOCAL_DB')}.db"
-else:
-    app.config["SQLALCHEMY_DATABASE_URI"] = (
-        f"mysql+pymysql://{getenv('DB_USER')}:{getenv('DB_PASSWORD')}@{getenv('DB_HOST')}:{getenv('DB_PORT')}/{getenv('DB_NAME')}?charset=utf8mb4"
-    )
+app.config["SQLALCHEMY_DATABASE_URI"] = (
+    f"mysql+pymysql://{getenv('DB_USER')}:{getenv('DB_PASSWORD')}@{getenv('DB_HOST')}:{getenv('DB_PORT')}/{getenv('DB_NAME')}?charset=utf8mb4"
+)
 
 db = SQLAlchemy(app)
 
