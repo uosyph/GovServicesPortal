@@ -4,7 +4,6 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/listing.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/markdown.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -36,10 +35,20 @@
                 <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
             </svg>
         </a>
+        <br>
     {% endif %}
-    {% if type == 'service' %}
-        <a class="listing-btn" href="{{ url_for('new_order', recommend=item.id, _external=True) }}" target="_blank">
-            Order the service
+    {% if session['is_admin'] == False %}
+        {% if type == 'service' %}
+            <a class="listing-btn" href="{{ url_for('new_order', recommend=item.id, _external=True) }}" target="_blank">
+                Order the service
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
+                </svg>
+            </a>
+        {% endif %}
+    {% else %}
+        <a class="listing-btn warning {% if type == 'department' %} wt-department {% endif %}" href="{{ url_for('edit', item=type, id=item.id) }}">
+            Edit this {{ type }}
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
             </svg>

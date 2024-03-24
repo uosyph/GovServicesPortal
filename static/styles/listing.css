@@ -72,6 +72,19 @@
 	vertical-align: text-bottom;
 }
 
+.item-box .warning {
+	color: #ff964f;
+	border: 1px solid #ff964f;
+}
+
+.item-box .warning:hover {
+	background: #ff964f;
+}
+
+.item-box .wt-department {
+	margin-top: 10px;
+}
+
 .item-box .item-msg {
 	color: #2d3436;
 	font-size: 20px;

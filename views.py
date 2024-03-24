@@ -349,6 +349,48 @@ def new():
     )
 
 
+@app.route("/edit", methods=["GET", "POST"])
+def edit():
+    if "loggedin" not in session or session["is_admin"] == False:
+        abort(403)
+
+    item_type = request.args.get("item")
+    item_id = request.args.get("id")
+
+    if item_type == "service":
+        item = Service.query.filter_by(id=item_id).first()
+    elif item_type == "department":
+        item = Department.query.filter_by(id=item_id).first()
+    else:
+        item = None
+
+    if (
+        request.method == "POST"
+        and "title" in request.form
+        and "description" in request.form
+        and "readme" in request.form
+        and request.form["action"] == "update_item"
+    ):
+        item.title = request.form["title"]
+        item.description = request.form["description"]
+        item.readme = request.form["readme"]
+        db.session.commit()
+
+        flash(f"{item_type.capitalize()} has been successfully updated.", "success")
+        return redirect(url_for("edit", item=item_type, id=item_id))
+    elif request.method == "POST" and request.form["action"] == "delete_item":
+        db.session.delete(item)
+        db.session.commit()
+
+        return redirect(url_for("index"))
+    elif request.method == "POST":
+        flash(
+            "Please make sure you filled out the form before you continue.", "failure"
+        )
+
+    return render_template("edit.html", item_type=item_type, item=item)
+
+
 @app.route("/departments")
 def departments():
     departments = Department.query.all()
@@ -426,6 +468,8 @@ def service(id):
 def new_order():
     if "loggedin" not in session:
         abort(401)
+    if session["is_admin"] == True:
+        abort(403)
 
     services = Service.query.all()
     recommend = request.args.get("recommend")

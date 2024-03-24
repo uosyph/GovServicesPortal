@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit {{ item.title }} | GSP{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/edit.css') }}">
+<script src="{{ url_for('static', filename='scripts/edit.js') }}" defer></script>
+{% endblock %}
+
+{% block body %}
+<div class="item-box">
+    {% if not item %}
+        <h2 class="no-item">
+            Please select a
+            <a href="{{ url_for('services') }}">Service</a>
+            or
+            <a href="{{ url_for('departments') }}">Department</a>
+            to edit.
+        </h2>
+    {% else %}
+        {% with msg = get_flashed_messages() %}
+            {% if msg: %}<div class="form-msg">{{ msg[0] }}</div>{% endif %}
+        {% endwith %}
+
+        <form id="updateForm" action="{{ url_for('edit', item=item_type, id=item.id) }}" method="post">
+            <input type="hidden" name="action" value="update_item">
+            <div class="input-box">
+                <label for="title">Title</label>
+                <input required type="text" name="title" value="{{ item.title }}">
+            </div>
+            <div class="input-box">
+                <label for="description">Brief Description</label>
+                <input required type="text" name="description" value="{{ item.description }}">
+            </div>
+            <div class="input-box">
+                <label for="readme">Extended Description (Supports Markdown)</label>
+                <textarea rows="6" name="readme">{{ item.readme }}</textarea>
+            </div>
+            <input id="submitButton" class="submit-btn" type="submit" value="Update" disabled>
+        </form>
+
+        <form action="{{ url_for('edit', item=item_type, id=item.id) }}" method="post" class="delete"
+            onsubmit="return confirm('Are you sure you want to delete this {{item_type}}?');">
+            <input type="hidden" name="action" value="delete_item">
+            <input class="submit-btn danger" type="submit" value="Delete {{item_type.capitalize()}}">
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

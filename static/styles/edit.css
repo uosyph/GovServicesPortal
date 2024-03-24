@@ -1,0 +1,132 @@
+.item-box .no-item {
+	text-align: center;
+	margin-block: 150px;
+}
+
+.item-box .no-item a {
+	color: #6db6c0;
+	transition: 0.3s ease;
+}
+
+.item-box .no-item a:hover {
+	color: #6db6c0ad;
+}
+
+.item-box {
+	color: #2d3436;
+	border: 1px solid #2d343654;
+	margin: auto;
+	margin-top: 40px;
+	width: 85%;
+	padding: 40px;
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+	border-radius: 10px;
+	margin-bottom: 65px;
+}
+
+.item-box .form-title {
+	margin: 25px auto 10px;
+	padding: 0;
+	font-size: 34px;
+	font-weight: bold;
+	color: #2d3436;
+}
+
+.item-box .form-description {
+	font-size: 18px;
+	color: #666;
+}
+
+.item-box form {
+	margin-top: 40px;
+}
+
+.item-box .input-box {
+	position: relative;
+}
+
+.item-box .input-box input,
+.item-box .input-box textarea {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #2d3436;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	border: 1px solid #2d34368c;
+	border-radius: 5px;
+	outline: none;
+	background: transparent;
+}
+
+.item-box .input-box textarea {
+	resize: vertical;
+	padding: 10px;
+}
+
+.item-box .input-box input {
+	padding-inline: 10px;
+}
+
+.item-box .input-box label {
+	font-size: 16px;
+	color: #2d3436;
+}
+
+.item-box form .submit-btn {
+	position: relative;
+	display: inline-block;
+	padding: 10px 20px;
+	color: #6db6c0;
+	font-size: 16px;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	transition: 0.5s;
+	margin-top: 50px;
+	margin-bottom: 5px;
+	letter-spacing: 4px;
+	border: 1px solid #6db6c0;
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.item-box form .submit-btn:hover {
+	background: #6db6c0;
+	color: #fff;
+	box-shadow: 0 0 1px #6db6c018, 0 0 15px #6db6c018, 0 0 20px #6db6c018,
+		0 0 30px #6db6c018;
+}
+
+.item-box form .submit-btn:disabled {
+	color: #666;
+	border: 1px solid #666;
+}
+
+.item-box form .submit-btn:disabled:hover {
+	background: transparent;
+	cursor: default;
+}
+
+.item-box .delete {
+	margin-top: 0;
+}
+
+.item-box form .danger {
+	color: #d65959;
+	border: 1px solid #d65959;
+	margin-top: 20px;
+}
+
+.item-box form .danger:hover {
+	background: #d65959;
+	color: #fff;
+}
+
+.item-box .form-msg {
+	color: #2d3436;
+	font-size: 18px;
+	margin-top: 20px;
+}

@@ -11,6 +11,12 @@
 <div class="account-box">
     <h2 class="account-title">Account Settings</h2>
     <p class="account-description">Change your profile and account settings.</p>
+    <a href="{{ url_for('profile', id=user.id) }}" class="profile-url">
+        Go to your profile
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
+        </svg>
+    </a>
 
     {% if msg: %}<div class="form-msg">{{ msg }}</div>{% endif %}
 
