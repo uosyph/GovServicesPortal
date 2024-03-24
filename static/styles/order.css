@@ -120,6 +120,13 @@
 	margin-bottom: 40px;
 }
 
+.order-box .order-image {
+	width: 300px;
+	max-width: 300px;
+	max-height: 300px;
+	margin-bottom: 20px;
+}
+
 .order-box form .form-btn {
 	position: relative;
 	display: inline-block;
