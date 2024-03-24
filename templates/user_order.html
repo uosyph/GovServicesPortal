@@ -51,7 +51,7 @@
         <b>Order at:</b>
         {{ naturaltime(order.start_date) }}
         -
-        {% set time = strptime(str(order.start_date), "%Y-%m-%d %H:%M:%S.%f") %}
+        {% set time = strptime(str(order.start_date), "%Y-%m-%d %H:%M:%S") %}
         {{ time.strftime("%d %b, %Y at %I:%M %p") }}
     </p>
     {% if order.is_done == True %}
@@ -59,7 +59,7 @@
             <b>Done at:</b>
             {{ naturaltime(order.end_date) }}
             -
-            {% set time = strptime(str(order.end_date), "%Y-%m-%d %H:%M:%S.%f") %}
+            {% set time = strptime(str(order.end_date), "%Y-%m-%d %H:%M:%S") %}
             {{ time.strftime("%d %b, %Y at %I:%M %p") }}
         </p>
         <p><b>Status:</b> <span class="status-done">Finished</span></p>
