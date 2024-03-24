@@ -71,3 +71,9 @@
 .item-box .listing-btn svg {
 	vertical-align: text-bottom;
 }
+
+.item-box .item-msg {
+	color: #2d3436;
+	font-size: 20px;
+	margin-bottom: 40px;
+}

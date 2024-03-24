@@ -317,7 +317,9 @@ def new():
             )
             db.session.add(new)
             db.session.commit()
-            msg = "Department was created successfully."
+
+            flash("Department was created successfully.", "success")
+            return redirect(url_for("department", id=new.id))
         elif type_of == "Service":
             department = Department.query.filter_by(id=associated_with).first()
             if department:
@@ -336,8 +338,9 @@ def new():
 
             db.session.add(new)
             db.session.commit()
-            msg = "Service was created successfully."
 
+            flash("Service was created successfully.", "success")
+            return redirect(url_for("service", id=new.id))
     elif request.method == "POST":
         msg = "Please make sure you filled out the form before you continue."
 

@@ -9,6 +9,10 @@
 
 {% block body %}
 <div class="item-box">
+    {% with msg = get_flashed_messages() %}
+        {% if msg: %}<div class="item-msg">{{ msg[0] }}</div>{% endif %}
+    {% endwith %}
+
     <div class="item_title">
         <h2>{{ item.title }}</h2>
         {% if item.department_id %}
