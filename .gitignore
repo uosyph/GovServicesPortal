@@ -4,4 +4,3 @@ __pycache__/
 *.db
 .env
 db_dump.py
-uploads
