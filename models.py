@@ -5,19 +5,19 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+cwd = getcwd()
+uploads_dir = path.join(cwd, "uploads")
+if not path.exists(uploads_dir):
+    makedirs(uploads_dir)
+
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 app.config["SECRET_KEY"] = getenv("SECRET_KEY")
+app.config["UPLOAD_DIRECTORY"] = uploads_dir
 
 if getenv("ENV") == "dev":
-    cwd = getcwd()
-    uploads_dir = path.join(cwd, "uploads")
-    if not path.exists(uploads_dir):
-        makedirs(uploads_dir)
-
-    app.config["UPLOAD_DIRECTORY"] = uploads_dir
     app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{cwd}/{getenv('LOCAL_DB')}.db"
 else:
     app.config["SQLALCHEMY_DATABASE_URI"] = (
