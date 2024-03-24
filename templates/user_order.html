@@ -4,7 +4,6 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/order.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/user_order.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -94,7 +93,8 @@
             <input class="form-btn" type="submit" value="Finish Order">
         </form>
     {% endif %}
-    <form action="{{ url_for('user_order', id=order.id) }}" method="post">
+    <form action="{{ url_for('user_order', id=order.id) }}" method="post"
+        onsubmit="return confirm('Are you sure you want to delete this order?');">
         <input type="hidden" name="action" value="delete_order">
         <input class="form-btn danger" type="submit" value="Delete Order">
     </form>

@@ -535,13 +535,19 @@ def my_orders():
     )
 
 
-@app.route("/my_orders/<id>")
+@app.route("/my_orders/<id>", methods=["GET", "POST"])
 def order(id):
     order = Order.query.filter_by(id=id).first()
     if not order:
         abort(404)
     elif order.user_id != session["id"]:
         abort(403)
+
+    if request.method == "POST" and request.form["action"] == "delete_order":
+        db.session.delete(order)
+        db.session.commit()
+
+        return redirect(url_for("my_orders"))
 
     return render_template(
         "order.html",
