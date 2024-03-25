@@ -1,3 +1,7 @@
+.modal-open {
+	overflow: hidden;
+}
+
 .order-box {
 	color: #2d3436;
 	border: 1px solid #2d343654;
@@ -101,6 +105,10 @@
 	margin-top: 25px;
 }
 
+.order-box .order-files {
+	margin-bottom: 25px;
+}
+
 .order-box .attention-msg {
 	margin-bottom: 30px;
 	font-size: 18px;
@@ -125,6 +133,36 @@
 	max-width: 300px;
 	max-height: 300px;
 	margin-bottom: 20px;
+}
+
+.order-box .image-modal {
+	display: none;
+	position: fixed;
+	z-index: 9999;
+	padding-top: 50px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.9);
+	overflow: auto;
+}
+
+.order-box .modal-image {
+	display: block;
+	margin: 0 auto;
+	max-width: 90%;
+	max-height: 90%;
+}
+
+.order-box .close-button {
+	display: inline;
+	color: #fff;
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	font-size: 30px;
+	cursor: pointer;
 }
 
 .download-btn {
