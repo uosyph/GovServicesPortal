@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us | GSP{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/new.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="form-box" style="width: 40%;">
+    <h2 class="form-title">Contact Us</h2>
+    <p class="form-description">Send your feedback or compliant.</p>
+
+    {% if msg: %}<div class="form-msg">{{ msg }}</div>{% endif %}
+
+    <form action="{{ url_for('contact') }}" method="post">
+        {% if not session["loggedin"] %}
+            <div class="input-box">
+                <label for="name">Name</label>
+                <input required type="text" name="name">
+            </div>
+            <div class="input-box">
+                <label for="email">Email</label>
+                <input required type="text" name="email">
+            </div>
+            <div class="input-box">
+                <label for="phone">Phone</label>
+                <input required type="text" name="phone">
+            </div>
+        {% endif %}
+        <div class="input-box">
+            <label for="subject">Subject</label>
+            <input required type="text" name="subject">
+        </div>
+        <div class="input-box">
+            <label for="message">Message</label>
+            <textarea rows="6" name="message"></textarea>
+        </div>
+        <input class="submit-btn" type="submit" value="Send" style="margin-top: 15px;">
+    </form>
+</div>
+
+{% endblock %}

@@ -40,9 +40,54 @@ def serve_file(filename):
     return send_from_directory(app.config["UPLOAD_DIRECTORY"], filename)
 
 
-@app.route("/", methods=["GET"])
+@app.route("/")
 def index():
     return render_template("index.html")
+
+
+@app.route("/about_us")
+def about():
+    return render_template("about.html")
+
+
+@app.route("/contact_us", methods=["GET", "POST"])
+def contact():
+    msg = ""
+
+    if (
+        request.method == "POST"
+        and "subject" in request.form
+        and "message" in request.form
+    ):
+        if "loggedin" in session:
+            user = User.query.filter_by(id=session["id"]).first()
+
+            name = user.name
+            email = user.email
+            phone = user.phone
+        elif (
+            "loggedin" not in session
+            and "name" in request.form
+            and "email" in request.form
+            and "phone" in request.form
+        ):
+            name = request.form["name"]
+            email = request.form["email"]
+            phone = request.form["phone"]
+
+        subject = request.form["subject"]
+        message = request.form["message"]
+
+        if name and email and phone and subject and message:
+            # Logic for sending user feedback through email to feedback staff involves
+
+            msg = "We have received your message and will get in touch with you soon."
+        else:
+            msg = "Please make sure you filled out the form before you continue."
+    elif request.method == "POST":
+        msg = "Please make sure you filled out the form before you continue."
+
+    return render_template("contact.html", msg=msg)
 
 
 @app.route("/register", methods=["GET", "POST"])
