@@ -75,7 +75,7 @@
     {% if order.file_paths %}
         <p class="order-files"><b>Files Included:</b></p>
         {% for file in order.file_paths.split(',') %}
-            <div>
+            <div class="file-container">
                 {% if file.endswith(('.jpg', '.jpeg', '.png', '.gif', '.ico', 'avif', 'webp', 'bmp', 'tiff')) %}
                     <div class="image-modal" id="imageModal">
                         <span class="close-button" id="closeButton">&times;</span>

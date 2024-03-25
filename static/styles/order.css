@@ -165,6 +165,28 @@
 	cursor: pointer;
 }
 
+.order-box .zoom-button {
+	position: absolute;
+	margin-top: 128px;
+	margin-left: -43px;
+	background-color: transparent;
+	border: none;
+	transition: all 0.3s;
+}
+
+.order-box .zoom-button:hover {
+	transform: scale(1.2);
+}
+
+.order-box .zoom-button svg {
+	color: #6db6c0;
+	transition: all 0.3s;
+}
+
+.order-box .zoom-button:hover svg {
+	opacity: 80%;
+}
+
 .download-btn {
 	width: 48px;
 	height: 48px;
