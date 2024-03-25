@@ -127,6 +127,102 @@
 	margin-bottom: 20px;
 }
 
+.download-btn {
+	width: 48px;
+	height: 48px;
+	border: none;
+	border-radius: 50%;
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	position: relative;
+	transition-duration: 0.3s;
+	margin-inline: 20px;
+	background: linear-gradient(145deg, #cacaca, #f0f0f0);
+	box-shadow: 7px 7px 16px #c1c1c1, -7px -7px 16px #ffffff;
+}
+
+.download-svg {
+	fill: #6db6c0;
+}
+
+.download-icon {
+	width: 18px;
+	height: 5px;
+	border-bottom: 2px solid #6db6c0;
+	border-left: 2px solid #6db6c0;
+	border-right: 2px solid #6db6c0;
+}
+
+.tooltip {
+	position: absolute;
+	left: 140%;
+	opacity: 0;
+	background-color: rgb(12, 12, 12);
+	color: white;
+	padding: 5px 10px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition-duration: 0.2s;
+	pointer-events: none;
+	letter-spacing: 0.1px;
+	white-space: nowrap;
+	max-width: 200px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.tooltip::before {
+	position: absolute;
+	content: '';
+	width: 10px;
+	height: 10px;
+	background-color: rgb(12, 12, 12);
+	background-size: 1000%;
+	background-position: center;
+	transform: rotate(45deg);
+	left: -2.5px;
+	transition-duration: 0.3s;
+}
+
+.download-btn:hover .tooltip {
+	opacity: 1;
+	transition-duration: 0.3s;
+}
+
+.download-btn:hover {
+	background: linear-gradient(145deg, #6db6c0, #a5c6ca);
+	transition-duration: 0.3s;
+}
+
+.download-btn:hover .download-icon {
+	transition-duration: 0.2s;
+	border-bottom: 2px solid rgb(235, 235, 235);
+	border-left: 2px solid rgb(235, 235, 235);
+	border-right: 2px solid rgb(235, 235, 235);
+}
+
+.download-btn:hover .download-svg {
+	fill: rgb(255, 255, 255);
+	animation: slide-in-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-top {
+	0% {
+		transform: translateY(-10px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
 .order-box form .form-btn {
 	position: relative;
 	display: inline-block;

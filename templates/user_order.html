@@ -4,6 +4,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/order.css') }}">
+<script src="{{ url_for('static', filename='scripts/fileSize.js') }}" defer></script>
 {% endblock %}
 
 {% block body %}
@@ -80,7 +81,92 @@
         <br>
         <br>
         {% for file in order.file_paths.split(',') %}
-            <img src="{{ url_for('serve_file', filename=file) }}" width="300px" style="margin-bottom: 20px !important;">
+            {% if file.endswith(('.jpg', '.jpeg', '.png', '.gif', '.ico', 'avif', 'webp', 'bmp', 'tiff')) %}
+                <img src="{{ url_for('serve_file', filename=file) }}" class="order-image">
+                <a href="{{ url_for('serve_file', filename=file) }}" download>
+                    <button class="download-btn">
+                        <svg class="download-svg" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z">
+                            </path>
+                        </svg>
+                        <span class="download-icon"></span>
+                        <span class="tooltip" data-file="{{ url_for('serve_file', filename=file) }}"></span>
+                    </button>
+                </a>
+            {% elif file.endswith(('.pdf', '.docx', '.xlxs')) %}
+                <img src="{{ url_for('static', filename='images/placeholders/doc_file.png') }}" class="order-image">
+                <a href="{{ url_for('serve_file', filename=file) }}" download>
+                    <button class="download-btn">
+                        <svg class="download-svg" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z">
+                            </path>
+                        </svg>
+                        <span class="download-icon"></span>
+                        <span class="tooltip" data-file="{{ url_for('serve_file', filename=file) }}"></span>
+                    </button>
+                </a>
+            {% elif file.endswith(('.txt', '.rtf', 'csv', '.json', '.html', '.md')) %}
+                <img src="{{ url_for('static', filename='images/placeholders/text_file.png') }}" class="order-image">
+                <a href="{{ url_for('serve_file', filename=file) }}" download>
+                    <button class="download-btn">
+                        <svg class="download-svg" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z">
+                            </path>
+                        </svg>
+                        <span class="download-icon"></span>
+                        <span class="tooltip" data-file="{{ url_for('serve_file', filename=file) }}"></span>
+                    </button>
+                </a>
+            {% elif file.endswith('.mp4') %}
+                <img src="{{ url_for('static', filename='images/placeholders/video_file.png') }}" class="order-image">
+                <a href="{{ url_for('serve_file', filename=file) }}" download>
+                    <button class="download-btn">
+                        <svg class="download-svg" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z">
+                            </path>
+                        </svg>
+                        <span class="download-icon"></span>
+                        <span class="tooltip" data-file="{{ url_for('serve_file', filename=file) }}"></span>
+                    </button>
+                </a>
+            {% elif file.endswith('.mp3') %}
+                <img src="{{ url_for('static', filename='images/placeholders/audio_file.png') }}" class="order-image">
+                <a href="{{ url_for('serve_file', filename=file) }}" download>
+                    <button class="download-btn">
+                        <svg class="download-svg" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z">
+                            </path>
+                        </svg>
+                        <span class="download-icon"></span>
+                        <span class="tooltip" data-file="{{ url_for('serve_file', filename=file) }}"></span>
+                    </button>
+                </a>
+            {% elif file.endswith(('.zip', '.rar')) %}
+                <img src="{{ url_for('static', filename='images/placeholders/comp_file.png') }}" class="order-image">
+                <a href="{{ url_for('serve_file', filename=file) }}" download>
+                    <button class="download-btn">
+                        <svg class="download-svg" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z">
+                            </path>
+                        </svg>
+                        <span class="download-icon"></span>
+                        <span class="tooltip" data-file="{{ url_for('serve_file', filename=file) }}"></span>
+                    </button>
+                </a>
+            {% else %}
+                <img src="{{ url_for('static', filename='images/placeholders/generic_file.png') }}" class="order-image">
+                <a href="{{ url_for('serve_file', filename=file) }}" download>
+                    <button class="download-btn">
+                        <svg class="download-svg" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z">
+                            </path>
+                        </svg>
+                        <span class="download-icon"></span>
+                        <span class="tooltip" data-file="{{ url_for('serve_file', filename=file) }}"></span>
+                    </button>
+                </a>
+            {% endif %}
+
             {{ file.split('_', maxsplit=1)[-1] }}
             <br>
         {% endfor %}
