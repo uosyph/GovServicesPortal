@@ -8,6 +8,7 @@ from flask import (
     url_for,
     flash,
 )
+from sqlalchemy import func
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from markdown import markdown
@@ -42,7 +43,18 @@ def serve_file(filename):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    most_ordered_services = (
+        db.session.query(Service)
+        .join(Order, Service.id == Order.service_id)
+        .group_by(Service.id)
+        .order_by(func.count(Order.id).desc())
+        .limit(6)
+        .all()
+    )
+
+    return render_template(
+        "index.html", services=most_ordered_services, Department=Department
+    )
 
 
 @app.route("/contact_us", methods=["GET", "POST"])

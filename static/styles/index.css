@@ -1,0 +1,74 @@
+nav {
+	height: 400px;
+	background-color: #6db6c0;
+}
+
+nav .logo p {
+	font-size: 44px;
+	color: #ffffffad;
+	margin-top: 45px;
+}
+
+nav .logo p span {
+	font-size: 66px;
+	color: #fff;
+}
+
+nav li a {
+	color: #fff;
+}
+nav li a:hover {
+	color: #ffffffad;
+}
+
+nav li a svg {
+	fill: #fff;
+}
+
+nav li a svg:hover {
+	fill: #ffffffad;
+}
+
+.vr {
+	background: #ffffffad;
+}
+
+nav li .register_btn {
+	background: #fff;
+	color: #6db6c0;
+}
+
+.header-description {
+	color: #ffffffc0;
+	font-size: 44px;
+	font-weight: bold;
+	padding-left: 100px;
+	margin-top: -235px;
+	max-width: 50%;
+}
+
+.nav-menu {
+    margin-top: 110px;
+	margin-left: 100px;
+}
+
+.nav-menu .links li a {
+	font-weight: bold;
+	font-size: 22px;
+	color: #6db6c0;
+	transition: 0.3s ease;
+}
+
+.nav-menu .links li a:hover {
+	color: #62a1a8;
+}
+
+.nav-menu .links li {
+	font-size: 16px;
+	margin-bottom: 15px;
+	max-width: 80%;
+}
+
+.list_details {
+    margin-top: 80px;
+}

@@ -83,8 +83,10 @@
                         <li><a href="{{ url_for('services') }}">Services</a></li>
                         {% if session["loggedin"] == True: %}
                             {% if session["is_admin"] == False %}
+                                <li><a href="{{ url_for('new_order') }}">New Order</a></li>
                                 <li><a href="{{ url_for('my_orders') }}">My Orders</a></li>
                             {% elif session["is_admin"] == True %}
+                                <li><a href="{{ url_for('new') }}">New</a></li>
                                 <li><a href="{{ url_for('orders') }}">Orders</a></li>
                             {% endif %}
                             <li><a href="{{ url_for('profile', id=session['id']) }}">Profile</a></li>

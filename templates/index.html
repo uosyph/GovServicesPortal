@@ -4,10 +4,90 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/cards.css') }}">
 {% endblock %}
 
 {% block body %}
-<div class="container">
+<p class="header-description">Welcome to the best place to find government services and information.</p>
 
+<menu class="nav-menu">
+    <ul class="footer-links links">
+        <li>
+            <a href="{{ url_for('index') }}">&#8618; Home:</a>
+            Access essential government services conveniently from your home or office.
+        </li>
+        <li>
+            <a href="{{ url_for('departments') }}">&#8618; Departments:</a>
+            Discover various departments and their respective services.
+        </li>
+        <li>
+            <a href="{{ url_for('services') }}">&#8618; Services:</a>
+            Explore the array of services available for online access.
+        </li>
+        {% if session["loggedin"] == True: %}
+            {% if session["is_admin"] == False %}
+                <li>
+                    <a href="{{ url_for('new_order') }}">&#8618; New Order:</a>
+                    Initiate a new order for any service directly from our portal.
+                </li>
+                <li>
+                    <a href="{{ url_for('my_orders') }}">&#8618; My Orders:</a>
+                    View and manage your orders and transactions made through our portal.
+                </li>
+            {% elif session["is_admin"] == True %}
+                <li>
+                    <a href="{{ url_for('new') }}">&#8618; New:</a>
+                    Add a new department or service to expand the range of offerings available on the portal.
+                </li>
+                <li>
+                    <a href="{{ url_for('orders') }}">&#8618; Orders:</a>
+                    Access orders submitted by users for management and processing.
+                </li>
+            {% endif %}
+            <li>
+                <a href="{{ url_for('profile', id=session['id']) }}">&#8618; Profile:</a>
+                Access and update your profile information, ensuring accuracy in your interactions.
+            </li>
+            <li>
+                <a href="{{ url_for('account') }}">&#8618; Account Settings:</a>
+                Customize your account preferences and security settings.
+            </li>
+        {% else: %}
+            <li>
+                <a href="{{ url_for('register') }}">&#8618; Sign Up:</a>
+                Register for Government Services Portal.
+            </li>
+            <li>
+                <a href="{{ url_for('login') }}">&#8618; Login:</a>
+                Access your account to start utilizing our services.
+            </li>
+        {% endif %}
+        <li>
+            <a href="{{ url_for('contact') }}">&#8618; Contact Us:</a>
+            Reach out to our dedicated support team for assistance or inquiries.
+        </li>
+    </ul>
+</menu>
+
+<div class="list_details">
+    <h2 class="list_title">Popular Services</h2>
+</div>
+<div class="wrapper">
+    <ul class="cards">
+        {% for service in services %}
+            <a href="{{ url_for('service', id=service.id) }}">
+                <li>
+                    <div class="item_title">
+                        <h2>{{ service.title }}</h2>
+                        {% set department = Department.query.filter_by(id=service.department_id).first() %}
+                        {% if department %}
+                            <h4>{{ department.title }}</h4>
+                        {% endif %}
+                    </div>
+                    <p>{{ service.description }}</p>
+                </li>
+            </a>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}
