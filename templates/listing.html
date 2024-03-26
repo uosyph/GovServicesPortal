@@ -46,7 +46,7 @@
                 </svg>
             </a>
         {% endif %}
-    {% else %}
+    {% elif session['is_admin'] == True %}
         <a class="listing-btn warning {% if type == 'department' %} wt-department {% endif %}" href="{{ url_for('edit', item=type, id=item.id) }}">
             Edit this {{ type }}
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
