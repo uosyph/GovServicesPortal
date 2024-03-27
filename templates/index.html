@@ -69,25 +69,27 @@
     </ul>
 </menu>
 
-<div class="list_details">
-    <h2 class="list_title">Popular Services</h2>
-</div>
-<div class="wrapper">
-    <ul class="cards">
-        {% for service in services %}
-            <a href="{{ url_for('service', id=service.id) }}">
-                <li>
-                    <div class="item_title">
-                        <h2>{{ service.title }}</h2>
-                        {% set department = Department.query.filter_by(id=service.department_id).first() %}
-                        {% if department %}
-                            <h4>{{ department.title }}</h4>
-                        {% endif %}
-                    </div>
-                    <p>{{ service.description }}</p>
-                </li>
-            </a>
-        {% endfor %}
-    </ul>
-</div>
+{% if services %}
+    <div class="list_details">
+        <h2 class="list_title">Popular Services</h2>
+    </div>
+    <div class="wrapper">
+        <ul class="cards">
+            {% for service in services %}
+                <a href="{{ url_for('service', id=service.id) }}">
+                    <li>
+                        <div class="item_title">
+                            <h2>{{ service.title }}</h2>
+                            {% set department = Department.query.filter_by(id=service.department_id).first() %}
+                            {% if department %}
+                                <h4>{{ department.title }}</h4>
+                            {% endif %}
+                        </div>
+                        <p>{{ service.description }}</p>
+                    </li>
+                </a>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
 {% endblock %}

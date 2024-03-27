@@ -117,6 +117,10 @@ footer {
 	color: #2d3436;
 }
 
+footer * {
+	max-width: 900px;
+}
+
 footer hr {
 	border-top-color: #999999;
 	opacity: 0.5;

@@ -63,11 +63,13 @@
             {% endif %}
         </ul>
     </nav>
+
     {% block body %}{% endblock %}
+
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-md-7">
+                <div class="col-sm-12 col-md-8">
                     <h6>About</h6>
                     <p class="text-justify">
                         Government Services Online Portal is your trusted partner for accessing vital government services conveniently and securely. 
@@ -76,7 +78,7 @@
                         Begin exploring our comprehensive range of services today and discover a more efficient way to engage with government services.
                     </p>
                 </div>
-                <div class="col-xs-5 col-md-5 text-right quick-links">
+                <div class="col-xs-4 col-md-4 text-right quick-links">
                     <h6>Quick Links</h6>
                     <ul class="footer-links">
                         <li><a href="{{ url_for('departments') }}">Departments</a></li>
