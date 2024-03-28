@@ -48,7 +48,7 @@
             <label for="associated">Associated with a Department</label>
             <br>
             <select id="associated" name="associated">
-                <option value="none">This Service is not associated with a department</option>
+                <option value="none">This service is not associated with any department</option>
                 {% for department in departments %}
                     <option value="{{ department.id }}">{{ department.title }}</option>
                 {% endfor %}

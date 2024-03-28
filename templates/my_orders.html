@@ -9,7 +9,7 @@
 {% block body %}
 <div class="page_details">
     <h1 class="page_title">My Orders</h1>
-    <p class="page_description">All your orders will be listed here including the finished ones.</p>
+    <p class="page_description">View all your orders, including completed ones.</p>
 </div>
 
 {% if orders or done_orders %}
@@ -75,7 +75,7 @@
     {% endif %}
 {% else %}
     <div class="wrapper">
-        <h2 class="wrapper-title no-orders">You don't have any orders yet.</h2>
+        <h2 class="wrapper-title no-orders">You currently do not have any orders.</h2>
     </div>
 {% endif %}
 {% endblock %}

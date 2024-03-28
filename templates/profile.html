@@ -83,7 +83,7 @@
 
     {% if user.id == session["id"] %}
         <div class="redirect-box">
-            Want to edit your profile? <a href="{{ url_for('account') }}">Go here</a>.
+            Would you like to edit your profile? <a href="{{ url_for('account') }}">Click here</a> to access the profile editing page.
         </div>
 
         <form action="{{ url_for('logout') }}" method="post">

@@ -10,9 +10,9 @@
 {% block body %}
 <div class="account-box">
     <h2 class="account-title">Account Settings</h2>
-    <p class="account-description">Change your profile and account settings.</p>
+    <p class="account-description">Manage your profile and account preferences.</p>
     <a href="{{ url_for('profile', id=user.id) }}" class="profile-url">
-        Go to your profile
+        Visit your profile
         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24">
             <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
         </svg>
@@ -57,8 +57,8 @@
         </div>
         <div class="settings">
             <div class="settings-section" id="general">
-                <h2>Personal Info</h2>
-                <p>This is where you can customize personal info.</p>
+                <h2>Personal Information</h2>
+                <p>Customize your personal information.</p>
 
                 <form id="updateForm" action="{{ url_for('account') }}" method="post">
                     <input type="hidden" name="action" value="update_info">
@@ -88,7 +88,7 @@
             </div>
             <div class="settings-section" id="security">
                 <h2>Change Password</h2>
-                <p>This is where you can update your password.</p>
+                <p>Update your password securely.</p>
 
                 <form action="{{ url_for('account') }}" method="post">
                     <input type="hidden" name="action" value="update_password">
@@ -110,7 +110,7 @@
             </div>
             <div class="settings-section" id="privacy">
                 <h2>Delete Account</h2>
-                <p>This is where you can delete you account.</p>
+                <p>Permanently remove your account.</p>
 
                 <form action="{{ url_for('account') }}" method="post">
                     <input type="hidden" name="action" value="delete_account">
@@ -124,7 +124,6 @@
                     </p>
                     <input class="form-btn danger" type="submit" value="Delete Account">
                 </form>
-
             </div>
         </div>
     </div>

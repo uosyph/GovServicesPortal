@@ -111,13 +111,13 @@ def register():
         user = User.query.filter_by(id=id).first()
 
         if user:
-            msg = "User already registered with that ID."
+            msg = "A user is already registered with that ID."
         elif len(id) != 14 or not id.isdigit():
-            msg = "Incorrect ID entered."
+            msg = "Incorrect ID format entered."
         elif len(password) < 6 or len(password) > 28:
-            msg = "Your password needs to be between 6 and 28 letters long."
+            msg = "Your password must be between 6 and 28 characters long."
         elif confirm_password != password:
-            msg = "Your passwords don't match! Try typing them again."
+            msg = "Your passwords do not match. Please try again."
         elif (
             not id
             or not password
@@ -127,7 +127,7 @@ def register():
             or not email
             or not address
         ):
-            msg = "It looks like you forgot to fill out a few fields."
+            msg = "Please fill out all required fields."
         else:
             hashed_password = generate_password_hash(password)
             new_user = User(
@@ -150,7 +150,7 @@ def register():
 
             return redirect(url_for("index"))
     elif request.method == "POST":
-        msg = "Please make sure you filled out the form before you continue."
+        msg = "Please ensure you have filled out the form before continuing."
 
     return render_template("register.html", msg=msg)
 
@@ -194,22 +194,22 @@ def login():
 
         user = User.query.filter_by(id=id).first()
         if not user:
-            msg = "Account not found!"
+            msg = "An account with the provided credentials was not found."
         elif not id or not password:
-            msg = "Please fill out the form."
+            msg = "Please fill out all required fields."
         elif user:
             if check_password_hash(user.password, password):
                 session["loggedin"] = True
                 session["id"] = user.id
                 session["is_admin"] = user.is_admin
-                msg = "You're logged in successfully."
+                msg = "Login successful."
 
                 return redirect(url_for("index"))
             else:
-                msg = "Wrong password! Try again?"
+                msg = "Incorrect password. Please try again."
 
     elif request.method == "POST":
-        msg = "Please make sure you filled out the form before you continue."
+        msg = "Please ensure you have filled out the form before continuing."
 
     return render_template("login.html", msg=msg)
 
@@ -265,7 +265,7 @@ def account():
         user.address = request.form["address"]
         db.session.commit()
 
-        msg = "Your account information has been successfully updated."
+        msg = "Your account information has been updated successfully."
     elif (
         request.method == "POST"
         and "old_password" in request.form
@@ -279,19 +279,19 @@ def account():
 
         if check_password_hash(user.password, old_password):
             if len(new_password) < 6 or len(new_password) > 28:
-                msg = "Your password must be between 6 and 28 letters. Try again."
+                msg = "Your password must be between 6 and 28 characters long."
             elif confirm_password != new_password:
-                msg = "Your passwords don't match. Try again."
+                msg = "Passwords do not match. Please try again."
             elif new_password == old_password:
-                msg = "You can't change your password to the same one you already have."
+                msg = "You cannot change your password to the same one you already have."
             else:
                 hashed_password = generate_password_hash(new_password)
                 user.password = hashed_password
                 db.session.commit()
 
-                msg = "Your password has been successfully updated."
+                msg = "Password updated successfully."
         else:
-            msg = "Wrong password entered, please try again."
+            msg = "Incorrect password entered. Please try again."
     elif (
         request.method == "POST"
         and "password" in request.form
@@ -303,10 +303,10 @@ def account():
 
             return logout()
         else:
-            msg = "Wrong password entered, please try again."
+            msg = "Incorrect password entered. Please try again."
 
     elif request.method == "POST":
-        msg = "Please make sure you filled out the form before you continue."
+        msg = "Please ensure you have filled out the form before continuing."
 
     return render_template("account.html", user=user, msg=msg)
 
@@ -340,7 +340,7 @@ def new():
             or Service.query.filter_by(title=title).first()
         )
         if existing:
-            msg = f"A Service or Department already exists with the same name."
+            msg = "A service or department with the same name already exists."
         elif type_of == "Department":
             new = Department(
                 title=title,
@@ -350,7 +350,7 @@ def new():
             db.session.add(new)
             db.session.commit()
 
-            flash("Department was created successfully.", "success")
+            flash("Department created successfully.", "success")
             return redirect(url_for("department", id=new.id))
         elif type_of == "Service":
             department = Department.query.filter_by(id=associated_with).first()
@@ -371,10 +371,10 @@ def new():
             db.session.add(new)
             db.session.commit()
 
-            flash("Service was created successfully.", "success")
+            flash("Service created successfully.", "success")
             return redirect(url_for("service", id=new.id))
     elif request.method == "POST":
-        msg = "Please make sure you filled out the form before you continue."
+        msg = "Please ensure you have filled out the form before continuing."
 
     return render_template(
         "new.html", departments=departments, recommend=recommend, msg=msg
@@ -408,7 +408,7 @@ def edit():
         item.readme = request.form["readme"]
         db.session.commit()
 
-        flash(f"{item_type.capitalize()} has been successfully updated.", "success")
+        flash(f"{item_type.capitalize()} updated successfully.", "success")
         return redirect(url_for("edit", item=item_type, id=item_id))
     elif request.method == "POST" and request.form["action"] == "delete_item":
         db.session.delete(item)
@@ -417,7 +417,7 @@ def edit():
         return redirect(url_for("index"))
     elif request.method == "POST":
         flash(
-            "Please make sure you filled out the form before you continue.", "failure"
+            "Please ensure you have filled out the form before continuing.", "failure"
         )
 
     return render_template("edit.html", item_type=item_type, item=item)
@@ -429,7 +429,7 @@ def departments():
     return render_template(
         "list.html",
         list_title="Departments",
-        list_description="You may select a department to access further details or view its services.",
+        list_description="You can select a department to access more details or view its services.",
         path="department",
         items=departments,
     )
@@ -461,7 +461,7 @@ def department_services(id):
     return render_template(
         "list.html",
         list_title=f"{department.title} Services",
-        list_description="You may select a service to access additional details or place an order.",
+        list_description="You can select a service to access additional details or place an order.",
         path="service",
         items=services,
     )
@@ -473,7 +473,7 @@ def services():
     return render_template(
         "list.html",
         list_title="Services",
-        list_description="You may select a service to access additional details or place an order.",
+        list_description="You can select a service to access additional details or place an order.",
         item_type="all_services",
         path="service",
         items=services,
@@ -501,7 +501,7 @@ def search():
     search_query = request.args.get("query")
     item = request.args.get("item") if request.args.get("item") else "all"
     msg = ""
-    search_title = "Search for a Department or a Service"
+    search_title = "Search for a Department or Service"
     search_placeholder = "Search departments and services..."
     departments = None
     services = None
@@ -517,7 +517,7 @@ def search():
             ).all()
 
             if not departments and item != "all":
-                msg = "No departments found."
+                msg = "No departments found were found."
 
         if item == "service" or item == "all":
             services = Service.query.filter(
@@ -525,10 +525,10 @@ def search():
             ).all()
 
             if not services and item != "all":
-                msg = "No services found."
+                msg = "No services found were found."
 
         if item == "all" and not departments and not services:
-            msg = "No departments or services found."
+            msg = "No departments or services were found."
 
     return render_template(
         "search.html",
@@ -576,11 +576,11 @@ def new_order():
         db.session.add(new_order)
         db.session.commit()
 
-        flash("Order was created successfully.", "success")
+        flash("Order created successfully.", "success")
         return redirect(url_for("order", id=new_order.id))
 
     elif request.method == "POST":
-        msg = "Please make sure you filled out the form before you continue."
+        msg = "Please ensure you have filled out the form before continuing."
 
     return render_template(
         "new_order.html",
@@ -669,7 +669,7 @@ def user_order(id):
         db.session.commit()
 
         flash(
-            f"Order was successfully marked as Done.",
+            "Order marked as done successfully.",
             "success",
         )
     elif request.method == "POST" and request.form["action"] == "delete_order":
@@ -677,7 +677,7 @@ def user_order(id):
         db.session.commit()
 
         flash(
-            f"Order with Reference Number <span class='attention-order-id'>{order.id}</span> was deleted successfully.",
+            "Order with Reference Number <span class='attention-order-id'>{order.id}</span> was deleted successfully.",
             "success",
         )
         return redirect(url_for("orders"))
@@ -724,11 +724,11 @@ def contact():
         if name and email and phone and subject and message:
             # Logic for sending user feedback through email to feedback staff involves
 
-            msg = "We have received your message and will get in touch with you soon."
+            msg = "We have received your message and will get in touch with you shortly."
         else:
-            msg = "Please make sure you filled out the form before you continue."
+            msg = "Please ensure you have filled out the form before continuing."
     elif request.method == "POST":
-        msg = "Please make sure you filled out the form before you continue."
+        msg = "Please ensure you have filled out the form before continuing."
 
     return render_template("contact.html", msg=msg)
 
