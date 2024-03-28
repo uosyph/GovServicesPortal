@@ -47,6 +47,12 @@ nav li .register_btn {
 	max-width: 58%;
 }
 
+@media (max-width: 1400px) {
+	.header-description {
+		max-width: 65%;
+	}
+}
+
 .steps-container {
 	display: flex;
 	justify-content: space-between;
