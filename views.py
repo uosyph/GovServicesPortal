@@ -12,7 +12,7 @@ from sqlalchemy import func
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from markdown import markdown
-from datetime import datetime
+from datetime import datetime, timedelta
 from humanize import naturaltime
 from uuid import uuid4
 from os import path
@@ -52,8 +52,28 @@ def index():
         .all()
     )
 
+    end_date = datetime.now()
+    start_date = end_date - timedelta(days=7)
+
+    total_orders = Order.query.count()
+    orders_last_week = Order.query.filter(
+        Order.start_date
+        >= start_date.replace(hour=0, minute=0, second=0, microsecond=0),
+        Order.start_date < end_date.replace(hour=0, minute=0, second=0, microsecond=0),
+    ).count()
+    total_users = User.query.count()
+    total_services = Service.query.count()
+    total_department = Department.query.count()
+
     return render_template(
-        "index.html", services=most_ordered_services, Department=Department
+        "index.html",
+        services=most_ordered_services,
+        Department=Department,
+        total_orders=total_orders,
+        orders_yesterday=orders_last_week,
+        total_users=total_users,
+        total_services=total_services,
+        total_department=total_department,
     )
 
 

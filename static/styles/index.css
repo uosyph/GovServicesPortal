@@ -47,9 +47,65 @@ nav li .register_btn {
 	max-width: 50%;
 }
 
+.steps-container {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 150px;
+	padding-inline: 150px;
+	padding-block: 100px;
+	background-color: #6db6c094;
+}
+
+.steps-container .arrow svg {
+	margin-top: 20px;
+	margin-left: -80px;
+	width: 200px;
+	color: #fff;
+}
+
+.steps-container .item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.steps-container .icon {
+	width: 60px;
+	height: 60px;
+	color: #333333e1;
+}
+
+.steps-container .arrow {
+	width: 30px;
+	height: auto;
+}
+
+.steps-container .text {
+	text-align: center;
+	font-size: 16px;
+	color: #333;
+	margin-top: 50px;
+	width: 70%;
+}
+
+.steps-container .text b {
+	font-size: 18px;
+}
+
+.steps-container .text br {
+	margin-bottom: 10px;
+}
+
 .nav-menu {
-    margin-top: 110px;
+	margin-top: 90px;
 	margin-left: 100px;
+	margin-bottom: 75px;
+}
+
+.nav-menu .title {
+	margin-bottom: 30px;
+	letter-spacing: 0.5px;
+	color: #333333e2;
 }
 
 .nav-menu .links li a {
@@ -70,5 +126,32 @@ nav li .register_btn {
 }
 
 .list_details {
-    margin-top: 80px;
+	margin-top: 40px;
+}
+
+.now-title {
+	text-align: center;
+	margin-top: 200px;
+	margin-bottom: 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.now-container {
+	display: flex;
+	justify-content: space-between;
+	margin-inline: 200px;
+	margin-bottom: 100px;
+}
+
+.now-card {
+	width: calc(25% - 20px);
+	padding: 20px;
+	background-color: #f0f0f0;
+	border-radius: 14px;
+	box-shadow: 10px 10px 40px #c3c3c3, -10px -10px 40px #fdfdfd;
+}
+
+.now-card h2 {
+	color: #6db6c0;
 }
