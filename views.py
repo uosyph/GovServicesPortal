@@ -57,46 +57,6 @@ def index():
     )
 
 
-@app.route("/contact_us", methods=["GET", "POST"])
-def contact():
-    msg = ""
-
-    if (
-        request.method == "POST"
-        and "subject" in request.form
-        and "message" in request.form
-    ):
-        if "loggedin" in session:
-            user = User.query.filter_by(id=session["id"]).first()
-
-            name = user.name
-            email = user.email
-            phone = user.phone
-        elif (
-            "loggedin" not in session
-            and "name" in request.form
-            and "email" in request.form
-            and "phone" in request.form
-        ):
-            name = request.form["name"]
-            email = request.form["email"]
-            phone = request.form["phone"]
-
-        subject = request.form["subject"]
-        message = request.form["message"]
-
-        if name and email and phone and subject and message:
-            # Logic for sending user feedback through email to feedback staff involves
-
-            msg = "We have received your message and will get in touch with you soon."
-        else:
-            msg = "Please make sure you filled out the form before you continue."
-    elif request.method == "POST":
-        msg = "Please make sure you filled out the form before you continue."
-
-    return render_template("contact.html", msg=msg)
-
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """
@@ -516,6 +476,52 @@ def service(id):
     )
 
 
+@app.route("/search")
+def search():
+    search_query = request.args.get("query")
+    item = request.args.get("item") if request.args.get("item") else "all"
+    msg = ""
+    search_title = "Search for a Department or a Service"
+    search_placeholder = "Search departments and services..."
+    departments = None
+    services = None
+
+    if search_query:
+        if item == "department" or item == "service":
+            search_title = f"Search for a {item}"
+            search_placeholder = f"Search {item}s..."
+
+        if item == "department" or item == "all":
+            departments = Department.query.filter(
+                Department.title.ilike(f"%{search_query}%")
+            ).all()
+
+            if not departments and item != "all":
+                msg = "No departments found."
+
+        if item == "service" or item == "all":
+            services = Service.query.filter(
+                Service.title.ilike(f"%{search_query}%")
+            ).all()
+
+            if not services and item != "all":
+                msg = "No services found."
+
+        if item == "all" and not departments and not services:
+            msg = "No departments or services found."
+
+    return render_template(
+        "search.html",
+        search_title=search_title,
+        search_placeholder=search_placeholder,
+        search_query=search_query,
+        msg=msg,
+        departments=departments,
+        services=services,
+        Department=Department,
+    )
+
+
 @app.route("/new_order", methods=["GET", "POST"])
 def new_order():
     if "loggedin" not in session:
@@ -665,6 +671,46 @@ def user_order(id):
         strptime=datetime.strptime,
         str=str,
     )
+
+
+@app.route("/contact_us", methods=["GET", "POST"])
+def contact():
+    msg = ""
+
+    if (
+        request.method == "POST"
+        and "subject" in request.form
+        and "message" in request.form
+    ):
+        if "loggedin" in session:
+            user = User.query.filter_by(id=session["id"]).first()
+
+            name = user.name
+            email = user.email
+            phone = user.phone
+        elif (
+            "loggedin" not in session
+            and "name" in request.form
+            and "email" in request.form
+            and "phone" in request.form
+        ):
+            name = request.form["name"]
+            email = request.form["email"]
+            phone = request.form["phone"]
+
+        subject = request.form["subject"]
+        message = request.form["message"]
+
+        if name and email and phone and subject and message:
+            # Logic for sending user feedback through email to feedback staff involves
+
+            msg = "We have received your message and will get in touch with you soon."
+        else:
+            msg = "Please make sure you filled out the form before you continue."
+    elif request.method == "POST":
+        msg = "Please make sure you filled out the form before you continue."
+
+    return render_template("contact.html", msg=msg)
 
 
 @app.errorhandler(401)

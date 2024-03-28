@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if search_query %} {{ search_query }} {% else %} Search... {% endif %} | GSP
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/cards.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/search.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="search-container" {% if not search_query %} style="margin-top: 120px; margin-bottom: 250px;" {% endif %}>
+    <h2 class="search-title">{{ search_title }}</h2>
+    <form action="{{ url_for('search') }}" method="get" class="search-form">
+        <div class="searchBox">
+            <input type="text" name="item" value="{% if request.args.get('item') %}{{ request.args.get('item') }}{% else %}all{% endif %}" hidden>
+            <input type="text" name="query" placeholder="{{ search_placeholder }}" class="searchInput">
+            <button type="submit" class="searchButton">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256">
+                    <path fill="currentColor" d="M232.49 215.51L185 168a92.12 92.12 0 1 0-17 17l47.53 47.54a12 12 0 0 0 17-17ZM44 112a68 68 0 1 1 68 68a68.07 68.07 0 0 1-68-68"/>
+                </svg>
+            </button>
+        </div>
+    </form>
+</div>
+
+{% if msg: %}<h1 class="msg">{{ msg }}</h1>{% endif %}
+
+{% if departments %}
+    <div class="list_details">
+        <h1 class="list_title">Departments</h1>
+        <p class="list_description">All departments that match your search.</p>
+    </div>
+
+    <div class="wrapper">
+        <ul class="cards">
+            {% for department in departments %}
+                <a href="{{ url_for('department', id=department.id) }}">
+                    <li>
+                        <div class="item_title">
+                            <h2>{{ department.title }}</h2>
+                        </div>
+                        <p>{{ department.description }}</p>
+                    </li>
+                </a>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+{% if services %}
+    <div class="list_details">
+        <h1 class="list_title">Services</h1>
+        <p class="list_description">All services that match your search.</p>
+    </div>
+
+    <div class="wrapper">
+        <ul class="cards">
+            {% for service in services %}
+                <a href="{{ url_for('service', id=service.id) }}">
+                    <li>
+                        <div class="item_title">
+                            <h2>{{ service.title }}</h2>
+                            {% set department = Department.query.filter_by(id=service.department_id).first() %}
+                            {% if department %}
+                                <h4>{{ department.title }}</h4>
+                            {% endif %}
+                        </div>
+                        <p>{{ service.description }}</p>
+                    </li>
+                </a>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+{% endblock %}
