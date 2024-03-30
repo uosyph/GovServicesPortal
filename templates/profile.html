@@ -86,7 +86,7 @@
             Would you like to edit your profile? <a href="{{ url_for('account') }}">Click here</a> to access the profile editing page.
         </div>
 
-        <form action="{{ url_for('logout') }}" method="post">
+        <form action="{{ url_for('profile', id=user.id) }}" method="post">
             <input type="hidden" name="action" value="logout">
             <input class="form-btn" type="submit" value="Logout">
         </form>

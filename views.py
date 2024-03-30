@@ -262,7 +262,7 @@ def logout():
     return redirect(url_for("index"))
 
 
-@app.route("/profile/<id>")
+@app.route("/profile/<id>", methods=["GET", "POST"])
 def profile(id):
     """
     Render user profile page.
@@ -279,6 +279,9 @@ def profile(id):
     elif id == session["id"] or session["is_admin"] == True:
         viewer = "current_user" if session["id"] == id else "admin"
         user = User.query.filter_by(id=id).first()
+
+        if request.method == "POST" and request.form["action"] == "logout":
+            return logout()
 
         return render_template("profile.html", user=user, viewer=viewer)
     else:
