@@ -13,6 +13,7 @@ Note: This project is a simulation created for educational purposes and is not a
 ## Table of Contents
 
 - [Features](#features)
+- [Technical Stack](#technical-stack)
 - [Acknowledgement](#acknowledgement)
 - [Contributing](#contributing)
 - [License](#license)
@@ -60,6 +61,26 @@ Note: This project is a simulation created for educational purposes and is not a
 
 These features collectively provide a comprehensive platform for users to access government services conveniently and securely,
 while administrators can manage various aspects of the system.
+
+## Technical Stack
+
+- **Python**: Used as the primary programming language for backend development.
+  
+- **Flask**: Utilized as the web framework for building the application's backend.
+
+- **SQLAlchemy**: Integrated for database management and interaction with the relational database.
+
+- **MySQL**: Employed as the database management system for storing application data.
+
+- **HTML/CSS/JavaScript**: Utilized for frontend development to create the user interface and enhance user experience.
+
+- **Jinja**: Integrated for template rendering within Flask for dynamic content generation.
+
+- **Bootstrap**: Utilized for frontend styling and layout design to ensure responsiveness and consistency.
+
+- **Gunicorn**: Utilized as the WSGI HTTP server for serving the Flask application in production.
+
+This technical stack represents the tools and technologies employed in the development and deployment of the Government Services Online Portal.
 
 ## Acknowledgement
 
