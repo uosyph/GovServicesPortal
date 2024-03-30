@@ -1,3 +1,18 @@
+"""
+This module contains the view functions for handling HTTP requests and rendering HTML templates for the web application.
+
+These functions define the behavior of various routes in the application,
+including user authentication, account management, department and service management,
+order handling, and contact form submission.
+
+Each function serves a specific route defined in the Flask application, processing incoming requests,
+performing necessary database operations, and rendering corresponding HTML templates to provide users with a dynamic web experience.
+
+For more details on each function, refer to their respective docstrings.
+
+Author: Yousef Saeed
+"""
+
 from flask import (
     abort,
     request,
@@ -38,11 +53,28 @@ def clear_trailing():
 
 @app.route("/files/<path:filename>")
 def serve_file(filename):
+    """
+    Serve files from the upload directory.
+
+    Args:
+        filename (str): The name of the file to be served.
+
+    Returns:
+        send_from_directory: Sends the file from the upload directory.
+    """
+
     return send_from_directory(app.config["UPLOAD_DIRECTORY"], filename)
 
 
 @app.route("/")
 def index():
+    """
+    Render the index page with relevant data.
+
+    Returns:
+        render_template: Renders the index.html template with relevant data.
+    """
+
     most_ordered_services = (
         db.session.query(Service)
         .join(Order, Service.id == Order.service_id)
@@ -232,6 +264,16 @@ def logout():
 
 @app.route("/profile/<id>")
 def profile(id):
+    """
+    Render user profile page.
+
+    Args:
+        id (str): The ID of the user.
+
+    Returns:
+        render_template: Renders the profile.html template with relevant data.
+    """
+
     if "loggedin" not in session:
         abort(403)
     elif id == session["id"] or session["is_admin"] == True:
@@ -245,6 +287,15 @@ def profile(id):
 
 @app.route("/account", methods=["GET", "POST"])
 def account():
+    """
+    Handle user account information management.
+
+    This function handles updating user information and password, as well as deleting user account.
+
+    Returns:
+        render_template: Renders the account.html template with relevant data.
+    """
+
     if "loggedin" not in session:
         abort(401)
 
@@ -283,7 +334,9 @@ def account():
             elif confirm_password != new_password:
                 msg = "Passwords do not match. Please try again."
             elif new_password == old_password:
-                msg = "You cannot change your password to the same one you already have."
+                msg = (
+                    "You cannot change your password to the same one you already have."
+                )
             else:
                 hashed_password = generate_password_hash(new_password)
                 user.password = hashed_password
@@ -313,6 +366,15 @@ def account():
 
 @app.route("/new", methods=["GET", "POST"])
 def new():
+    """
+    Handle creation of new departments or services.
+
+    This function handles the creation of new departments or services by admin users.
+
+    Returns:
+        render_template: Renders the new.html template with relevant data.
+    """
+
     if "loggedin" not in session or session["is_admin"] == False:
         abort(403)
 
@@ -383,6 +445,15 @@ def new():
 
 @app.route("/edit", methods=["GET", "POST"])
 def edit():
+    """
+    Handle editing of existing departments or services.
+
+    This function handles editing existing departments or services by admin users.
+
+    Returns:
+        render_template: Renders the edit.html template with relevant data.
+    """
+
     if "loggedin" not in session or session["is_admin"] == False:
         abort(403)
 
@@ -425,6 +496,13 @@ def edit():
 
 @app.route("/departments")
 def departments():
+    """
+    Render the departments page with a list of all departments.
+
+    Returns:
+        render_template: Renders the list.html template with relevant data.
+    """
+
     departments = Department.query.all()
     return render_template(
         "list.html",
@@ -437,6 +515,16 @@ def departments():
 
 @app.route("/departments/<id>")
 def department(id):
+    """
+    Render the details of a specific department.
+
+    Args:
+        id (str): The ID of the department to be rendered.
+
+    Returns:
+        render_template: Renders the listing.html template with relevant data.
+    """
+
     department = Department.query.filter_by(id=id).first()
     if not department:
         abort(404)
@@ -453,6 +541,16 @@ def department(id):
 
 @app.route("/departments/<id>/services")
 def department_services(id):
+    """
+    Render the services of a specific department.
+
+    Args:
+        id (str): The ID of the department.
+
+    Returns:
+        render_template: Renders the list.html template with relevant data.
+    """
+
     department = Department.query.filter_by(id=id).first()
     if not department:
         abort(404)
@@ -469,6 +567,13 @@ def department_services(id):
 
 @app.route("/services")
 def services():
+    """
+    Render the services page with a list of all services.
+
+    Returns:
+        render_template: Renders the list.html template with relevant data.
+    """
+
     services = Service.query.all()
     return render_template(
         "list.html",
@@ -483,6 +588,16 @@ def services():
 
 @app.route("/services/<id>")
 def service(id):
+    """
+    Render the details of a specific service.
+
+    Args:
+        id (str): The ID of the service to be rendered.
+
+    Returns:
+        render_template: Renders the listing.html template with relevant data.
+    """
+
     service = Service.query.filter_by(id=id).first()
     if not service:
         abort(404)
@@ -498,6 +613,13 @@ def service(id):
 
 @app.route("/search")
 def search():
+    """
+    Handle search functionality for departments and services.
+
+    Returns:
+        render_template: Renders the search.html template with relevant data.
+    """
+
     search_query = request.args.get("query")
     item = request.args.get("item") if request.args.get("item") else "all"
     msg = ""
@@ -544,6 +666,13 @@ def search():
 
 @app.route("/new_order", methods=["GET", "POST"])
 def new_order():
+    """
+    Handle creation of a new order.
+
+    Returns:
+        render_template: Renders the new_order.html template with relevant data.
+    """
+
     if "loggedin" not in session:
         abort(401)
     if session["is_admin"] == True:
@@ -593,6 +722,13 @@ def new_order():
 
 @app.route("/my_orders")
 def my_orders():
+    """
+    Render the orders page with a list of user's orders.
+
+    Returns:
+        render_template: Renders the my_orders.html template with relevant data.
+    """
+
     if "loggedin" not in session:
         abort(401)
     elif session["is_admin"] == True:
@@ -615,6 +751,16 @@ def my_orders():
 
 @app.route("/my_orders/<id>", methods=["GET", "POST"])
 def order(id):
+    """
+    Render the details of a specific order.
+
+    Args:
+        id (str): The ID of the order to be rendered.
+
+    Returns:
+        render_template: Renders the order.html template with relevant data.
+    """
+
     order = Order.query.filter_by(id=id).first()
     if not order:
         abort(404)
@@ -640,6 +786,13 @@ def order(id):
 
 @app.route("/orders")
 def orders():
+    """
+    Render the orders page with a list of all active orders.
+
+    Returns:
+        render_template: Renders the orders.html template with relevant data.
+    """
+
     if "loggedin" not in session or session["is_admin"] == False:
         abort(403)
 
@@ -657,6 +810,16 @@ def orders():
 
 @app.route("/orders/<id>", methods=["GET", "POST"])
 def user_order(id):
+    """
+    Render the details of a specific user order.
+
+    Args:
+        id (str): The ID of the order to be rendered.
+
+    Returns:
+        render_template: Renders the user_order.html template with relevant data.
+    """
+
     order = Order.query.filter_by(id=id).first()
     if not order:
         abort(404)
@@ -695,6 +858,13 @@ def user_order(id):
 
 @app.route("/contact_us", methods=["GET", "POST"])
 def contact():
+    """
+    Handle the contact us page.
+
+    Returns:
+        render_template: Renders the contact.html template with relevant data.
+    """
+
     msg = ""
 
     if (
@@ -724,7 +894,9 @@ def contact():
         if name and email and phone and subject and message:
             # Logic for sending user feedback through email to feedback staff involves
 
-            msg = "We have received your message and will get in touch with you shortly."
+            msg = (
+                "We have received your message and will get in touch with you shortly."
+            )
         else:
             msg = "Please ensure you have filled out the form before continuing."
     elif request.method == "POST":
