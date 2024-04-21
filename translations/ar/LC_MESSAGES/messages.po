@@ -1,9 +1,4 @@
-# Arabic translations for GovServicesPortal.
-# Copyright (C) 2024 ORGANIZATION
-# This file is distributed under the same license as the GovServicesPortal
-# project.
-# Yousef Saeed <uosyph@gmail.com>, 2024.
-#
+
 msgid ""
 msgstr ""
 "Project-Id-Version: GovServicesPortal v1\n"
@@ -21,10 +16,6 @@ msgstr ""
 "Generated-By: Babel 2.14.0\n"
 
 #: views.py
-msgid ""
-msgstr ""
-
-#: templates/base.html
 msgid ""
 msgstr ""
 

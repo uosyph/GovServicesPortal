@@ -21,7 +21,3 @@ msgstr ""
 msgid ""
 msgstr ""
 
-#: templates/base.html
-msgid ""
-msgstr ""
-
