@@ -123,3 +123,22 @@ msgstr ""
 msgid "FillFormError"
 msgstr ""
 
+#: templates/404.html
+msgid "NotFoundMessage"
+msgstr ""
+
+msgid "NotFoundReason"
+msgstr ""
+
+msgid "CheckURL"
+msgstr ""
+
+msgid "ContactSupport"
+msgstr ""
+
+msgid "ThankYou"
+msgstr ""
+
+msgid "ReturnHome"
+msgstr ""
+

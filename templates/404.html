@@ -10,12 +10,12 @@
 <div class="container">
     <h2>404</h2>
     <p>
-        The page you are attempting to access could not be found.<br>
-        It may have been removed, renamed, or is temporarily unavailable.<br><br>
-        Please check the URL for any errors or return to the homepage to continue browsing.<br><br>
-        If you believe you have reached this page in error or require further assistance, please contact our support team.<br><br>
-        Thank you for your patience and understanding.
+        {{ _('NotFoundMessage') }}<br>
+        {{ _('NotFoundReason') }}<br><br>
+        {{ _('CheckURL') }}<br><br>
+        {{ _('ContactSupport') }}<br><br>
+        {{ _('ThankYou') }}
     </p>
-    <a href="{{ url_for('index') }}">Return Home</a>
+    <a href="{{ url_for('index') }}">{{ _('ReturnHome') }}</a>
 </div>
 {% endblock %}

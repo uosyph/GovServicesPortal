@@ -114,3 +114,26 @@ msgstr ""
 msgid "FeedbackReceivedSuccess"
 msgstr ".لقد تم استلام رسالتك وسيتم التواصل معك قريبًا"
 
+#: templates/404.html
+msgid "NotFoundMessage"
+msgstr ".الصفحة التي تحاول الوصول إليها غير موجودة"
+
+msgid "NotFoundReason"
+msgstr ".ربما قد تمت إزالتها، أو تغيير اسمها، أو أنها غير متاحة مؤقتًا"
+
+msgid "CheckURL"
+msgstr ""
+"يرجى التحقق من الرابط لأي أخطاء أو العودة إلى الصفحة الرئيسية للاستمرار "
+".في التصفح"
+
+msgid "ContactSupport"
+msgstr ""
+"إذا كنت تعتقد أنك وصلت إلى هذه الصفحة عن طريق الخطأ أو تحتاج إلى مساعدة "
+".إضافية، يرجى التواصل مع فريق الدعم لدينا"
+
+msgid "ThankYou"
+msgstr ".شكرًا لتفهمك"
+
+msgid "ReturnHome"
+msgstr "العودة إلى الصفحة الرئيسية"
+

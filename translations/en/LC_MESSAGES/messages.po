@@ -113,3 +113,26 @@ msgstr ""
 msgid "FeedbackReceivedSuccess"
 msgstr "We have received your message and will get in touch with you shortly."
 
+#: templates/404.html
+msgid "NotFoundMessage"
+msgstr "The page you are attempting to access could not be found."
+
+msgid "NotFoundReason"
+msgstr "It may have been removed, renamed, or is temporarily unavailable."
+
+msgid "CheckURL"
+msgstr ""
+"Please check the URL for any errors or return to the homepage to continue"
+" browsing."
+
+msgid "ContactSupport"
+msgstr ""
+"If you believe you have reached this page in error or require further "
+"assistance, please contact our support team."
+
+msgid "ThankYou"
+msgstr "Thank you for your patience and understanding."
+
+msgid "ReturnHome"
+msgstr "Return Home"
+
