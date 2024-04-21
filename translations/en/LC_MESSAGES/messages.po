@@ -15,6 +15,101 @@ msgstr ""
 "Generated-By: Babel 2.14.0\n"
 
 #: views.py
-msgid ""
+msgid "UserAlreadyExists"
+msgstr "A user is already registered with that ID."
+
+msgid "IncorrectIDFormat"
+msgstr "Incorrect ID format entered."
+
+msgid "InvalidPasswordLength"
+msgstr "Your password must be between 6 and 28 characters long."
+
+msgid "PasswordsDoNotMatch"
+msgstr "Your passwords do not match. Please try again."
+
+msgid "EmptyFields"
+msgstr "Please fill out all required fields."
+
+msgid "AccountCreated"
+msgstr "Your account has been successfully created."
+
+msgid "AccountNotFound"
+msgstr "An account with the provided credentials was not found."
+
+msgid "FillForm"
+msgstr "Please ensure you have filled out the form before continuing."
+
+msgid "LoginSuccess"
+msgstr "Login successful."
+
+msgid "IncorrectPassword"
+msgstr "Incorrect password. Please try again."
+
+msgid "AccountInfoUpdated"
+msgstr "Your account information has been updated successfully."
+
+msgid "PasswordLengthError"
+msgstr "Your password must be between 6 and 28 characters long."
+
+msgid "PasswordsDoNotMatchError"
+msgstr "Passwords do not match. Please try again."
+
+msgid "SamePasswordError"
+msgstr "You cannot change your password to the same one you already have."
+
+msgid "PasswordUpdated"
+msgstr "Password updated successfully."
+
+msgid "IncorrectPasswordError"
+msgstr "Incorrect password entered. Please try again."
+
+msgid "FillFormError"
+msgstr "Please ensure you have filled out the form before continuing."
+
+msgid "DuplicateNameError"
+msgstr "A service or department with the same name already exists."
+
+msgid "DepartmentCreated"
+msgstr "Department created successfully."
+
+msgid "ServiceCreated"
+msgstr "Service created successfully."
+
+msgid "ItemUpdatedSuccess"
+msgstr "{} updated successfully."
+
+msgid "SearchTitle"
+msgstr "Search for a Department or Service"
+
+msgid "SearchPlaceholder"
+msgstr "Search departments and services..."
+
+msgid "SearchTitleItem"
+msgstr "Search for a {}"
+
+msgid "SearchPlaceholderItem"
+msgstr "Search {}s..."
+
+msgid "NoDepartmentsFound"
+msgstr "No departments found were found."
+
+msgid "NoServicesFound"
+msgstr "No services found were found."
+
+msgid "NoItemsFound"
+msgstr "No departments or services were found."
+
+msgid "OrderCreatedSuccess"
+msgstr "Order created successfully."
+
+msgid "OrderFinishedSuccess"
+msgstr "Order marked as done successfully."
+
+msgid "OrderDeletedSuccess"
 msgstr ""
+"Order with Reference Number <span class='attention-order-"
+"id'>{order_id}</span> was deleted successfully."
+
+msgid "FeedbackReceivedSuccess"
+msgstr "We have received your message and will get in touch with you shortly."
 

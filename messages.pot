@@ -18,6 +18,108 @@ msgstr ""
 "Generated-By: Babel 2.14.0\n"
 
 #: views.py
-msgid ""
+msgid "UserAlreadyExists"
+msgstr ""
+
+msgid "IncorrectIDFormat"
+msgstr ""
+
+msgid "InvalidPasswordLength"
+msgstr ""
+
+msgid "PasswordsDoNotMatch"
+msgstr ""
+
+msgid "EmptyFields"
+msgstr ""
+
+msgid "AccountCreated"
+msgstr ""
+
+msgid "AccountNotFound"
+msgstr ""
+
+msgid "FillForm"
+msgstr ""
+
+msgid "LoginSuccess"
+msgstr ""
+
+msgid "IncorrectPassword"
+msgstr ""
+
+msgid "AccountInfoUpdated"
+msgstr ""
+
+msgid "PasswordLengthError"
+msgstr ""
+
+msgid "PasswordsDoNotMatchError"
+msgstr ""
+
+msgid "SamePasswordError"
+msgstr ""
+
+msgid "PasswordUpdated"
+msgstr ""
+
+msgid "IncorrectPasswordError"
+msgstr ""
+
+msgid "FillFormError"
+msgstr ""
+
+msgid "DuplicateNameError"
+msgstr ""
+
+msgid "DepartmentCreated"
+msgstr ""
+
+msgid "ServiceCreated"
+msgstr ""
+
+msgid "ItemUpdatedSuccess"
+msgstr ""
+
+msgid "FillFormError"
+msgstr ""
+
+msgid "SearchTitle"
+msgstr ""
+
+msgid "SearchPlaceholder"
+msgstr ""
+
+msgid "SearchTitleItem"
+msgstr ""
+
+msgid "SearchPlaceholderItem"
+msgstr ""
+
+msgid "NoDepartmentsFound"
+msgstr ""
+
+msgid "NoServicesFound"
+msgstr ""
+
+msgid "NoItemsFound"
+msgstr ""
+
+msgid "OrderCreatedSuccess"
+msgstr ""
+
+msgid "FillFormError"
+msgstr ""
+
+msgid "OrderFinishedSuccess"
+msgstr ""
+
+msgid "OrderDeletedSuccess"
+msgstr ""
+
+msgid "FeedbackReceivedSuccess"
+msgstr ""
+
+msgid "FillFormError"
 msgstr ""
 
