@@ -6,5 +6,6 @@ Werkzeug
 PyJWT
 humanize
 markdown
+Flask-Babel
 python-dotenv
 gunicorn
