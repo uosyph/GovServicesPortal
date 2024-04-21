@@ -15,7 +15,6 @@ a {
 
 body {
 	background: #fff;
-	font-family: 'Lato';
 }
 
 nav {
@@ -107,6 +106,20 @@ nav li .register_btn:hover {
 #active_reg {
 	background: #62a1a8;
 	color: #e4e4e4;
+}
+
+.lang-selector {
+	background-color: transparent;
+	outline: none;
+	border: none;
+	padding-left: 10px;
+	font-size: 18px;
+	cursor: pointer;
+	transition: 0.3s ease;
+}
+
+.lang-selector:hover {
+	color: #6db6c0;
 }
 
 footer {

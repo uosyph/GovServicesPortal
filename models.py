@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_babel import Babel
 from flask_sqlalchemy import SQLAlchemy
 from os import getcwd, path, makedirs, getenv
 from dotenv import load_dotenv
@@ -14,6 +15,10 @@ if not path.exists(uploads_dir):
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
+babel = Babel(app)
+
+app.config["BABEL_DEFAULT_LOCALE"] = "ar"
+app.config["BABEL_TRANSLATION_DIRECTORIES"] = "./translations"
 app.config["SECRET_KEY"] = getenv("SECRET_KEY")
 app.config["UPLOAD_DIRECTORY"] = uploads_dir
 app.config["SQLALCHEMY_DATABASE_URI"] = (

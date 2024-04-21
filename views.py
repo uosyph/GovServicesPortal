@@ -23,6 +23,7 @@ from flask import (
     url_for,
     flash,
 )
+from flask_babel import _, lazy_gettext
 from sqlalchemy import func
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
@@ -33,6 +34,50 @@ from uuid import uuid4
 from os import path
 
 from models import *
+
+
+def get_locale():
+    """
+    Get the locale based on various sources.
+
+    Checks if the language query parameter is set and valid.
+    If set, it returns the language from the query parameter.
+    If not set via query, checks if the language is stored in the session.
+    If found, returns the stored language. Otherwise, it uses the browser's preferred language.
+
+    Returns:
+        str: The selected locale.
+    """
+
+    # Check if the language query parameter is set and valid
+    if "lang" in request.args:
+        lang = request.args.get("lang")
+        if lang in ["en", "ar"]:
+            session["lang"] = lang
+            return session["lang"]
+    # If not set via query, check if we have it stored in the session
+    elif "lang" in session:
+        return session.get("lang")
+    # Otherwise, use the browser's preferred language
+    return request.accept_languages.best_match(["en", "ar"])
+
+
+babel = Babel(app, locale_selector=get_locale)
+
+
+@app.context_processor
+def inject_babel():
+    return dict(_=lazy_gettext)
+
+
+@app.context_processor
+def inject_locale():
+    return {"get_locale": get_locale}
+
+
+@app.context_processor
+def inject_current_locale():
+    return {"current_locale": get_locale()}
 
 
 @app.before_request
@@ -49,6 +94,22 @@ def clear_trailing():
     rp = request.path
     if rp != "/" and rp.endswith("/"):
         return redirect(rp[:-1])
+
+
+@app.route("/setlang")
+def setlang():
+    """
+    Set the language for the session.
+
+    Gets the language from the query parameters and sets it as the session language.
+
+    Returns:
+        redirect: A redirect to the referrer page.
+    """
+
+    lang = request.args.get("lang", "en")
+    session["lang"] = lang
+    return redirect(request.referrer)
 
 
 @app.route("/files/<path:filename>")

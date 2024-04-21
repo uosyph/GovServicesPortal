@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ current_locale }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/common.css') }}">
+    {% if get_locale() == 'ar' %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/arabic.css') }}">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic">
+        <style>body {font-family: 'Roboto';}</style>
+    {% else %}
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic">
+        <style>body {font-family: 'Lato';}</style>
+    {% endif %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     {% block head %}{% endblock %}
 </head>
@@ -68,6 +76,17 @@
                     <a href="{{ url_for('login') }}" {% if request.path == '/login' %} id="active" {% endif %}>Login</a>
                 </li>
             {% endif %}
+            <li>
+                <select class="lang-selector" onchange="location = '/setlang?lang=' + this.value;">
+                    {% if get_locale() == 'en' %}
+                        <option value="en" selected>En</option>
+                        <option value="ar">ع</option>
+                    {% else %}
+                        <option value="ar" selected>ع</option>
+                        <option value="en">En</option>
+                    {% endif %}
+                </select>
+            </li>
         </ul>
     </nav>
 
