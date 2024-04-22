@@ -114,6 +114,61 @@ msgstr ""
 msgid "FeedbackReceivedSuccess"
 msgstr ".لقد تم استلام رسالتك وسيتم التواصل معك قريبًا"
 
+#: templates/base.html
+msgid "Departments"
+msgstr "الأقسام"
+
+msgid "Services"
+msgstr "الخدمات"
+
+msgid "New"
+msgstr "جديد"
+
+msgid "NewOrder"
+msgstr "طلب جديد"
+
+msgid "MyOrders"
+msgstr "طلباتي"
+
+msgid "Orders"
+msgstr "الطلبات"
+
+msgid "Profile"
+msgstr "الملف الشخصي"
+
+msgid "AccountSettings"
+msgstr "إعدادات الحساب"
+
+msgid "SignUp"
+msgstr "تسجيل"
+
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+msgid "ContactUs"
+msgstr "اتصل بنا"
+
+msgid "About"
+msgstr "عنا"
+
+msgid "QuickLinks"
+msgstr "روابط سريعة"
+
+msgid "AboutInfo"
+msgstr ""
+"بوابة الخدمات الحكومية الإلكترونية هي شريكك الموثوق للوصول إلى الخدمات "
+"الحكومية الحيوية بسهولة وأمان. تضمن منصتنا تجربة سلسة، مما يمكّن "
+"المواطنين من إكمال المعاملات بكفاءة من منازلهم أو مكاتبهم. قم بتبسيط "
+"تفاعلاتك مع الجهات الحكومية واستمتع بتجربة سهولة تقديم الخدمات عبر "
+"الإنترنت. ابدأ باستكشاف مجموعتنا الشاملة من الخدمات اليوم واكتشف طريقة "
+"أكثر فعالية للتعامل مع الخدمات الحكومية."
+
+msgid "Copyright"
+msgstr "حقوق النشر"
+
+msgid "Rights"
+msgstr "كل الحقوق محفوظة"
+
 #: templates/404.html
 msgid "NotFoundMessage"
 msgstr ".الصفحة التي تحاول الوصول إليها غير موجودة"

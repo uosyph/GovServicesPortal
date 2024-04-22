@@ -35,29 +35,29 @@
                 </a>
             </li>
             <li>
-                <a href="{{ url_for('departments') }}" {% if request.path == '/departments' %} id="active" {% endif %}>Departments</a>
+                <a href="{{ url_for('departments') }}" {% if request.path == '/departments' %} id="active" {% endif %}>{{ _('Departments') }}</a>
             </li>
             <li {% if 'loggedin' not in session %} class="acc_separator_right" {% endif %}>
-                <a href="{{ url_for('services') }}" {% if request.path == '/services' %} id="active" {% endif %}>Services</a>
+                <a href="{{ url_for('services') }}" {% if request.path == '/services' %} id="active" {% endif %}>{{ _('Services') }}</a>
             </li>
             {% if session["is_admin"] == True: %}
                 <li class="acc_separator_right">
-                    <a href="{{ url_for('new') }}" {% if request.path == '/new' %} id="active" {% endif %}>New</a>
+                    <a href="{{ url_for('new') }}" {% if request.path == '/new' %} id="active" {% endif %}>{{ _('New') }}</a>
                 </li>
             {% elif session["is_admin"] == False: %}
                 <li class="acc_separator_right">
-                    <a href="{{ url_for('new_order') }}" {% if request.path == '/new_order' %} id="active" {% endif %}>New Order</a>
+                    <a href="{{ url_for('new_order') }}" {% if request.path == '/new_order' %} id="active" {% endif %}>{{ _('NewOrder') }}</a>
                 </li>
             {% endif %}
             <li class="vr"></li>
             {% if session["loggedin"] == True: %}
                 {% if session["is_admin"] == False %}
                     <li class="acc_separator_left">
-                        <a href="{{ url_for('my_orders') }}" {% if request.path == '/my_orders' %} id="active" {% endif %}>My Orders</a>
+                        <a href="{{ url_for('my_orders') }}" {% if request.path == '/my_orders' %} id="active" {% endif %}>{{ _('MyOrders') }}</a>
                     </li>
                 {% elif session["is_admin"] == True %}
                     <li class="acc_separator_left">
-                        <a href="{{ url_for('orders') }}" {% if request.path == '/orders' %} id="active" {% endif %}>Orders</a>
+                        <a href="{{ url_for('orders') }}" {% if request.path == '/orders' %} id="active" {% endif %}>{{ _('Orders') }}</a>
                     </li>
                 {% endif %}
                 <li>
@@ -70,10 +70,12 @@
                 </li>
             {% else: %}
                 <li class="reg_separator">
-                    <a href="{{ url_for('register') }}" {% if request.path == '/register' %} id="active_reg" {% endif %} class="register_btn">Sign up</a>
+                    <a href="{{ url_for('register') }}" {% if request.path == '/register' %} id="active_reg" {% endif %} class="register_btn">
+                        {{ _('SignUp') }}
+                    </a>
                 </li>
                 <li>
-                    <a href="{{ url_for('login') }}" {% if request.path == '/login' %} id="active" {% endif %}>Login</a>
+                    <a href="{{ url_for('login') }}" {% if request.path == '/login' %} id="active" {% endif %}>{{ _('Login') }}</a>
                 </li>
             {% endif %}
             <li>
@@ -96,34 +98,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-8">
-                    <h6>About</h6>
-                    <p class="text-justify">
-                        Government Services Online Portal is your trusted partner for accessing vital government services conveniently and securely. 
-                        Our platform ensures a seamless experience, enabling citizens to efficiently complete transactions from the comfort of their homes or offices.
-                        Simplify your interactions with government agencies and experience the ease of online service delivery with GovServicesPortal. 
-                        Begin exploring our comprehensive range of services today and discover a more efficient way to engage with government services.
-                    </p>
+                    <h6>{{ _('About') }}</h6>
+                    <p class="text-justify">{{ _('AboutInfo') }}</p>
                 </div>
                 <div class="col-xs-4 col-md-4 text-right quick-links">
-                    <h6>Quick Links</h6>
+                    <h6>{{ _('QuickLinks') }}</h6>
                     <ul class="footer-links">
-                        <li><a href="{{ url_for('departments') }}">Departments</a></li>
-                        <li><a href="{{ url_for('services') }}">Services</a></li>
+                        <li><a href="{{ url_for('departments') }}">{{ _('Departments') }}</a></li>
+                        <li><a href="{{ url_for('services') }}">{{ _('Services') }}</a></li>
                         {% if session["loggedin"] == True: %}
                             {% if session["is_admin"] == False %}
-                                <li><a href="{{ url_for('new_order') }}">New Order</a></li>
-                                <li><a href="{{ url_for('my_orders') }}">My Orders</a></li>
+                                <li><a href="{{ url_for('new_order') }}">{{ _('NewOrder') }}</a></li>
+                                <li><a href="{{ url_for('my_orders') }}">{{ _('MyOrders') }}</a></li>
                             {% elif session["is_admin"] == True %}
-                                <li><a href="{{ url_for('new') }}">New</a></li>
-                                <li><a href="{{ url_for('orders') }}">Orders</a></li>
+                                <li><a href="{{ url_for('new') }}">{{ _('New') }}</a></li>
+                                <li><a href="{{ url_for('orders') }}">{{ _('Orders') }}</a></li>
                             {% endif %}
-                            <li><a href="{{ url_for('profile', id=session['id']) }}">Profile</a></li>
-                            <li><a href="{{ url_for('account') }}">Account Settings</a></li>
+                            <li><a href="{{ url_for('profile', id=session['id']) }}">{{ _('Profile') }}</a></li>
+                            <li><a href="{{ url_for('account') }}">{{ _('AccountSettings') }}</a></li>
                         {% else: %}
-                            <li><a href="{{ url_for('register') }}">Sign Up</a></li>
-                            <li><a href="{{ url_for('login') }}">Login</a></li>
+                            <li><a href="{{ url_for('register') }}">{{ _('SignUp') }}</a></li>
+                            <li><a href="{{ url_for('login') }}">{{ _('Login') }}</a></li>
                         {% endif %}
-                        <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+                        <li><a href="{{ url_for('contact') }}">{{ _('ContactUs') }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -133,7 +130,7 @@
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <p class="copyright-text">
-                        Copyright &copy; <span id="currentYear"></span> All Rights Reserved.
+                        {{ _('Copyright') }} &copy; <span id="currentYear"></span> {{ _('Rights') }}.
                     </p>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">

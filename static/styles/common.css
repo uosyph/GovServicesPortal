@@ -109,6 +109,7 @@ nav li .register_btn:hover {
 }
 
 .lang-selector {
+	color: #000;
 	background-color: transparent;
 	outline: none;
 	border: none;

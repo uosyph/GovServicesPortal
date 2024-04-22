@@ -123,6 +123,55 @@ msgstr ""
 msgid "FillFormError"
 msgstr ""
 
+#: templates/base.html
+msgid "Departments"
+msgstr ""
+
+msgid "Services"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
+msgid "NewOrder"
+msgstr ""
+
+msgid "MyOrders"
+msgstr ""
+
+msgid "Orders"
+msgstr ""
+
+msgid "Profile"
+msgstr ""
+
+msgid "AccountSettings"
+msgstr ""
+
+msgid "SignUp"
+msgstr ""
+
+msgid "Login"
+msgstr ""
+
+msgid "ContactUs"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "QuickLinks"
+msgstr ""
+
+msgid "AboutInfo"
+msgstr ""
+
+msgid "Copyright"
+msgstr ""
+
+msgid "Rights"
+msgstr ""
+
 #: templates/404.html
 msgid "NotFoundMessage"
 msgstr ""

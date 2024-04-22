@@ -113,6 +113,63 @@ msgstr ""
 msgid "FeedbackReceivedSuccess"
 msgstr "We have received your message and will get in touch with you shortly."
 
+#: templates/base.html
+msgid "Departments"
+msgstr "Departments"
+
+msgid "Services"
+msgstr "Services"
+
+msgid "New"
+msgstr "New"
+
+msgid "NewOrder"
+msgstr "New Order"
+
+msgid "MyOrders"
+msgstr "My Orders"
+
+msgid "Orders"
+msgstr "Orders"
+
+msgid "Profile"
+msgstr "Profile"
+
+msgid "AccountSettings"
+msgstr "Account Settings"
+
+msgid "SignUp"
+msgstr "Sign up"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "ContactUs"
+msgstr "Contact Us"
+
+msgid "About"
+msgstr "About"
+
+msgid "QuickLinks"
+msgstr "Quick Links"
+
+msgid "AboutInfo"
+msgstr ""
+"Government Services Online Portal is your trusted partner for accessing "
+"vital government services conveniently and securely. Our platform ensures"
+" a seamless experience, enabling citizens to efficiently complete "
+"transactions from the comfort of their homes or offices. Simplify your "
+"interactions with government agencies and experience the ease of online "
+"service delivery with GovServicesPortal. Begin exploring our "
+"comprehensive range of services today and discover a more efficient way "
+"to engage with government services."
+
+msgid "Copyright"
+msgstr "Copyright"
+
+msgid "Rights"
+msgstr "All Rights Reserved"
+
 #: templates/404.html
 msgid "NotFoundMessage"
 msgstr "The page you are attempting to access could not be found."
