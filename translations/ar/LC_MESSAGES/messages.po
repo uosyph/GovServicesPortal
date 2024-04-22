@@ -315,3 +315,23 @@ msgstr ".كافة الأقسام التي تتطابق مع معايير الب�
 msgid "ServicesMatchSearch"
 msgstr ".كافة الخدمات التي تتطابق مع معايير البحث الخاصة بك"
 
+#: templates/register.html
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Register"
+msgstr "تسجيل"
+
+msgid "AlreadyHaveAccount"
+msgstr "هل لديك حساب بالفعل؟"
+
+msgid "LoginHere"
+msgstr "تسجيل الدخول هنا"
+
+#: templates/login.html
+msgid "DontHaveAccount"
+msgstr "لم يتم بعد إنشاء حساب بعد؟"
+
+msgid "RegisterHere"
+msgstr "سجل هنا"
+

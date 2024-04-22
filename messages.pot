@@ -333,3 +333,23 @@ msgstr ""
 msgid "ServicesMatchSearch"
 msgstr ""
 
+#: templates/register.html
+msgid "Password"
+msgstr ""
+
+msgid "Register"
+msgstr ""
+
+msgid "AlreadyHaveAccount"
+msgstr ""
+
+msgid "LoginHere"
+msgstr ""
+
+#: templates/login.html
+msgid "DontHaveAccount"
+msgstr ""
+
+msgid "RegisterHere"
+msgstr ""
+

@@ -316,3 +316,23 @@ msgstr "All departments that match your search criteria."
 msgid "ServicesMatchSearch"
 msgstr "All services that match your search criteria."
 
+#: templates/register.html
+msgid "Password"
+msgstr "Password"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "AlreadyHaveAccount"
+msgstr "Already have an account?"
+
+msgid "LoginHere"
+msgstr "Login here"
+
+#: templates/login.html
+msgid "DontHaveAccount"
+msgstr "Don't have an account yet?"
+
+msgid "RegisterHere"
+msgstr "Register here"
+

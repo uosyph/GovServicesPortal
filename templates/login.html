@@ -8,21 +8,21 @@
 
 {% block body %}
 <div class="form-box">
-    <h2>Login</h2>
+    <h2>{{ _('Login') }}</h2>
     {% if msg: %}<div class="form-msg">{{ msg }}</div>{% endif %}
     <form action="{{ url_for('login') }}" method="post">
         <div class="input-box">
             <input required type="text" name="id">
-            <label for="id">National ID</label>
+            <label for="id">{{ _('NationalID') }}</label>
         </div>
         <div class="input-box">
             <input required type="password" name="password">
-            <label for="password">Password</label>
+            <label for="password">{{ _('Password')}}</label>
         </div>
-        <input class="submit-btn" type="submit" value="Login">
+        <input class="submit-btn" type="submit" value="{{ _('Login') }}">
     </form>
     <div class="redirect-box">
-        Don't have an account yet? <a href="{{ url_for('register') }}">Register here</a>.
+        {{ _('DontHaveAccount') }} <a href="{{ url_for('register') }}">{{ _('RegisterHere') }}</a>
     </div>
 </div>
 {% endblock %}
