@@ -336,3 +336,37 @@ msgstr "Don't have an account yet?"
 msgid "RegisterHere"
 msgstr "Register here"
 
+#: templates/edit.html
+msgid "Select"
+msgstr "Please select a"
+
+msgid "Or"
+msgstr "or"
+
+msgid "ToEdit"
+msgstr "to edit."
+
+msgid "Title"
+msgstr "Title"
+
+msgid "BriefDescription"
+msgstr "Brief Description"
+
+msgid "ExtendedDescription"
+msgstr "Extended Description"
+
+msgid "SupportsMarkdown"
+msgstr "Supports Markdown"
+
+msgid "Update"
+msgstr "Update"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "AreYouSureDelete"
+msgstr "Are you sure you want to delete this"
+
+msgid "?"
+msgstr "?"
+

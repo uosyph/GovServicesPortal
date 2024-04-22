@@ -353,3 +353,36 @@ msgstr ""
 msgid "RegisterHere"
 msgstr ""
 
+#: templates/edit.html
+msgid "Select"
+msgstr ""
+
+msgid "Or"
+msgstr ""
+
+msgid "ToEdit"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "BriefDescription"
+msgstr ""
+
+msgid "ExtendedDescription"
+msgstr ""
+
+msgid "SupportsMarkdown"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "AreYouSureDelete"
+msgstr ""
+
+msgid "?"
+msgstr ""

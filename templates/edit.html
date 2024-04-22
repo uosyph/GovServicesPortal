@@ -11,11 +11,11 @@
 <div class="item-box">
     {% if not item %}
         <h2 class="no-item">
-            Please select a
-            <a href="{{ url_for('services') }}">Service</a>
-            or
-            <a href="{{ url_for('departments') }}">Department</a>
-            to edit.
+            {{ _('Select')}}
+            <a href="{{ url_for('services') }}">{{ _('Service')}}</a>
+            {{ _('Or') }}
+            <a href="{{ url_for('departments') }}">{{ _('Department')}}</a>
+            {{ _('ToEdit')}}
         </h2>
     {% else %}
         {% with msg = get_flashed_messages() %}
@@ -25,24 +25,28 @@
         <form id="updateForm" action="{{ url_for('edit', item=item_type, id=item.id) }}" method="post">
             <input type="hidden" name="action" value="update_item">
             <div class="input-box">
-                <label for="title">Title</label>
+                <label for="title">{{ _('Title') }}</label>
                 <input required type="text" name="title" value="{{ item.title }}">
             </div>
             <div class="input-box">
-                <label for="description">Brief Description</label>
+                <label for="description">{{ _('BriefDescription') }}</label>
                 <input required type="text" name="description" value="{{ item.description }}">
             </div>
             <div class="input-box">
-                <label for="readme">Extended Description (Supports Markdown)</label>
+                {% if get_locale() == 'en' %}
+                    <label for="readme">{{ _('ExtendedDescription') }} ({{ _('SupportsMarkdown') }})</label>
+                {% else %}
+                    <label for="readme">({{ _('SupportsMarkdown') }}) {{ _('ExtendedDescription') }}</label>
+                {% endif %}
                 <textarea rows="6" name="readme">{{ item.readme }}</textarea>
             </div>
-            <input id="submitButton" class="submit-btn" type="submit" value="Update" disabled>
+            <input id="submitButton" class="submit-btn" type="submit" value="{{ _('Update') }}" disabled>
         </form>
 
         <form action="{{ url_for('edit', item=item_type, id=item.id) }}" method="post" class="delete"
-            onsubmit="return confirm('Are you sure you want to delete this {{item_type}}?');">
+            onsubmit="return confirm('{{ _('AreYouSureDelete') }} {% if get_locale() == 'en' %}{{ item_type }}{% endif %}{{ _('?')}}');">
             <input type="hidden" name="action" value="delete_item">
-            <input class="submit-btn danger" type="submit" value="Delete {{item_type.capitalize()}}">
+            <input class="submit-btn danger" type="submit" value="{{ _('Delete') }} {% if get_locale() == 'en' %}{{ item_type.capitalize() }}{% endif %}">
         </form>
     {% endif %}
 </div>
