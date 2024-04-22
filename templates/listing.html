@@ -30,7 +30,7 @@
 
     {% if all_services_url %}
         <a class="listing-btn" href="{{ all_services_url }}">
-            View All Services Offered by This Department
+            {{ _('ViewAll') }}
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
             </svg>
@@ -40,7 +40,7 @@
     {% if session['is_admin'] == False %}
         {% if type == 'service' %}
             <a class="listing-btn" href="{{ url_for('new_order', recommend=item.id, _external=True) }}" target="_blank">
-                Order the service
+                {{ _('OrderService') }}
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
                 </svg>
@@ -48,7 +48,7 @@
         {% endif %}
     {% elif session['is_admin'] == True %}
         <a class="listing-btn warning {% if type == 'department' %} wt-department {% endif %}" href="{{ url_for('edit', item=type, id=item.id) }}">
-            Edit this {{ type }}
+            {% if get_locale() == 'en' %} {{ _('EditThis') }} {{ type }} {% else %} {{ _('EditThis') }} {% endif %}
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
             </svg>

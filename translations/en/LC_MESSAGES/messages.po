@@ -113,6 +113,15 @@ msgstr ""
 msgid "FeedbackReceivedSuccess"
 msgstr "We have received your message and will get in touch with you shortly."
 
+msgid "DepartmentsListDescription"
+msgstr "You can select a department to access more details or view its services."
+
+msgid "ServicesListDescription"
+msgstr "You can select a service to access additional details or place an order."
+
+msgid "DeptServices"
+msgstr "Services"
+
 #: templates/base.html
 msgid "Departments"
 msgstr "Departments"
@@ -482,4 +491,40 @@ msgid "WelcomeMessage"
 msgstr ""
 "Welcome to the premier destination for accessing government services and "
 "information."
+
+#: templates/listing.html
+msgid "ViewAll"
+msgstr "View All Services Offered by This Department"
+
+msgid "OrderService"
+msgstr "Order the service"
+
+msgid "EditThis"
+msgstr "Edit this"
+
+#: templates/list.html
+msgid "CreateNew"
+msgstr "Create a new"
+
+#: templates/orders.html
+msgid "UserOrdersTitle"
+msgstr "User Orders"
+
+msgid "UserOrdersDescription"
+msgstr "View all active orders submitted by users."
+
+msgid "ReferenceNumber"
+msgstr "Reference Number:"
+
+msgid "OrderAt"
+msgstr "Order at:"
+
+msgid "Status"
+msgstr "Status:"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "NoOrdersLeft"
+msgstr "There are no orders left."
 

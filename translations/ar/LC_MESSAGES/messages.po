@@ -114,6 +114,15 @@ msgstr ""
 msgid "FeedbackReceivedSuccess"
 msgstr "لقد تم استلام رسالتك وسيتم التواصل معك قريبًا"
 
+msgid "DepartmentsListDescription"
+msgstr "يمكنك اختيار قسم ما للوصول إلى معلومات إضافية أو عرض خدماته"
+
+msgid "ServicesListDescription"
+msgstr "يمكنك اختيار خدمة ما للوصول إلى معلومات إضافية أو تقديم طلب لها"
+
+msgid "DeptServices"
+msgstr "خدمات"
+
 #: templates/base.html
 msgid "Departments"
 msgstr "الأقسام"
@@ -470,4 +479,40 @@ msgstr "اقسام و"
 
 msgid "WelcomeMessage"
 msgstr "مرحبًا بك في الوجهة الرئيسية للوصول إلى الخدمات والمعلومات الحكومية"
+
+#: templates/listing.html
+msgid "ViewAll"
+msgstr "عرض كافة الخدمات المقدمة من هذا القسم"
+
+msgid "OrderService"
+msgstr "طلب الخدمة"
+
+msgid "EditThis"
+msgstr "تعديل"
+
+#: templates/list.html
+msgid "CreateNew"
+msgstr "انشء جديد"
+
+#: templates/orders.html
+msgid "UserOrdersTitle"
+msgstr "طلبات المستخدمين"
+
+msgid "UserOrdersDescription"
+msgstr "عرض كافة الطلبات النشطة المقدمة من المستخدمين"
+
+msgid "ReferenceNumber"
+msgstr "الرقم المرجعي"
+
+msgid "OrderAt"
+msgstr "الطلب في"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Active"
+msgstr "نشط"
+
+msgid "NoOrdersLeft"
+msgstr "لا يوجد أي طلبات"
 

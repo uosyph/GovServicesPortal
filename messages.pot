@@ -123,6 +123,15 @@ msgstr ""
 msgid "FillFormError"
 msgstr ""
 
+msgid "DepartmentsListDescription"
+msgstr ""
+
+msgid "ServicesListDescription"
+msgstr ""
+
+msgid "DeptServices"
+msgstr ""
+
 #: templates/base.html
 msgid "Departments"
 msgstr ""
@@ -479,5 +488,48 @@ msgid "DepartmentsAnd"
 msgstr ""
 
 msgid "WelcomeMessage"
+msgstr ""
+
+#: templates/listing.html
+msgid "ViewAll"
+msgstr ""
+
+msgid "OrderService"
+msgstr ""
+
+msgid "EditThis"
+msgstr ""
+
+#: templates/list.html
+msgid "CreateNew"
+msgstr ""
+
+#: templates/orders.html
+msgid "UserOrdersTitle"
+msgstr ""
+
+msgid "UserOrdersDescription"
+msgstr ""
+
+#: templates/orders.html
+msgid "UserOrdersTitle"
+msgstr ""
+
+msgid "UserOrdersDescription"
+msgstr ""
+
+msgid "ReferenceNumber"
+msgstr ""
+
+msgid "OrderAt"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Active"
+msgstr ""
+
+msgid "NoOrdersLeft"
 msgstr ""
 

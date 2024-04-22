@@ -8,8 +8,8 @@
 
 {% block body %}
 <div class="page_details">
-    <h1 class="page_title">User Orders</h1>
-    <p class="page_description">View all active orders submitted by users.</p>
+    <h1 class="page_title">{{ _('UserOrdersTitle') }}</h1>
+    <p class="page_description">{{ _('UserOrdersDescription') }}</p>
 </div>
 
 {% with msg = get_flashed_messages() %}
@@ -35,15 +35,15 @@
                                 <h4>{{ department.title }}</h4>
                             {% endif %}
                         </div>
-                        <p style="font-size: 15px;"><b>Reference Number:</b> {{ order.id }}</p>
+                        <p style="font-size: 15px;"><b>{{ _('ReferenceNumber')}}</b> {{ order.id }}</p>
                         <p>
-                            <b>Order at:</b>
+                            {% if get_locale() == 'en' %}<b>{{ _('OrderAt')}}</b>{% endif %}
                             {{ naturaltime(order.start_date) }}
                             -
                             {% set time = strptime(str(order.start_date), "%Y-%m-%d %H:%M:%S") %}
                             {{ time.strftime("%d %b, %Y at %I:%M %p") }}
                         </p>
-                        <p><b>Status:</b> <span class="status-active">Active</span></p>
+                        <p><b>{{ _('Status')}}</b> <span class="status-active">{{ _('Active')}}</span></p>
                     </li>
                 </a>
             {% endfor %}
@@ -51,7 +51,7 @@
     </div>
 {% else %}
     <div class="wrapper">
-        <h2 class="wrapper-title no-orders">There are no orders left.</h2>
+        <h2 class="wrapper-title no-orders">{{ _('NoOrdersLeft') }}</h2>
     </div>
 {% endif %}
 {% endblock %}

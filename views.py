@@ -546,8 +546,8 @@ def departments():
     departments = Department.query.all()
     return render_template(
         "list.html",
-        list_title="Departments",
-        list_description="You can select a department to access more details or view its services.",
+        list_title=_("Departments"),
+        list_description=_("DepartmentsListDescription"),
         path="department",
         items=departments,
     )
@@ -598,8 +598,12 @@ def department_services(id):
     services = Service.query.filter_by(department_id=id).all()
     return render_template(
         "list.html",
-        list_title=f"{department.title} Services",
-        list_description="You can select a service to access additional details or place an order.",
+        list_title=(
+            department.title + " " + _("Services")
+            if get_locale() == "en"
+            else _("DeptServices") + " " + department.title
+        ),
+        list_description=_("ServicesListDescription"),
         path="service",
         items=services,
     )
@@ -617,8 +621,8 @@ def services():
     services = Service.query.all()
     return render_template(
         "list.html",
-        list_title="Services",
-        list_description="You can select a service to access additional details or place an order.",
+        list_title=_("Services"),
+        list_description=_("ServicesListDescription"),
         item_type="all_services",
         path="service",
         items=services,
