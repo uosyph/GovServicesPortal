@@ -290,3 +290,29 @@ msgstr "to access the profile editing page"
 msgid "Logout"
 msgstr "Logout"
 
+#: templates/contact.html
+msgid "SendFeedbackComplaints"
+msgstr "Send us your feedback or complaints."
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Subject"
+msgstr "Subject"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Send"
+msgstr "Send"
+
+#: templates/search.html
+msgid "DepartmentsMatchSearch"
+msgstr "All departments that match your search criteria."
+
+msgid "ServicesMatchSearch"
+msgstr "All services that match your search criteria."
+

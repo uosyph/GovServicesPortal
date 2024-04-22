@@ -304,3 +304,32 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
+#: templates/contact.html
+msgid "SendFeedbackComplaints"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+#: templates/search.html
+msgid "DepartmentsMatchSearch"
+msgstr ""
+
+msgid "ServicesMatchSearch"
+msgstr ""
+

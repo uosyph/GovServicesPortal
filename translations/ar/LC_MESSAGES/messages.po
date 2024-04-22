@@ -289,3 +289,29 @@ msgstr "للوصول إلى صفحة تحرير الملف الشخصي"
 msgid "Logout"
 msgstr "تسجيل خروج"
 
+#: templates/contact.html
+msgid "SendFeedbackComplaints"
+msgstr ".أرسل لنا ملاحظاتك أو شكواك"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Phone"
+msgstr "الهاتف"
+
+msgid "Subject"
+msgstr "الموضوع"
+
+msgid "Message"
+msgstr "الرسالة"
+
+msgid "Send"
+msgstr "إرسال"
+
+#: templates/search.html
+msgid "DepartmentsMatchSearch"
+msgstr ".كافة الأقسام التي تتطابق مع معايير البحث الخاصة بك"
+
+msgid "ServicesMatchSearch"
+msgstr ".كافة الخدمات التي تتطابق مع معايير البحث الخاصة بك"
+
