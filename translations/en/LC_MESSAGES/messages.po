@@ -370,3 +370,116 @@ msgstr "Are you sure you want to delete this"
 msgid "?"
 msgstr "?"
 
+#: templates/index.html
+msgid "PortalNavigation"
+msgstr "Portal Navigation"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "AccessEssentialServices"
+msgstr ""
+"Access essential government services conveniently from your home or "
+"office."
+
+msgid "DiscoverDepartments"
+msgstr "Discover various departments and their respective services."
+
+msgid "ExploreServices"
+msgstr "Explore the array of services available for online access."
+
+msgid "InitiateNewOrder"
+msgstr "Initiate a new order for any service directly from our portal."
+
+msgid "ViewManageOrders"
+msgstr "View and manage your orders and transactions made through our portal."
+
+msgid "AddNewDepartmentService"
+msgstr ""
+"Add a new department or service to expand the range of offerings "
+"available on the portal."
+
+msgid "AccessOrders"
+msgstr "Access orders submitted by users for management and processing."
+
+msgid "AccessUpdateProfile"
+msgstr ""
+"Access and update your profile information, ensuring accuracy in your "
+"interactions."
+
+msgid "CustomizeAccountSettings"
+msgstr "Customize your account preferences and security settings."
+
+msgid "RegisterForPortal"
+msgstr "Register for Government Services Portal."
+
+msgid "AccessAccountServices"
+msgstr "Access your account to start utilizing our services."
+
+msgid "ReachOutSupport"
+msgstr "Reach out to our dedicated support team for assistance or inquiries."
+
+msgid "PopularServices"
+msgstr "Popular Services"
+
+msgid "HappeningNow"
+msgstr "Happening Now"
+
+msgid "TotalOrders"
+msgstr "Total Orders"
+
+msgid "OrdersLastWeek"
+msgstr "Orders Last Week"
+
+msgid "TotalUsers"
+msgstr "Total Users"
+
+msgid "TotalServices"
+msgstr "Total Services"
+
+msgid "NewSignUp"
+msgstr "Sign Up"
+
+msgid "NewSignUpDescription"
+msgstr ""
+"Signing up for our portal is quick and easy. Simply click on the 'Sign "
+"Up' button and fill out the required information to create your account. "
+"Once you've completed the registration process, you'll gain access to a "
+"wide range of government services available for online ordering."
+
+msgid "ExploreAllServices"
+msgstr "Explore All Services"
+
+msgid "ExploreAllServicesDescription"
+msgstr ""
+"Once you've logged in to your account, take some time to explore the "
+"various services offered on our portal. From document applications to tax"
+" payments and business services, you'll find everything you need "
+"conveniently categorized and accessible with just a few clicks. Discover "
+"the services that meet your needs and requirements."
+
+msgid "OrderTheService"
+msgstr "Order the Service"
+
+msgid "OrderTheServiceDescription"
+msgstr ""
+"After you've found the service you need, placing an order is simple. Just"
+" select the desired service from the list and follow the prompts to "
+"provide any necessary information or documentation. Once your order is "
+"submitted, our team will process it promptly, keeping you informed of its"
+" status every step of the way."
+
+msgid "SearchIn"
+msgstr "Search in"
+
+msgid "Service"
+msgstr "Service"
+
+msgid "DepartmentsAnd"
+msgstr "Departments and"
+
+msgid "WelcomeMessage"
+msgstr ""
+"Welcome to the premier destination for accessing government services and "
+"information."
+

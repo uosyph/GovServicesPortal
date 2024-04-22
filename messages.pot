@@ -386,3 +386,98 @@ msgstr ""
 
 msgid "?"
 msgstr ""
+
+#: templates/index.html
+msgid "PortalNavigation"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "AccessEssentialServices"
+msgstr ""
+
+msgid "DiscoverDepartments"
+msgstr ""
+
+msgid "ExploreServices"
+msgstr ""
+
+msgid "InitiateNewOrder"
+msgstr ""
+
+msgid "ViewManageOrders"
+msgstr ""
+
+msgid "AddNewDepartmentService"
+msgstr ""
+
+msgid "AccessOrders"
+msgstr ""
+
+msgid "AccessUpdateProfile"
+msgstr ""
+
+msgid "AccountSettings"
+msgstr ""
+
+msgid "CustomizeAccountSettings"
+msgstr ""
+
+msgid "RegisterForPortal"
+msgstr ""
+
+msgid "AccessAccountServices"
+msgstr ""
+
+msgid "ReachOutSupport"
+msgstr ""
+
+msgid "PopularServices"
+msgstr ""
+
+msgid "HappeningNow"
+msgstr ""
+
+msgid "TotalOrders"
+msgstr ""
+
+msgid "OrdersLastWeek"
+msgstr ""
+
+msgid "TotalUsers"
+msgstr ""
+
+msgid "TotalServices"
+msgstr ""
+
+msgid "NewSignUp"
+msgstr ""
+
+msgid "NewSignUpDescription"
+msgstr ""
+
+msgid "ExploreAllServices"
+msgstr ""
+
+msgid "ExploreAllServicesDescription"
+msgstr ""
+
+msgid "OrderTheService"
+msgstr ""
+
+msgid "OrderTheServiceDescription"
+msgstr ""
+
+msgid "SearchIn"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "DepartmentsAnd"
+msgstr ""
+
+msgid "WelcomeMessage"
+msgstr ""
+

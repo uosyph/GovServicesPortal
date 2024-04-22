@@ -9,14 +9,14 @@
 {% endblock %}
 
 {% block body %}
-<p class="header-description">Welcome to the premier destination for accessing government services and information.</p>
+<p class="header-description">{{ _('WelcomeMessage') }}</p>
 
 <div class="search-container" {% if not search_query %} style="margin-top: 140px; margin-bottom: 35px;" {% endif %}>
-    <h2 class="search-title">Search in {{ total_department }} Departments and {{ total_services }} Services</h2>
+    <h2 class="search-title">{{ _('SearchIn')}} {{ total_department }} {{ _('DepartmentsAnd')}} {{ total_services }} {{ _('Service')}}</h2>
     <form action="{{ url_for('search') }}" method="get" class="search-form">
         <div class="searchBox">
             <input type="text" name="item" value="{% if request.args.get('item') %}{{ request.args.get('item') }}{% else %}all{% endif %}" hidden>
-            <input type="text" name="query" placeholder="Search departments and services..." class="searchInput">
+            <input type="text" name="query" placeholder="{{ _('SearchPlaceholder') }}" class="searchInput">
             <button type="submit" class="searchButton">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256">
                     <path fill="currentColor" d="M232.49 215.51L185 168a92.12 92.12 0 1 0-17 17l47.53 47.54a12 12 0 0 0 17-17ZM44 112a68 68 0 1 1 68 68a68.07 68.07 0 0 1-68-68"/>
@@ -32,11 +32,9 @@
             <path fill="currentColor" d="M17.55 11.288L14.712 8.45l.713-.688l2.125 2.125l4.25-4.25l.708.713zM9 11.385q-1.246 0-2.123-.877Q6 9.63 6 8.385q0-1.247.877-2.123q.877-.877 2.123-.877q1.246 0 2.123.877q.877.876.877 2.123q0 1.246-.877 2.123q-.877.877-2.123.877m-7 7.23V16.97q0-.619.36-1.158q.361-.54.97-.838q1.416-.679 2.833-1.018q1.418-.34 2.837-.34q1.42 0 2.837.34q1.417.34 2.832 1.018q.61.298.97.838q.361.539.361 1.158v1.646z"/>
         </svg>
         <div class="text">
-            <b>Sign Up</b>
+            <b>{{ _('NewSignUp') }}</b>
             <br>
-            Signing up for our portal is quick and easy.
-            Simply click on the "Sign Up" button and fill out the required information to create your account.
-            Once you've completed the registration process, you'll gain access to a wide range of government services available for online ordering.
+            {{ _('NewSignUpDescription') }}
         </div>
     </div>
     
@@ -51,11 +49,9 @@
             <path fill="currentColor" d="m8.925 10.123l2.206-2.186q.129-.13.304-.13t.303.13q.149.128.139.313q-.01.185-.139.313l-2.223 2.23q-.242.242-.565.232q-.323-.01-.565-.233L7.262 9.713q-.149-.123-.149-.3q0-.178.149-.326q.148-.149.313-.149t.313.149zm.613 5.108q-2.398 0-4.064-1.667T3.808 9.5q0-2.398 1.666-4.064t4.064-1.667q2.399 0 4.065 1.667q1.666 1.666 1.666 4.064q0 1.042-.369 2.017q-.37.975-.97 1.668l5.908 5.907q.14.14.15.345q.01.203-.15.363q-.16.16-.353.16q-.195 0-.354-.16l-5.908-5.908q-.75.639-1.725.989q-.975.35-1.96.35m0-1q1.99 0 3.361-1.37q1.37-1.37 1.37-3.361q0-1.99-1.37-3.36q-1.37-1.37-3.36-1.37q-1.99 0-3.361 1.37q-1.37 1.37-1.37 3.36q0 1.99 1.37 3.36q1.37 1.37 3.36 1.37"/>
         </svg>
         <div class="text">
-            <b>Explore All Services</b>
+            <b>{{ _('ExploreAllServices') }}</b>
             <br>
-            Once you've logged in to your account, take some time to explore the various services offered on our portal.
-            From document applications to tax payments and business services, you'll find everything you need conveniently categorized and accessible with just a few clicks.
-            Discover the services that meet your needs and requirements.
+            {{ _('ExploreAllServicesDescription') }}
         </div>
     </div>
 
@@ -70,78 +66,76 @@
             <path fill="currentColor" d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8"/>
         </svg>
         <div class="text">
-            <b>Order the Service</b>
+            <b>{{ _('OrderTheService') }}</b>
             <br>
-            After you've found the service you need, placing an order is simple.
-            Just select the desired service from the list and follow the prompts to provide any necessary information or documentation.
-            Once your order is submitted, our team will process it promptly, keeping you informed of its status every step of the way.
+            {{ _('OrderTheServiceDescription') }}
         </div>
     </div>
 </div>
 
 <menu class="nav-menu">
-    <h2 class="title"><b>Portal Navigation</b></h2>
+    <h2 class="title"><b>{{ _('PortalNavigation') }}</b></h2>
     <ul class="footer-links links">
         <li>
-            <a href="{{ url_for('index') }}">&#8618; Home:</a>
-            Access essential government services conveniently from your home or office.
+            <a href="{{ url_for('index') }}">&#8618; {{ _('Home') }}:</a>
+            {{ _('AccessEssentialServices') }}
         </li>
         <li>
-            <a href="{{ url_for('departments') }}">&#8618; Departments:</a>
-            Discover various departments and their respective services.
+            <a href="{{ url_for('departments') }}">&#8618; {{ _('Departments') }}:</a>
+            {{ _('DiscoverDepartments') }}
         </li>
         <li>
-            <a href="{{ url_for('services') }}">&#8618; Services:</a>
-            Explore the array of services available for online access.
+            <a href="{{ url_for('services') }}">&#8618; {{ _('Services') }}:</a>
+            {{ _('ExploreServices') }}
         </li>
         {% if session["loggedin"] == True: %}
             {% if session["is_admin"] == False %}
                 <li>
-                    <a href="{{ url_for('new_order') }}">&#8618; New Order:</a>
-                    Initiate a new order for any service directly from our portal.
+                    <a href="{{ url_for('new_order') }}">&#8618; {{ _('NewOrder') }}:</a>
+                    {{ _('InitiateNewOrder') }}
                 </li>
                 <li>
-                    <a href="{{ url_for('my_orders') }}">&#8618; My Orders:</a>
-                    View and manage your orders and transactions made through our portal.
+                    <a href="{{ url_for('my_orders') }}">&#8618; {{ _('MyOrders') }}:</a>
+                    {{ _('ViewManageOrders') }}
                 </li>
             {% elif session["is_admin"] == True %}
                 <li>
-                    <a href="{{ url_for('new') }}">&#8618; New:</a>
-                    Add a new department or service to expand the range of offerings available on the portal.
+                    <a href="{{ url_for('new') }}">&#8618; {{ _('New') }}:</a>
+                    {{ _('AddNewDepartmentService') }}
                 </li>
                 <li>
-                    <a href="{{ url_for('orders') }}">&#8618; Orders:</a>
-                    Access orders submitted by users for management and processing.
+                    <a href="{{ url_for('orders') }}">&#8618; {{ _('Orders') }}:</a>
+                    {{ _('AccessOrders') }}
                 </li>
             {% endif %}
             <li>
-                <a href="{{ url_for('profile', id=session['id']) }}">&#8618; Profile:</a>
-                Access and update your profile information, ensuring accuracy in your interactions.
+                <a href="{{ url_for('profile', id=session['id']) }}">&#8618; {{ _('Profile') }}:</a>
+                {{ _('AccessUpdateProfile') }}
             </li>
             <li>
-                <a href="{{ url_for('account') }}">&#8618; Account Settings:</a>
-                Customize your account preferences and security settings.
+                <a href="{{ url_for('account') }}">&#8618; {{ _('AccountSettings') }}:</a>
+                {{ _('CustomizeAccountSettings') }}
             </li>
         {% else: %}
             <li>
-                <a href="{{ url_for('register') }}">&#8618; Sign Up:</a>
-                Register for Government Services Portal.
+                <a href="{{ url_for('register') }}">&#8618; {{ _('SignUp') }}:</a>
+                {{ _('RegisterForPortal') }}
             </li>
             <li>
-                <a href="{{ url_for('login') }}">&#8618; Login:</a>
-                Access your account to start utilizing our services.
+                <a href="{{ url_for('login') }}">&#8618; {{ _('Login') }}:</a>
+                {{ _('AccessAccountServices') }}
             </li>
         {% endif %}
         <li>
-            <a href="{{ url_for('contact') }}">&#8618; Contact Us:</a>
-            Reach out to our dedicated support team for assistance or inquiries.
+            <a href="{{ url_for('contact') }}">&#8618; {{ _('ContactUs') }}:</a>
+            {{ _('ReachOutSupport') }}
         </li>
     </ul>
 </menu>
 
 {% if services %}
     <div class="list_details">
-        <h2 class="list_title">Popular Services</h2>
+        <h2 class="list_title">{{ _('PopularServices')}}</h2>
     </div>
     <div class="wrapper">
         <ul class="cards">
@@ -163,26 +157,26 @@
     </div>
 {% endif %}
 
-<h2 class="now-title">Happening Now</h2>
+<h2 class="now-title">{{ _('HappeningNow') }}</h2>
 <div class="now-container">
     <div class="now-card">
         <h2>{{ total_orders }}</h2>
-        <p>Total Orders</p>
+        <p>{{ _('TotalOrders') }}</p>
     </div>
 
     <div class="now-card">
         <h2>{{ orders_yesterday }}</h2>
-        <p>Orders Last Week</p>
+        <p>{{ _('OrdersLastWeek') }}</p>
     </div>
 
     <div class="now-card">
         <h2>{{ total_users }}</h2>
-        <p>Total Users</p>
+        <p>{{ _('TotalUsers') }}</p>
     </div>
 
     <div class="now-card">
         <h2>{{ total_services }}</h2>
-        <p>Total Services</p>
+        <p>{{ _('TotalServices') }}</p>
     </div>
-</div>  
+</div>
 {% endblock %}

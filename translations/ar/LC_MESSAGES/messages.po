@@ -343,7 +343,7 @@ msgid "Or"
 msgstr "أو"
 
 msgid "ToEdit"
-msgstr "للتعديل."
+msgstr ".للتعديل"
 
 msgid "Title"
 msgstr "العنوان"
@@ -368,4 +368,106 @@ msgstr "هل أنت متأكد من أنك تريد الحذف"
 
 msgid "?"
 msgstr "؟"
+
+#: templates/index.html
+msgid "PortalNavigation"
+msgstr "تنقل في البوابة"
+
+msgid "Home"
+msgstr "الصفحة الرئيسية"
+
+msgid "AccessEssentialServices"
+msgstr ".الوصول إلى الخدمات الحكومية الأساسية بكل سهولة من منزلك أو مكتبك"
+
+msgid "DiscoverDepartments"
+msgstr ".اكتشف الأقسام المختلفة وخدماتها الكاملة"
+
+msgid "ExploreServices"
+msgstr ".اكتشف المجموعة الكاملة من الخدمات المتاحة للوصول إليها عبر الإنترنت"
+
+msgid "InitiateNewOrder"
+msgstr ".بدء طلب جديد لأي خدمة مباشرة من بوابتنا"
+
+msgid "ViewManageOrders"
+msgstr ".عرض وإدارة أوامرك والمعاملات المتعلقة بها من خلال بوابتنا"
+
+msgid "AddNewDepartmentService"
+msgstr ".إضافة قسم جديد أو خدمة لتوسيع نطاق العروض المتاحة على البوابة"
+
+msgid "AccessOrders"
+msgstr ".الوصول إلى أوامر المستخدمين للإدارة والمعالجة"
+
+msgid "AccessUpdateProfile"
+msgstr ".الوصول إلى ملفك الشخصي وتحديث معلوماتك الشخصية لضمان دقة في تفاعلاتك"
+
+msgid "CustomizeAccountSettings"
+msgstr ".تخصيص تفضيلات وإعدادات أمان حسابك"
+
+msgid "RegisterForPortal"
+msgstr ".تسجيل في بوابة خدمات الحكومة"
+
+msgid "AccessAccountServices"
+msgstr ".الوصول إلى حسابك لبدء استخدام خدماتنا"
+
+msgid "ReachOutSupport"
+msgstr ".اتصل بفريق الدعم المخصص للمساعدة أو الاستفسارات"
+
+msgid "PopularServices"
+msgstr "اشهر الخدمات"
+
+msgid "HappeningNow"
+msgstr "يحدث الآن"
+
+msgid "TotalOrders"
+msgstr "اجمالي عدد الطلبات"
+
+msgid "OrdersLastWeek"
+msgstr "اجمالي عدد الطلبات في الأسبوع الماضي"
+
+msgid "TotalUsers"
+msgstr "اجمالي عدد المستخدمين"
+
+msgid "TotalServices"
+msgstr "اجمالي عدد الخدمات"
+
+msgid "NewSignUp"
+msgstr "سجل الدخول"
+
+msgid "NewSignUpDescription"
+msgstr ""
+"التسجيل في بوابتنا سريع وسهل. ما عليك سوى النقر على زر \"التسجيل\" وملء "
+"المعلومات المطلوبة لإنشاء حسابك. بمجرد الانتهاء من عملية التسجيل، ستتمكن "
+"من الوصول إلى مجموعة واسعة من الخدمات الحكومية المتاحة للطلب عبر الإنترنت"
+
+msgid "ExploreAllServices"
+msgstr "اكتشف الخدمات"
+
+msgid "ExploreAllServicesDescription"
+msgstr ""
+"بمجرد تسجيل الدخول إلى حسابك، خذ بعض الوقت لاستكشاف الخدمات المتنوعة "
+"المقدمة على بوابتنا. من تطبيقات المستندات إلى مدفوعات الضرائب وخدمات "
+"الأعمال، ستجد كل ما تحتاجه مصنفًا بشكل ملائم ويمكن الوصول إليه ببضع نقرات"
+" فقط. اكتشف الخدمات التي تلبي احتياجاتك ومتطلباتك"
+
+msgid "OrderTheService"
+msgstr "اطلب الخدمة"
+
+msgid "OrderTheServiceDescription"
+msgstr ""
+"بعد العثور على الخدمة التي تحتاجها، يصبح تقديم الطلب أمرًا بسيطًا. ما "
+"عليك سوى اختيار الخدمة المطلوبة من القائمة واتباع المطالبات لتقديم أي "
+"معلومات أو وثائق ضرورية. بمجرد إرسال طلبك، سيقوم فريقنا بمعالجته على "
+"الفور، وإبقائك على علم بحالته في كل خطوة على الطريق"
+
+msgid "SearchIn"
+msgstr "ابحث في"
+
+msgid "Service"
+msgstr "خدمة"
+
+msgid "DepartmentsAnd"
+msgstr "اقسام و"
+
+msgid "WelcomeMessage"
+msgstr "مرحبًا بك في الوجهة الرئيسية للوصول إلى الخدمات والمعلومات الحكومية"
 
