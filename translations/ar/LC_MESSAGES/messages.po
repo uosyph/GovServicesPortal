@@ -17,102 +17,102 @@ msgstr ""
 
 #: views.py
 msgid "UserAlreadyExists"
-msgstr ".لقد تم تسجيل مستخدم برقم الهوية هذا مسبقًا"
+msgstr "لقد تم تسجيل مستخدم برقم الهوية هذا مسبقًا"
 
 msgid "IncorrectIDFormat"
-msgstr ".تم إدخال صيغة غير صحيحة لرقم الهوية"
+msgstr "تم إدخال صيغة غير صحيحة لرقم الهوية"
 
 msgid "InvalidPasswordLength"
-msgstr ".يجب أن تكون كلمة المرور بين 6 و28 حرفًا"
+msgstr "يجب أن تكون كلمة المرور بين 6 و28 حرفًا"
 
 msgid "PasswordsDoNotMatch"
-msgstr ".كلمتا المرور غير متطابقتان. يرجى المحاولة مرة أخرى"
+msgstr "كلمتا المرور غير متطابقتان. يرجى المحاولة مرة أخرى"
 
 msgid "EmptyFields"
-msgstr ".يرجى ملء كافة الحقول المطلوبة"
+msgstr "يرجى ملء كافة الحقول المطلوبة"
 
 msgid "AccountCreated"
-msgstr ".تم إنشاء الحساب بنجاح"
+msgstr "تم إنشاء الحساب بنجاح"
 
 msgid "AccountNotFound"
-msgstr ".لم يتم العثور على حساب بالمعلومات المقدمة"
+msgstr "لم يتم العثور على حساب بالمعلومات المقدمة"
 
 msgid "FillForm"
-msgstr ".يرجى التأكد من تعبئة النموذج قبل المتابعة"
+msgstr "يرجى التأكد من تعبئة النموذج قبل المتابعة"
 
 msgid "LoginSuccess"
-msgstr ".تم تسجيل الدخول بنجاح"
+msgstr "تم تسجيل الدخول بنجاح"
 
 msgid "IncorrectPassword"
-msgstr ".كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى"
+msgstr "كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى"
 
 msgid "AccountInfoUpdated"
-msgstr ".تم تحديث معلومات الحساب بنجاح"
+msgstr "تم تحديث معلومات الحساب بنجاح"
 
 msgid "PasswordLengthError"
-msgstr ".يجب أن تكون كلمة المرور بين 6 و28 حرفًا"
+msgstr "يجب أن تكون كلمة المرور بين 6 و28 حرفًا"
 
 msgid "PasswordsDoNotMatchError"
-msgstr ".كلمتا المرور غير متطابقتان. يرجى المحاولة مرة أخرى"
+msgstr "كلمتا المرور غير متطابقتان. يرجى المحاولة مرة أخرى"
 
 msgid "SamePasswordError"
-msgstr ".لا يمكنك تغيير كلمة المرور إلى نفسها التي لديكها بالفعل"
+msgstr "لا يمكنك تغيير كلمة المرور إلى نفسها التي لديكها بالفعل"
 
 msgid "PasswordUpdated"
-msgstr ".تم تحديث كلمة المرور بنجاح"
+msgstr "تم تحديث كلمة المرور بنجاح"
 
 msgid "IncorrectPasswordError"
-msgstr ".تم إدخال كلمة مرور غير صحيحة. يرجى المحاولة مرة أخرى"
+msgstr "تم إدخال كلمة مرور غير صحيحة. يرجى المحاولة مرة أخرى"
 
 msgid "FillFormError"
-msgstr ".يرجى التأكد من تعبئة النموذج قبل المتابعة"
+msgstr "يرجى التأكد من تعبئة النموذج قبل المتابعة"
 
 msgid "DuplicateNameError"
-msgstr ".لقد تم إنشاء قسم أو خدمة بنفس الاسم مسبقًا"
+msgstr "لقد تم إنشاء قسم أو خدمة بنفس الاسم مسبقًا"
 
 msgid "DepartmentCreated"
-msgstr ".تم إنشاء القسم بنجاح"
+msgstr "تم إنشاء القسم بنجاح"
 
 msgid "ServiceCreated"
-msgstr ".تم إنشاء الخدمة بنجاح"
+msgstr "تم إنشاء الخدمة بنجاح"
 
 msgid "ItemUpdatedSuccess"
-msgstr ".تم تحديثه البيانات بنجاح"
+msgstr "تم تحديثه البيانات بنجاح"
 
 msgid "SearchTitle"
-msgstr "...البحث عن الاقسام والخدمات"
+msgstr "..البحث عن الاقسام والخدمات"
 
 msgid "SearchPlaceholder"
-msgstr ".ابحث عن قسم أو خدمة"
+msgstr "ابحث عن قسم أو خدمة"
 
 msgid "SearchTitleItem"
-msgstr ".البحث عن الخدمات او الاقسام"
+msgstr "البحث عن الخدمات او الاقسام"
 
 msgid "SearchPlaceholderItem"
-msgstr "...ابحث عن خدمة او قسم ما"
+msgstr "..ابحث عن خدمة او قسم ما"
 
 msgid "NoDepartmentsFound"
-msgstr ".لم يتم العثور على اقسام"
+msgstr "لم يتم العثور على اقسام"
 
 msgid "NoServicesFound"
-msgstr ".لم يتم العثور على خدمات"
+msgstr "لم يتم العثور على خدمات"
 
 msgid "NoItemsFound"
-msgstr ".لم يتم العثور على اي اقسام أو خدمات"
+msgstr "لم يتم العثور على اي اقسام أو خدمات"
 
 msgid "OrderCreatedSuccess"
-msgstr ".تم إنشاء الطلب بنجاح"
+msgstr "تم إنشاء الطلب بنجاح"
 
 msgid "OrderFinishedSuccess"
-msgstr ".تم تعيين الطلب على الانتهاء بنجاح"
+msgstr "تم تعيين الطلب على الانتهاء بنجاح"
 
 msgid "OrderDeletedSuccess"
 msgstr ""
-".تم حذف الطلب صاحب المرجعي <span class='attention-order-"
+"تم حذف الطلب صاحب المرجعي <span class='attention-order-"
 "id'>{order_id}</span> بنجاح"
 
 msgid "FeedbackReceivedSuccess"
-msgstr ".لقد تم استلام رسالتك وسيتم التواصل معك قريبًا"
+msgstr "لقد تم استلام رسالتك وسيتم التواصل معك قريبًا"
 
 #: templates/base.html
 msgid "Departments"
@@ -162,7 +162,7 @@ msgstr ""
 "المواطنين من إكمال المعاملات بكفاءة من منازلهم أو مكاتبهم. قم بتبسيط "
 "تفاعلاتك مع الجهات الحكومية واستمتع بتجربة سهولة تقديم الخدمات عبر "
 "الإنترنت. ابدأ باستكشاف مجموعتنا الشاملة من الخدمات اليوم واكتشف طريقة "
-".أكثر فعالية للتعامل مع الخدمات الحكومية"
+"أكثر فعالية للتعامل مع الخدمات الحكومية"
 
 msgid "Copyright"
 msgstr "حقوق النشر"
@@ -172,29 +172,29 @@ msgstr "كل الحقوق محفوظة"
 
 #: templates/404.html
 msgid "NotFoundMessage"
-msgstr ".الصفحة التي تحاول الوصول إليها غير موجودة"
+msgstr "الصفحة التي تحاول الوصول إليها غير موجودة"
 
 msgid "NotFoundReason"
-msgstr ".ربما قد تمت إزالتها، أو تغيير اسمها، أو أنها غير متاحة مؤقتًا"
+msgstr "ربما قد تمت إزالتها، أو تغيير اسمها، أو أنها غير متاحة مؤقتًا"
 
 msgid "CheckURL"
 msgstr ""
 "يرجى التحقق من الرابط لأي أخطاء أو العودة إلى الصفحة الرئيسية للاستمرار "
-".في التصفح"
+"في التصفح"
 
 msgid "ContactSupport"
 msgstr ""
 "إذا كنت تعتقد أنك وصلت إلى هذه الصفحة عن طريق الخطأ أو تحتاج إلى مساعدة "
-".إضافية، يرجى التواصل مع فريق الدعم لدينا"
+"إضافية، يرجى التواصل مع فريق الدعم لدينا"
 
 msgid "ThankYou"
-msgstr ".شكرًا لتفهمك"
+msgstr "شكرًا لتفهمك"
 
 msgid "ReturnHome"
 msgstr "العودة إلى الصفحة الرئيسية"
 
 msgid "ManageProfileAccountPreferences"
-msgstr ".إدارة ملفك الشخصي وتفضيلات الحساب الخاصة بك"
+msgstr "إدارة ملفك الشخصي وتفضيلات الحساب الخاصة بك"
 
 msgid "VisitYourProfile"
 msgstr "زيارة ملفك الشخصي"
@@ -212,7 +212,7 @@ msgid "PersonalInformation"
 msgstr "المعلومات الشخصية"
 
 msgid "CustomizePersonalInformation"
-msgstr ".تخصيص معلوماتك الشخصية"
+msgstr "تخصيص معلوماتك الشخصية"
 
 msgid "NationalID"
 msgstr "الهوية الوطنية"
@@ -236,7 +236,7 @@ msgid "ChangePassword"
 msgstr "تغيير كلمة المرور"
 
 msgid "UpdatePasswordSecurely"
-msgstr ".تحديث كلمة المرور بشكل آمن"
+msgstr "تحديث كلمة المرور بشكل آمن"
 
 msgid "OldPassword"
 msgstr "كلمة المرور القديمة"
@@ -254,14 +254,14 @@ msgid "DeleteAccount"
 msgstr "حذف الحساب"
 
 msgid "PermanentlyRemoveAccount"
-msgstr ".حذف حسابك نهائيًا"
+msgstr "حذف حسابك نهائيًا"
 
 msgid "EnterYourPassword"
 msgstr "أدخل كلمة المرور الخاصة بك"
 
 msgid "NoteDeleteAccount"
 msgstr ""
-".يرجى ملاحظة أن هذه العملية لا يمكن عكسها وستؤدي إلى حذف حسابك وجميع "
+"يرجى ملاحظة أن هذه العملية لا يمكن عكسها وستؤدي إلى حذف حسابك وجميع "
 "الطلبات ذات الصلة"
 
 #: templates/profile.html
@@ -291,7 +291,7 @@ msgstr "تسجيل خروج"
 
 #: templates/contact.html
 msgid "SendFeedbackComplaints"
-msgstr ".أرسل لنا ملاحظاتك أو شكواك"
+msgstr "أرسل لنا ملاحظاتك أو شكواك"
 
 msgid "Name"
 msgstr "الاسم"
@@ -310,10 +310,10 @@ msgstr "إرسال"
 
 #: templates/search.html
 msgid "DepartmentsMatchSearch"
-msgstr ".كافة الأقسام التي تتطابق مع معايير البحث الخاصة بك"
+msgstr "كافة الأقسام التي تتطابق مع معايير البحث الخاصة بك"
 
 msgid "ServicesMatchSearch"
-msgstr ".كافة الخدمات التي تتطابق مع معايير البحث الخاصة بك"
+msgstr "كافة الخدمات التي تتطابق مع معايير البحث الخاصة بك"
 
 #: templates/register.html
 msgid "Password"
@@ -343,7 +343,7 @@ msgid "Or"
 msgstr "أو"
 
 msgid "ToEdit"
-msgstr ".للتعديل"
+msgstr "للتعديل"
 
 msgid "Title"
 msgstr "العنوان"
@@ -377,40 +377,40 @@ msgid "Home"
 msgstr "الصفحة الرئيسية"
 
 msgid "AccessEssentialServices"
-msgstr ".الوصول إلى الخدمات الحكومية الأساسية بكل سهولة من منزلك أو مكتبك"
+msgstr "الوصول إلى الخدمات الحكومية الأساسية بكل سهولة من منزلك أو مكتبك"
 
 msgid "DiscoverDepartments"
-msgstr ".اكتشف الأقسام المختلفة وخدماتها الكاملة"
+msgstr "اكتشف الأقسام المختلفة وخدماتها الكاملة"
 
 msgid "ExploreServices"
-msgstr ".اكتشف المجموعة الكاملة من الخدمات المتاحة للوصول إليها عبر الإنترنت"
+msgstr "اكتشف المجموعة الكاملة من الخدمات المتاحة للوصول إليها عبر الإنترنت"
 
 msgid "InitiateNewOrder"
-msgstr ".بدء طلب جديد لأي خدمة مباشرة من بوابتنا"
+msgstr "بدء طلب جديد لأي خدمة مباشرة من بوابتنا"
 
 msgid "ViewManageOrders"
-msgstr ".عرض وإدارة أوامرك والمعاملات المتعلقة بها من خلال بوابتنا"
+msgstr "عرض وإدارة أوامرك والمعاملات المتعلقة بها من خلال بوابتنا"
 
 msgid "AddNewDepartmentService"
-msgstr ".إضافة قسم جديد أو خدمة لتوسيع نطاق العروض المتاحة على البوابة"
+msgstr "إضافة قسم جديد أو خدمة لتوسيع نطاق العروض المتاحة على البوابة"
 
 msgid "AccessOrders"
-msgstr ".الوصول إلى أوامر المستخدمين للإدارة والمعالجة"
+msgstr "الوصول إلى أوامر المستخدمين للإدارة والمعالجة"
 
 msgid "AccessUpdateProfile"
-msgstr ".الوصول إلى ملفك الشخصي وتحديث معلوماتك الشخصية لضمان دقة في تفاعلاتك"
+msgstr "الوصول إلى ملفك الشخصي وتحديث معلوماتك الشخصية لضمان دقة في تفاعلاتك"
 
 msgid "CustomizeAccountSettings"
-msgstr ".تخصيص تفضيلات وإعدادات أمان حسابك"
+msgstr "تخصيص تفضيلات وإعدادات أمان حسابك"
 
 msgid "RegisterForPortal"
-msgstr ".تسجيل في بوابة خدمات الحكومة"
+msgstr "تسجيل في بوابة خدمات الحكومة"
 
 msgid "AccessAccountServices"
-msgstr ".الوصول إلى حسابك لبدء استخدام خدماتنا"
+msgstr "الوصول إلى حسابك لبدء استخدام خدماتنا"
 
 msgid "ReachOutSupport"
-msgstr ".اتصل بفريق الدعم المخصص للمساعدة أو الاستفسارات"
+msgstr "اتصل بفريق الدعم المخصص للمساعدة أو الاستفسارات"
 
 msgid "PopularServices"
 msgstr "اشهر الخدمات"

@@ -73,65 +73,127 @@
     </div>
 </div>
 
-<menu class="nav-menu">
-    <h2 class="title"><b>{{ _('PortalNavigation') }}</b></h2>
-    <ul class="footer-links links">
-        <li>
-            <a href="{{ url_for('index') }}">&#8618; {{ _('Home') }}:</a>
-            {{ _('AccessEssentialServices') }}
-        </li>
-        <li>
-            <a href="{{ url_for('departments') }}">&#8618; {{ _('Departments') }}:</a>
-            {{ _('DiscoverDepartments') }}
-        </li>
-        <li>
-            <a href="{{ url_for('services') }}">&#8618; {{ _('Services') }}:</a>
-            {{ _('ExploreServices') }}
-        </li>
-        {% if session["loggedin"] == True: %}
-            {% if session["is_admin"] == False %}
+{% if get_locale() == 'en' %}
+    <menu class="nav-menu">
+        <h2 class="title"><b>{{ _('PortalNavigation') }}</b></h2>
+        <ul class="footer-links links">
+            <li>
+                <a href="{{ url_for('index') }}">&#8618; {{ _('Home') }}:</a>
+                {{ _('AccessEssentialServices') }}
+            </li>
+            <li>
+                <a href="{{ url_for('departments') }}">&#8618; {{ _('Departments') }}:</a>
+                {{ _('DiscoverDepartments') }}
+            </li>
+            <li>
+                <a href="{{ url_for('services') }}">&#8618; {{ _('Services') }}:</a>
+                {{ _('ExploreServices') }}
+            </li>
+            {% if session["loggedin"] == True: %}
+                {% if session["is_admin"] == False %}
+                    <li>
+                        <a href="{{ url_for('new_order') }}">&#8618; {{ _('NewOrder') }}:</a>
+                        {{ _('InitiateNewOrder') }}
+                    </li>
+                    <li>
+                        <a href="{{ url_for('my_orders') }}">&#8618; {{ _('MyOrders') }}:</a>
+                        {{ _('ViewManageOrders') }}
+                    </li>
+                {% elif session["is_admin"] == True %}
+                    <li>
+                        <a href="{{ url_for('new') }}">&#8618; {{ _('New') }}:</a>
+                        {{ _('AddNewDepartmentService') }}
+                    </li>
+                    <li>
+                        <a href="{{ url_for('orders') }}">&#8618; {{ _('Orders') }}:</a>
+                        {{ _('AccessOrders') }}
+                    </li>
+                {% endif %}
                 <li>
-                    <a href="{{ url_for('new_order') }}">&#8618; {{ _('NewOrder') }}:</a>
-                    {{ _('InitiateNewOrder') }}
+                    <a href="{{ url_for('profile', id=session['id']) }}">&#8618; {{ _('Profile') }}:</a>
+                    {{ _('AccessUpdateProfile') }}
                 </li>
                 <li>
-                    <a href="{{ url_for('my_orders') }}">&#8618; {{ _('MyOrders') }}:</a>
-                    {{ _('ViewManageOrders') }}
+                    <a href="{{ url_for('account') }}">&#8618; {{ _('AccountSettings') }}:</a>
+                    {{ _('CustomizeAccountSettings') }}
                 </li>
-            {% elif session["is_admin"] == True %}
+            {% else: %}
                 <li>
-                    <a href="{{ url_for('new') }}">&#8618; {{ _('New') }}:</a>
-                    {{ _('AddNewDepartmentService') }}
+                    <a href="{{ url_for('register') }}">&#8618; {{ _('SignUp') }}:</a>
+                    {{ _('RegisterForPortal') }}
                 </li>
                 <li>
-                    <a href="{{ url_for('orders') }}">&#8618; {{ _('Orders') }}:</a>
-                    {{ _('AccessOrders') }}
+                    <a href="{{ url_for('login') }}">&#8618; {{ _('Login') }}:</a>
+                    {{ _('AccessAccountServices') }}
                 </li>
             {% endif %}
             <li>
-                <a href="{{ url_for('profile', id=session['id']) }}">&#8618; {{ _('Profile') }}:</a>
-                {{ _('AccessUpdateProfile') }}
+                <a href="{{ url_for('contact') }}">&#8618; {{ _('ContactUs') }}:</a>
+                {{ _('ReachOutSupport') }}
+            </li>
+        </ul>
+    </menu>
+{% else %}
+    <menu class="nav-menu">
+        <h2 class="title"><b>{{ _('PortalNavigation') }}</b></h2>
+        <ul class="footer-links links">
+            <li>
+                <a href="{{ url_for('index') }}">&#8617; {{ _('Home') }}:</a>
+                {{ _('AccessEssentialServices') }}
             </li>
             <li>
-                <a href="{{ url_for('account') }}">&#8618; {{ _('AccountSettings') }}:</a>
-                {{ _('CustomizeAccountSettings') }}
-            </li>
-        {% else: %}
-            <li>
-                <a href="{{ url_for('register') }}">&#8618; {{ _('SignUp') }}:</a>
-                {{ _('RegisterForPortal') }}
+                <a href="{{ url_for('departments') }}">&#8617; {{ _('Departments') }}:</a>
+                {{ _('DiscoverDepartments') }}
             </li>
             <li>
-                <a href="{{ url_for('login') }}">&#8618; {{ _('Login') }}:</a>
-                {{ _('AccessAccountServices') }}
+                <a href="{{ url_for('services') }}">&#8617; {{ _('Services') }}:</a>
+                {{ _('ExploreServices') }}
             </li>
-        {% endif %}
-        <li>
-            <a href="{{ url_for('contact') }}">&#8618; {{ _('ContactUs') }}:</a>
-            {{ _('ReachOutSupport') }}
-        </li>
-    </ul>
-</menu>
+            {% if session["loggedin"] == True: %}
+                {% if session["is_admin"] == False %}
+                    <li>
+                        <a href="{{ url_for('new_order') }}">&#8617; {{ _('NewOrder') }}:</a>
+                        {{ _('InitiateNewOrder') }}
+                    </li>
+                    <li>
+                        <a href="{{ url_for('my_orders') }}">&#8617; {{ _('MyOrders') }}:</a>
+                        {{ _('ViewManageOrders') }}
+                    </li>
+                {% elif session["is_admin"] == True %}
+                    <li>
+                        <a href="{{ url_for('new') }}">&#8617; {{ _('New') }}:</a>
+                        {{ _('AddNewDepartmentService') }}
+                    </li>
+                    <li>
+                        <a href="{{ url_for('orders') }}">&#8617; {{ _('Orders') }}:</a>
+                        {{ _('AccessOrders') }}
+                    </li>
+                {% endif %}
+                <li>
+                    <a href="{{ url_for('profile', id=session['id']) }}">&#8617; {{ _('Profile') }}:</a>
+                    {{ _('AccessUpdateProfile') }}
+                </li>
+                <li>
+                    <a href="{{ url_for('account') }}">&#8617; {{ _('AccountSettings') }}:</a>
+                    {{ _('CustomizeAccountSettings') }}
+                </li>
+            {% else: %}
+                <li>
+                    <a href="{{ url_for('register') }}">&#8617; {{ _('SignUp') }}:</a>
+                    {{ _('RegisterForPortal') }}
+                </li>
+                <li>
+                    <a href="{{ url_for('login') }}">&#8617; {{ _('Login') }}:</a>
+                    {{ _('AccessAccountServices') }}
+                </li>
+            {% endif %}
+            <li>
+                <a href="{{ url_for('contact') }}">&#8617; {{ _('ContactUs') }}:</a>
+                {{ _('ReachOutSupport') }}
+            </li>
+        </ul>
+    </menu>
+{% endif %}
 
 {% if services %}
     <div class="list_details">
