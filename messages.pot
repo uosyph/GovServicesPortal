@@ -191,3 +191,116 @@ msgstr ""
 msgid "ReturnHome"
 msgstr ""
 
+#: templates/account.html
+msgid "AccountSettings"
+msgstr ""
+
+msgid "ManageProfileAccountPreferences"
+msgstr ""
+
+msgid "VisitYourProfile"
+msgstr ""
+
+msgid "Account"
+msgstr ""
+
+msgid "Security"
+msgstr ""
+
+msgid "Privacy"
+msgstr ""
+
+msgid "PersonalInformation"
+msgstr ""
+
+msgid "CustomizePersonalInformation"
+msgstr ""
+
+msgid "NationalID"
+msgstr ""
+
+msgid "FullName"
+msgstr ""
+
+msgid "PhoneNumber"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "UpdatePersonalInfo"
+msgstr ""
+
+msgid "ChangePassword"
+msgstr ""
+
+msgid "UpdatePasswordSecurely"
+msgstr ""
+
+msgid "OldPassword"
+msgstr ""
+
+msgid "NewPassword"
+msgstr ""
+
+msgid "ConfirmPassword"
+msgstr ""
+
+msgid "UpdatePassword"
+msgstr ""
+
+msgid "DeleteAccount"
+msgstr ""
+
+msgid "PermanentlyRemoveAccount"
+msgstr ""
+
+msgid "EnterYourPassword"
+msgstr ""
+
+msgid "NoteDeleteAccount"
+msgstr ""
+
+#: templates/profile.html
+msgid "UserProfile"
+msgstr ""
+
+msgid "NationalID"
+msgstr ""
+
+msgid "FullName"
+msgstr ""
+
+msgid "PhoneNumber"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "IsAdmin"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "WouldYouLikeToEditProfile"
+msgstr ""
+
+msgid "ClickHere"
+msgstr ""
+
+msgid "ToAccessProfileEditingPage"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+

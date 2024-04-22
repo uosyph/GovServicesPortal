@@ -136,6 +136,7 @@ msgstr "الطلبات"
 msgid "Profile"
 msgstr "الملف الشخصي"
 
+#: templates/account.html
 msgid "AccountSettings"
 msgstr "إعدادات الحساب"
 
@@ -161,7 +162,7 @@ msgstr ""
 "المواطنين من إكمال المعاملات بكفاءة من منازلهم أو مكاتبهم. قم بتبسيط "
 "تفاعلاتك مع الجهات الحكومية واستمتع بتجربة سهولة تقديم الخدمات عبر "
 "الإنترنت. ابدأ باستكشاف مجموعتنا الشاملة من الخدمات اليوم واكتشف طريقة "
-"أكثر فعالية للتعامل مع الخدمات الحكومية."
+".أكثر فعالية للتعامل مع الخدمات الحكومية"
 
 msgid "Copyright"
 msgstr "حقوق النشر"
@@ -191,4 +192,100 @@ msgstr ".شكرًا لتفهمك"
 
 msgid "ReturnHome"
 msgstr "العودة إلى الصفحة الرئيسية"
+
+msgid "ManageProfileAccountPreferences"
+msgstr ".إدارة ملفك الشخصي وتفضيلات الحساب الخاصة بك"
+
+msgid "VisitYourProfile"
+msgstr "زيارة ملفك الشخصي"
+
+msgid "Account"
+msgstr "الحساب"
+
+msgid "Security"
+msgstr "الأمان"
+
+msgid "Privacy"
+msgstr "الخصوصية"
+
+msgid "PersonalInformation"
+msgstr "المعلومات الشخصية"
+
+msgid "CustomizePersonalInformation"
+msgstr ".تخصيص معلوماتك الشخصية"
+
+msgid "NationalID"
+msgstr "الهوية الوطنية"
+
+msgid "FullName"
+msgstr "الاسم الكامل"
+
+msgid "PhoneNumber"
+msgstr "رقم الهاتف"
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Address"
+msgstr "العنوان"
+
+msgid "UpdatePersonalInfo"
+msgstr "تحديث المعلومات الشخصية"
+
+msgid "ChangePassword"
+msgstr "تغيير كلمة المرور"
+
+msgid "UpdatePasswordSecurely"
+msgstr ".تحديث كلمة المرور بشكل آمن"
+
+msgid "OldPassword"
+msgstr "كلمة المرور القديمة"
+
+msgid "NewPassword"
+msgstr "كلمة المرور الجديدة"
+
+msgid "ConfirmPassword"
+msgstr "تأكيد كلمة المرور"
+
+msgid "UpdatePassword"
+msgstr "تحديث كلمة المرور"
+
+msgid "DeleteAccount"
+msgstr "حذف الحساب"
+
+msgid "PermanentlyRemoveAccount"
+msgstr ".حذف حسابك نهائيًا"
+
+msgid "EnterYourPassword"
+msgstr "أدخل كلمة المرور الخاصة بك"
+
+msgid "NoteDeleteAccount"
+msgstr ""
+".يرجى ملاحظة أن هذه العملية لا يمكن عكسها وستؤدي إلى حذف حسابك وجميع "
+"الطلبات ذات الصلة"
+
+#: templates/profile.html
+msgid "UserProfile"
+msgstr "ملف المستخدم"
+
+msgid "IsAdmin"
+msgstr "هل هو مسؤول"
+
+msgid "Yes"
+msgstr "نعم"
+
+msgid "No"
+msgstr "لا"
+
+msgid "WouldYouLikeToEditProfile"
+msgstr "هل ترغب في تعديل ملفك الشخصي؟"
+
+msgid "ClickHere"
+msgstr "انقر هنا"
+
+msgid "ToAccessProfileEditingPage"
+msgstr "للوصول إلى صفحة تحرير الملف الشخصي"
+
+msgid "Logout"
+msgstr "تسجيل خروج"
 

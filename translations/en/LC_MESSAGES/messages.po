@@ -135,6 +135,7 @@ msgstr "Orders"
 msgid "Profile"
 msgstr "Profile"
 
+#: templates/account.html
 msgid "AccountSettings"
 msgstr "Account Settings"
 
@@ -192,4 +193,100 @@ msgstr "Thank you for your patience and understanding."
 
 msgid "ReturnHome"
 msgstr "Return Home"
+
+msgid "ManageProfileAccountPreferences"
+msgstr "Manage your profile and account preferences."
+
+msgid "VisitYourProfile"
+msgstr "Visit your profile"
+
+msgid "Account"
+msgstr "Account"
+
+msgid "Security"
+msgstr "Security"
+
+msgid "Privacy"
+msgstr "Privacy"
+
+msgid "PersonalInformation"
+msgstr "Personal Information"
+
+msgid "CustomizePersonalInformation"
+msgstr "Customize your personal information."
+
+msgid "NationalID"
+msgstr "National ID"
+
+msgid "FullName"
+msgstr "Full Name"
+
+msgid "PhoneNumber"
+msgstr "Phone Number"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Address"
+msgstr "Address"
+
+msgid "UpdatePersonalInfo"
+msgstr "Update Personal Info"
+
+msgid "ChangePassword"
+msgstr "Change Password"
+
+msgid "UpdatePasswordSecurely"
+msgstr "Update your password securely."
+
+msgid "OldPassword"
+msgstr "Old Password"
+
+msgid "NewPassword"
+msgstr "New Password"
+
+msgid "ConfirmPassword"
+msgstr "Confirm Password"
+
+msgid "UpdatePassword"
+msgstr "Update Password"
+
+msgid "DeleteAccount"
+msgstr "Delete Account"
+
+msgid "PermanentlyRemoveAccount"
+msgstr "Permanently remove your account."
+
+msgid "EnterYourPassword"
+msgstr "Enter Your Password"
+
+msgid "NoteDeleteAccount"
+msgstr ""
+"Please note that this process is irreversible and will result in the "
+"deletion of your account and all related orders."
+
+#: templates/profile.html
+msgid "UserProfile"
+msgstr "User Profile"
+
+msgid "IsAdmin"
+msgstr "Is Admin"
+
+msgid "Yes"
+msgstr "Yes"
+
+msgid "No"
+msgstr "No"
+
+msgid "WouldYouLikeToEditProfile"
+msgstr "Would you like to edit your profile?"
+
+msgid "ClickHere"
+msgstr "Click here"
+
+msgid "ToAccessProfileEditingPage"
+msgstr "to access the profile editing page"
+
+msgid "Logout"
+msgstr "Logout"
 
