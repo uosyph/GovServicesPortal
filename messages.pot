@@ -491,6 +491,9 @@ msgid "WelcomeMessage"
 msgstr ""
 
 #: templates/listing.html
+msgid "Search"
+msgstr ""
+
 msgid "ViewAll"
 msgstr ""
 
@@ -560,5 +563,59 @@ msgstr ""
 
 #: templates/order.html
 msgid "ReferenceMessage"
+msgstr ""
+
+#: templates/my_orders.html
+msgid "MyOrdersDescription"
+msgstr ""
+
+msgid "ActiveOrders"
+msgstr ""
+
+msgid "FinishedOrders"
+msgstr ""
+
+msgid "NoOrdersLift"
+msgstr ""
+
+#: templates/new.html
+msgid "CreateNewDefaultDescription"
+msgstr ""
+
+msgid "Department"
+msgstr ""
+
+msgid "AssociatedWithDepartment"
+msgstr ""
+
+msgid "NoAssociation"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+#: templates/new_order.html
+msgid "CreateOrder"
+msgstr ""
+
+msgid "CreateOrderDescription"
+msgstr ""
+
+msgid "ChooseService"
+msgstr ""
+
+msgid "AdditionalDetails"
+msgstr ""
+
+msgid "UploadFilesTitle"
+msgstr ""
+
+msgid "DragAndDrop"
+msgstr ""
+
+msgid "BrowseFiles"
+msgstr ""
+
+msgid "SubmitAllRequiredFiles"
 msgstr ""
 

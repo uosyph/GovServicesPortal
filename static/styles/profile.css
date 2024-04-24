@@ -3,7 +3,7 @@
 	border: 1px solid #2d343654;
 	margin: auto;
 	margin-top: 40px;
-	width: 30%;
+	width: 35%;
 	padding: 40px;
 	box-sizing: border-box;
 	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
@@ -22,7 +22,7 @@
 .profile-box .profile-info-section {
 	display: flex;
 	align-items: flex-start;
-	padding-inline: 15%;
+	padding-inline: 8%;
 	margin-bottom: 22px;
 }
 
@@ -40,6 +40,10 @@
 .profile-box .profile-info-section h5 {
 	margin: 0;
 	color: #666;
+}
+
+.profile-box .profile-info-section .text-section h4 {
+	max-width: 300px;
 }
 
 .profile-box .redirect-box {

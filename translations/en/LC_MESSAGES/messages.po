@@ -493,6 +493,9 @@ msgstr ""
 "information."
 
 #: templates/listing.html
+msgid "Search"
+msgstr "Search"
+
 msgid "ViewAll"
 msgstr "View All Services Offered by This Department"
 
@@ -558,4 +561,60 @@ msgid "ReferenceMessage"
 msgstr ""
 "You may be asked for your reference number later to complete any "
 "necessary transactions, receive paperwork, or finalize your order."
+
+#: templates/my_orders.html
+msgid "MyOrdersDescription"
+msgstr "View all your orders, including completed ones."
+
+msgid "ActiveOrders"
+msgstr "Active Orders"
+
+msgid "FinishedOrders"
+msgstr "Finished Orders"
+
+msgid "NoOrdersLift"
+msgstr "You currently do not have any orders."
+
+#: templates/new.html
+msgid "CreateNewDefaultDescription"
+msgstr "Create a new service or a department."
+
+msgid "Department"
+msgstr "Department"
+
+msgid "AssociatedWithDepartment"
+msgstr "Associated with a Department"
+
+msgid "NoAssociation"
+msgstr "This service is not associated with any department"
+
+msgid "Create"
+msgstr "Create"
+
+#: templates/new_order.html
+msgid "CreateOrder"
+msgstr "Create an Order"
+
+msgid "CreateOrderDescription"
+msgstr "Create a new order."
+
+msgid "ChooseService"
+msgstr "Choose a Service"
+
+msgid "AdditionalDetails"
+msgstr "Provide Additional Details"
+
+msgid "UploadFilesTitle"
+msgstr "Please provide the required paperwork or files for the service"
+
+msgid "DragAndDrop"
+msgstr "Drag and Drop"
+
+msgid "BrowseFiles"
+msgstr "Browse Files"
+
+msgid "SubmitAllRequiredFiles"
+msgstr ""
+"Please make sure you have submitted everything needed for the service. "
+"Otherwise, your order will be neglected."
 

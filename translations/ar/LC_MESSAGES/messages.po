@@ -224,7 +224,7 @@ msgid "CustomizePersonalInformation"
 msgstr "تخصيص معلوماتك الشخصية"
 
 msgid "NationalID"
-msgstr "الهوية الوطنية"
+msgstr "الرقم القومي"
 
 msgid "FullName"
 msgstr "الاسم الكامل"
@@ -481,6 +481,9 @@ msgid "WelcomeMessage"
 msgstr "مرحبًا بك في الوجهة الرئيسية للوصول إلى الخدمات والمعلومات الحكومية"
 
 #: templates/listing.html
+msgid "Search"
+msgstr "ابحث"
+
 msgid "ViewAll"
 msgstr "عرض كافة الخدمات المقدمة من هذا القسم"
 
@@ -546,4 +549,58 @@ msgid "ReferenceMessage"
 msgstr ""
 "قد يُطلب منك رقم المرجع لاحقًا لإكمال أي معاملات ضرورية، استلام الأوراق، "
 "أو إنهاء طلبك"
+
+#: templates/my_orders.html
+msgid "MyOrdersDescription"
+msgstr "قم بعرض كافة طلباتك، بما في ذلك المكتملة"
+
+msgid "ActiveOrders"
+msgstr "الطلبات النشطة"
+
+msgid "FinishedOrders"
+msgstr "الطلبات المكتملة"
+
+msgid "NoOrdersLift"
+msgstr "لا تملك حاليًا أي طلبات"
+
+#: templates/new.html
+msgid "CreateNewDefaultDescription"
+msgstr "إنشاء خدمة جديدة أو قسم"
+
+msgid "Department"
+msgstr "قسم"
+
+msgid "AssociatedWithDepartment"
+msgstr "مرتبط مع قسم"
+
+msgid "NoAssociation"
+msgstr "هذه الخدمة ليست مرتبطة بأي قسم"
+
+msgid "Create"
+msgstr "إنشاء"
+
+#: templates/new_order.html
+msgid "CreateOrder"
+msgstr "إنشاء طلب"
+
+msgid "CreateOrderDescription"
+msgstr "إنشاء طلب جديد"
+
+msgid "ChooseService"
+msgstr "اختر خدمة"
+
+msgid "AdditionalDetails"
+msgstr "أدخل معلومات إضافية"
+
+msgid "UploadFilesTitle"
+msgstr "يرجى تقديم الاوراق اللازمة أو الملفات للخدمة"
+
+msgid "DragAndDrop"
+msgstr "سحب وإفلات"
+
+msgid "BrowseFiles"
+msgstr "تصفح الملفات"
+
+msgid "SubmitAllRequiredFiles"
+msgstr "يرجى التأكد من تقديم كل ما يلزمه للخدمة. وإلا فسيتم تجاهل طلبك"
 

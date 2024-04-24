@@ -8,14 +8,14 @@
 
 {% block body %}
 <div class="page_details">
-    <h1 class="page_title">My Orders</h1>
-    <p class="page_description">View all your orders, including completed ones.</p>
+    <h1 class="page_title">{{ _('MyOrders') }}</h1>
+    <p class="page_description">{{ _('MyOrdersDescription') }}</p>
 </div>
 
 {% if orders or done_orders %}
     {% if orders %}
         <div class="wrapper">
-            <h2 class="wrapper-title">Active Orders</h2>
+            <h2 class="wrapper-title">{{ _('ActiveOrders') }}</h2>
             <ul class="cards">
                 {% for order in orders %}
                     <a href="{{ url_for('order', id=order.id) }}">
@@ -26,13 +26,13 @@
                                 <h4>{{ order.id }}</h4>
                             </div>
                             <p>
-                                <b>Order at:</b>
+                                <b>{{ _('OrderAt') }}</b>
                                 {{ naturaltime(order.start_date) }}
                                 -
                                 {% set time = strptime(str(order.start_date), "%Y-%m-%d %H:%M:%S") %}
                                 {{ time.strftime("%d %b, %Y at %I:%M %p") }}
                             </p>
-                            <p><b>Status:</b> <span class="status-active">Active</span></p>
+                            <p><b>{{ _('Status') }}</b> <span class="status-active">{{ _('Active') }}</span></p>
                         </li>
                     </a>
                 {% endfor %}
@@ -42,7 +42,7 @@
 
     {% if done_orders %}
         <div class="wrapper">
-            <h2 class="wrapper-title">Finished Orders</h2>
+            <h2 class="wrapper-title">{{ _('FinishedOrders') }}</h2>
             <ul class="cards">
                 {% for order in done_orders %}
                     <a href="{{ url_for('order', id=order.id) }}">
@@ -53,20 +53,20 @@
                                 <h4>{{ order.id }}</h4>
                             </div>
                             <p>
-                                <b>Order at:</b>
+                                <b>{{ _('OrderAt') }}</b>
                                 {{ naturaltime(order.start_date) }}
                                 -
                                 {% set time = strptime(str(order.start_date), "%Y-%m-%d %H:%M:%S") %}
                                 {{ time.strftime("%d %b, %Y at %I:%M %p") }}
                             </p>
                             <p>
-                                <b>Done at:</b>
+                                <b>{{ _('DoneAt') }}</b>
                                 {{ naturaltime(order.end_date) }}
                                 -
                                 {% set time = strptime(str(order.end_date), "%Y-%m-%d %H:%M:%S") %}
                                 {{ time.strftime("%d %b, %Y at %I:%M %p") }}
                             </p>
-                            <p><b>Status:</b> <span class="status-done">Finished</span></p>
+                            <p><b>{{ _('Status') }}</b> <span class="status-done">{{ _('Finished') }}</span></p>
                         </li>
                     </a>
                 {% endfor %}
@@ -75,7 +75,7 @@
     {% endif %}
 {% else %}
     <div class="wrapper">
-        <h2 class="wrapper-title no-orders">You currently do not have any orders.</h2>
+        <h2 class="wrapper-title no-orders">{{ _('NoOrdersLift') }}</h2>
     </div>
 {% endif %}
 {% endblock %}

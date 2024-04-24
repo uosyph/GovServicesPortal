@@ -11,50 +11,50 @@
 <div class="form-box">
     {% if 'recommend' in request.args and request.args.get('recommend') in ['department', 'service'] %}
         <h2 class="form-title">
-            Create New {{ request.args.get('recommend').capitalize() }}
+            {{ _('CreateNew') }} {{ request.args.get('recommend').capitalize() }}
         </h2>
-        <p class="form-description">Create a new {{ request.args.get('recommend') }}.</p>
+        <p class="form-description">{{ _('CreateNewDescription') }} {{ request.args.get('recommend') }}.</p>
     {% else %}
-        <h2 class="form-title">Create New</h2>
-        <p class="form-description">Create a new service or a department.</p>
+        <h2 class="form-title">{{ _('CreateNew') }}</h2>
+        <p class="form-description">{{ _('CreateNewDefaultDescription') }}</p>
     {% endif %}
 
     {% if msg: %}<div class="form-msg">{{ msg }}</div>{% endif %}
 
     <form action="{{ url_for('new') }}" method="post">
         <div class="input-box">
-            <label for="title">Title</label>
+            <label for="title">{{ _('Title') }}</label>
             <input required type="text" name="title">
         </div>
         <div class="input-box">
-            <label for="description">Brief Description</label>
+            <label for="description">{{ _('BriefDescription') }}</label>
             <input required type="text" name="description">
         </div>
         <div class="input-box">
-            <label for="readme">Extended Description (Supports Markdown)</label>
+            <label for="readme">{{ _('ExtendedDescription') }} ({{ _('SupportsMarkdown') }})</label>
             <textarea rows="6" name="readme"></textarea>
         </div>
         <div class="radio-box">
             <input required type="radio" id="service" name="type" value="Service" onclick="toggleOptionBox()"
                 {% if 'recommend' in request.args and request.args.get('recommend') == 'service' %} checked {% endif %}>
-            <label for="service">Service</label>
+            <label for="service">{{ _('Service') }}</label>
             <br>
             <input required type="radio" id="department" name="type" value="Department" onclick="toggleOptionBox()"
                 {% if 'recommend' in request.args and request.args.get('recommend') == 'department' %} checked {% endif %}>
-            <label for="department">Department</label>
+            <label for="department">{{ _('Department') }}</label>
         </div>
         <div class="option-box" id="option-box"
             {% if 'recommend' in request.args and request.args.get('recommend') == 'service' %} style="display: block;" {% endif %}>
-            <label for="associated">Associated with a Department</label>
+            <label for="associated">{{ _('AssociatedWithDepartment') }}</label>
             <br>
             <select id="associated" name="associated">
-                <option value="none">This service is not associated with any department</option>
+                <option value="none">{{ _('NoAssociation') }}</option>
                 {% for department in departments %}
                     <option value="{{ department.id }}">{{ department.title }}</option>
                 {% endfor %}
             </select>
         </div>
-        <input class="submit-btn" type="submit" value="Create">
+        <input class="submit-btn" type="submit" value="{{ _('Create') }}">
     </form>
 </div>
 {% endblock %}

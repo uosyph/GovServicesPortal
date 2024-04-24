@@ -29,7 +29,7 @@
 <form action="{{ url_for('search') }}" method="get" class="search-form" style="margin-top: 95px; margin-bottom: 120px;">
     <div class="searchBox">
         <input type="text" name="item" value="{{ path }}" hidden>
-        <input type="text" name="query" placeholder="Search {{ path }}s..." class="searchInput">
+        <input type="text" name="query" placeholder="{{ _('Search') }} {% if get_locale() == 'en' %} {{ path }}s... {% endif %}" class="searchInput">
         <button type="submit" class="searchButton">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256">
                 <path fill="currentColor" d="M232.49 215.51L185 168a92.12 92.12 0 1 0-17 17l47.53 47.54a12 12 0 0 0 17-17ZM44 112a68 68 0 1 1 68 68a68.07 68.07 0 0 1-68-68"/>
