@@ -533,3 +533,32 @@ msgstr ""
 msgid "NoOrdersLeft"
 msgstr ""
 
+#: templates/user_order.html
+msgid "OrderFor"
+msgstr ""
+
+msgid "UserNationalID"
+msgstr ""
+
+msgid "DoneAt"
+msgstr ""
+
+msgid "DetailsIncluded"
+msgstr ""
+
+msgid "FilesIncluded"
+msgstr ""
+
+msgid "Finished"
+msgstr ""
+
+msgid "FinishOrder"
+msgstr ""
+
+msgid "DeleteOrder"
+msgstr ""
+
+#: templates/order.html
+msgid "ReferenceMessage"
+msgstr ""
+

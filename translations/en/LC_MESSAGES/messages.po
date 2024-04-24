@@ -528,3 +528,34 @@ msgstr "Active"
 msgid "NoOrdersLeft"
 msgstr "There are no orders left."
 
+#: templates/user_order.html
+msgid "OrderFor"
+msgstr "Order For:"
+
+msgid "UserNationalID"
+msgstr "User National ID:"
+
+msgid "DoneAt"
+msgstr "Done at:"
+
+msgid "DetailsIncluded"
+msgstr "Details Included:"
+
+msgid "FilesIncluded"
+msgstr "Files Included:"
+
+msgid "Finished"
+msgstr "Finished"
+
+msgid "FinishOrder"
+msgstr "Finish Order"
+
+msgid "DeleteOrder"
+msgstr "Delete Order"
+
+#: templates/order.html
+msgid "ReferenceMessage"
+msgstr ""
+"You may be asked for your reference number later to complete any "
+"necessary transactions, receive paperwork, or finalize your order."
+

@@ -18,7 +18,7 @@
     <div class="order-service">
         {% set service = Service.query.filter_by(id=order.service_id).first() %}
         <h2>
-            <b>Order For:</b>
+            <b>{{ _('OrderFor') }}</b>
             <a href="{{ url_for('service', id=order.service_id) }}" target="_blank">
                 {{ service.title }}
                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
@@ -38,14 +38,11 @@
             </h3>
         {% endif %}
     </div>
-    <p class="order-id" style="margin-bottom: 25px;"><b>Reference Number:</b> <span>{{ order.id }}</span></p>
-    <p class="attention-msg">
-        <span>*</span>
-        You may be asked for your reference number later to complete any necessary transactions, receive paperwork, or finalize your order.
-    </p>
+    <p class="order-id" style="margin-bottom: 25px;"><b>{{ _('ReferenceNumber') }}</b> <span>{{ order.id }}</span></p>
+    <p class="attention-msg"><span>*</span> {{ _('ReferenceMessage') }}</p>
 
     <p>
-        <b>Order at:</b>
+        <b>{{ _('OrderAt') }}</b>
         {{ naturaltime(order.start_date) }}
         -
         {% set time = strptime(str(order.start_date), "%Y-%m-%d %H:%M:%S") %}
@@ -53,30 +50,30 @@
     </p>
     {% if order.is_done == True %}
         <p>
-            <b>Done at:</b>
+            <b>{{ _('DoneAt') }}</b>
             {{ naturaltime(order.end_date) }}
             -
             {% set time = strptime(str(order.end_date), "%Y-%m-%d %H:%M:%S") %}
             {{ time.strftime("%d %b, %Y at %I:%M %p") }}
         </p>
-        <p><b>Status:</b> <span class="status-done">Finished</span></p>
+        <p><b>{{ _('Status') }}</b> <span class="status-done">{{ _('Finished') }}</span></p>
     {% else  %}
-        <p><b>Status:</b> <span class="status-active">Active</span></p>
+        <p><b>{{ _('Status') }}</b> <span class="status-active">{{ _('Active') }}</span></p>
     {% endif %}
 
     {% if order.details %}
         <p class="order-details">
-            <b>Details Included:</b>
+            <b>{{ _('DetailsIncluded') }}</b>
             <br>
             {{ order.details }}
         </p>
     {% endif %}
 
     {% if order.file_paths %}
-        <p class="order-files"><b>Files Included:</b></p>
+        <p class="order-files"><b>{{ _('FilesIncluded') }}</b></p>
         {% for file in order.file_paths.split(',') %}
             <div class="file-container">
-                {% if file.endswith(('.jpg', '.jpeg', '.png', '.gif', '.ico', 'avif', 'webp', 'bmp', 'tiff')) %}
+                {% if file.endswith(('.jpg', '.jpeg', '.png', '.gif', '.ico', '.avif', '.webp', '.bmp', '.tiff')) %}
                     <div class="image-modal" id="imageModal">
                         <span class="close-button" id="closeButton">&times;</span>
                         <img src="{{ url_for('serve_file', filename=file) }}" class="modal-image" id="modalImage">
@@ -180,7 +177,7 @@
     <form action="{{ url_for('order', id=order.id) }}" method="post"
         onsubmit="return confirm('Are you sure you want to delete this order?');">
         <input type="hidden" name="action" value="delete_order">
-        <input class="form-btn danger" type="submit" value="Delete Order">
+        <input class="form-btn danger" type="submit" value="{{ _('DeleteOrder') }}">
     </form>
 </div>
 {% endblock %}
