@@ -4,9 +4,6 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/edit.css') }}">
-{% if get_locale() == 'ar' %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/arabic.css') }}">
-{% endif %}
 <script src="{{ url_for('static', filename='scripts/edit.js') }}" defer></script>
 {% endblock %}
 

@@ -6,9 +6,6 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/cards.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/search.css') }}">
-{% if get_locale() == 'ar' %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/arabic.css') }}">
-{% endif %}
 {% endblock %}
 
 {% block body %}

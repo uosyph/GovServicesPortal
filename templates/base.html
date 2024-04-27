@@ -6,6 +6,7 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/small_screens.css') }}">
     {% if get_locale() == 'ar' %}
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/arabic.css') }}">
         <link rel="stylesheet"
