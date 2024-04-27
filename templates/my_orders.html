@@ -4,10 +4,13 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/my_orders.css') }}">
+{% if get_locale() == 'ar' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/arabic.css') }}">
+{% endif %}
 {% endblock %}
 
 {% block body %}
-<div class="page_details">
+<div class="page_details text-rtl">
     <h1 class="page_title">{{ _('MyOrders') }}</h1>
     <p class="page_description">{{ _('MyOrdersDescription') }}</p>
 </div>
@@ -27,8 +30,10 @@
                             </div>
                             <p>
                                 <b>{{ _('OrderAt') }}</b>
-                                {{ naturaltime(order.start_date) }}
-                                -
+                                {% if get_locale() == 'en' %}
+                                    {{ naturaltime(order.start_date) }}
+                                    -
+                                {% endif %}
                                 {% set time = strptime(str(order.start_date), "%Y-%m-%d %H:%M:%S") %}
                                 {{ time.strftime("%d %b, %Y at %I:%M %p") }}
                             </p>
@@ -54,15 +59,19 @@
                             </div>
                             <p>
                                 <b>{{ _('OrderAt') }}</b>
-                                {{ naturaltime(order.start_date) }}
-                                -
+                                {% if get_locale() == 'en' %}
+                                    {{ naturaltime(order.start_date) }}
+                                    -
+                                {% endif %}
                                 {% set time = strptime(str(order.start_date), "%Y-%m-%d %H:%M:%S") %}
                                 {{ time.strftime("%d %b, %Y at %I:%M %p") }}
                             </p>
                             <p>
                                 <b>{{ _('DoneAt') }}</b>
-                                {{ naturaltime(order.end_date) }}
-                                -
+                                {% if get_locale() == 'en' %}
+                                    {{ naturaltime(order.end_date) }}
+                                    -
+                                {% endif %}
                                 {% set time = strptime(str(order.end_date), "%Y-%m-%d %H:%M:%S") %}
                                 {{ time.strftime("%d %b, %Y at %I:%M %p") }}
                             </p>

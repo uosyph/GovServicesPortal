@@ -294,7 +294,7 @@ msgid "ClickHere"
 msgstr "Click here"
 
 msgid "ToAccessProfileEditingPage"
-msgstr "to access the profile editing page"
+msgstr "to access the profile editing page."
 
 msgid "Logout"
 msgstr "Logout"
@@ -578,6 +578,9 @@ msgstr "You currently do not have any orders."
 #: templates/new.html
 msgid "CreateNewDefaultDescription"
 msgstr "Create a new service or a department."
+
+msgid "CreateNewDescription"
+msgstr "Create a new"
 
 msgid "Department"
 msgstr "Department"

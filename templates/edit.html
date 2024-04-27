@@ -4,11 +4,14 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/edit.css') }}">
+{% if get_locale() == 'ar' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/arabic.css') }}">
+{% endif %}
 <script src="{{ url_for('static', filename='scripts/edit.js') }}" defer></script>
 {% endblock %}
 
 {% block body %}
-<div class="item-box">
+<div class="item-box text-rtl">
     {% if not item %}
         <h2 class="no-item">
             {{ _('Select')}}
@@ -23,14 +26,14 @@
         {% endwith %}
 
         <form id="updateForm" action="{{ url_for('edit', item=item_type, id=item.id) }}" method="post">
-            <input type="hidden" name="action" value="update_item">
+            <input type="hidden" name="action" value="update_item" class="text-rtl">
             <div class="input-box">
                 <label for="title">{{ _('Title') }}</label>
-                <input required type="text" name="title" value="{{ item.title }}">
+                <input required type="text" name="title" value="{{ item.title }}" class="text-rtl">
             </div>
             <div class="input-box">
                 <label for="description">{{ _('BriefDescription') }}</label>
-                <input required type="text" name="description" value="{{ item.description }}">
+                <input required type="text" name="description" value="{{ item.description }}" class="text-rtl">
             </div>
             <div class="input-box">
                 {% if get_locale() == 'en' %}
@@ -38,7 +41,7 @@
                 {% else %}
                     <label for="readme">({{ _('SupportsMarkdown') }}) {{ _('ExtendedDescription') }}</label>
                 {% endif %}
-                <textarea rows="6" name="readme">{{ item.readme }}</textarea>
+                <textarea rows="6" name="readme" class="text-rtl">{{ item.readme }}</textarea>
             </div>
             <input id="submitButton" class="submit-btn" type="submit" value="{{ _('Update') }}" disabled>
         </form>

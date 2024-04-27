@@ -567,6 +567,9 @@ msgstr "لا تملك حاليًا أي طلبات"
 msgid "CreateNewDefaultDescription"
 msgstr "إنشاء خدمة جديدة أو قسم"
 
+msgid "CreateNewDescription"
+msgstr "إنشاء جديد"
+
 msgid "Department"
 msgstr "قسم"
 

@@ -5,22 +5,32 @@
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/cards.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/search.css') }}">
+{% if get_locale() == 'ar' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/arabic.css') }}">
+{% endif %}
 {% endblock %}
 
 {% block body %}
-<div class="list_details">
+<div class="list_details text-rtl">
     <h1 class="list_title">{{ list_title }}</h1>
     <p class="list_description">{{ list_description }}</p>
 </div>
 
 {% if session["is_admin"] == True: %}
-    <div class="admin">
+    <div class="admin text-rtl">
         <a href="{{ url_for('new', recommend=path, _external=True) }}">
             <h2>
-                {{ _('CreateNew')}} {% if get_locale() == 'en' %}<span>{{ path }}</span>{% endif %}
-                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
-                </svg>
+                {% if get_locale() == 'en' %}
+                    {{ _('CreateNew')}} <span>{{ path }}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
+                    </svg>
+                {% else %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style="transform: scaleX(-1);">
+                        <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
+                    </svg>
+                    {{ _('CreateNew')}}
+                {% endif %}
             </h2>
         </a>
     </div>

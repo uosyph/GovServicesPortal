@@ -4,10 +4,13 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/new.css') }}">
+{% if get_locale() == 'ar' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/arabic.css') }}">
+{% endif %}
 {% endblock %}
 
 {% block body %}
-<div class="form-box" style="width: 40%;">
+<div class="form-box text-rtl" style="width: 40%;">
     <h2 class="form-title">{{ _('ContactUs') }}</h2>
     <p class="form-description">{{ _('SendFeedbackComplaints') }}</p>
 
@@ -17,24 +20,24 @@
         {% if not session["loggedin"] %}
             <div class="input-box">
                 <label for="name">{{ _('Name') }}</label>
-                <input required type="text" name="name">
+                <input required type="text" name="name" class="text-rtl">
             </div>
             <div class="input-box">
                 <label for="email">{{ _('Email') }}</label>
-                <input required type="text" name="email">
+                <input required type="text" name="email" class="text-rtl">
             </div>
             <div class="input-box">
                 <label for="phone">{{ _('Phone') }}</label>
-                <input required type="text" name="phone">
+                <input required type="text" name="phone" class="text-rtl">
             </div>
         {% endif %}
         <div class="input-box">
             <label for="subject">{{ _('Subject') }}</label>
-            <input required type="text" name="subject">
+            <input required type="text" name="subject" class="text-rtl">
         </div>
         <div class="input-box">
             <label for="message">{{ _('Message') }}</label>
-            <textarea rows="6" name="message"></textarea>
+            <textarea rows="6" name="message" class="text-rtl"></textarea>
         </div>
         <input class="submit-btn" type="submit" value="{{ _('Send') }}" style="margin-top: 15px;">
     </form>

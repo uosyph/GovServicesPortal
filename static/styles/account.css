@@ -68,7 +68,7 @@
 
 .navigation li {
 	padding: 14px;
-	padding-left: 75px;
+	padding-inline: 75px;
 	border-radius: 5px;
 }
 

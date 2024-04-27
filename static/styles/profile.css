@@ -27,7 +27,7 @@
 }
 
 .profile-box .profile-info-section svg {
-	margin-right: 25px;
+	margin-inline: 25px;
 	margin-top: 5px;
 	color: #2d2d2dce;
 }

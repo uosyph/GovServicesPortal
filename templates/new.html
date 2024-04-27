@@ -4,16 +4,19 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/new.css') }}">
+{% if get_locale() == 'ar' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/arabic.css') }}">
+{% endif %}
 <script src="{{ url_for('static', filename='scripts/radioToggler.js') }}" defer></script>
 {% endblock %}
 
 {% block body %}
-<div class="form-box">
+<div class="form-box text-rtl">
     {% if 'recommend' in request.args and request.args.get('recommend') in ['department', 'service'] %}
         <h2 class="form-title">
-            {{ _('CreateNew') }} {{ request.args.get('recommend').capitalize() }}
+            {{ _('CreateNew') }} {% if get_locale() == 'en' %} {{ request.args.get('recommend').capitalize() }} {% endif %}
         </h2>
-        <p class="form-description">{{ _('CreateNewDescription') }} {{ request.args.get('recommend') }}.</p>
+        <p class="form-description">{{ _('CreateNewDescription') }} {% if get_locale() == 'en' %} {{ request.args.get('recommend') }}. {% endif %}</p>
     {% else %}
         <h2 class="form-title">{{ _('CreateNew') }}</h2>
         <p class="form-description">{{ _('CreateNewDefaultDescription') }}</p>
@@ -24,17 +27,21 @@
     <form action="{{ url_for('new') }}" method="post">
         <div class="input-box">
             <label for="title">{{ _('Title') }}</label>
-            <input required type="text" name="title">
+            <input required type="text" name="title" class="text-rtl">
         </div>
         <div class="input-box">
             <label for="description">{{ _('BriefDescription') }}</label>
-            <input required type="text" name="description">
+            <input required type="text" name="description" class="text-rtl">
         </div>
         <div class="input-box">
-            <label for="readme">{{ _('ExtendedDescription') }} ({{ _('SupportsMarkdown') }})</label>
-            <textarea rows="6" name="readme"></textarea>
+            {% if get_locale() == 'en' %}
+                <label for="readme">{{ _('ExtendedDescription') }} ({{ _('SupportsMarkdown') }})</label>
+            {% else %}
+                <label for="readme">({{ _('SupportsMarkdown') }}) {{ _('ExtendedDescription') }}</label>
+            {% endif %}
+            <textarea rows="6" name="readme" class="text-rtl"></textarea>
         </div>
-        <div class="radio-box">
+        <div class="radio-box" {% if get_locale() == 'ar' %} dir="rtl" {% endif %}>
             <input required type="radio" id="service" name="type" value="Service" onclick="toggleOptionBox()"
                 {% if 'recommend' in request.args and request.args.get('recommend') == 'service' %} checked {% endif %}>
             <label for="service">{{ _('Service') }}</label>
@@ -47,7 +54,7 @@
             {% if 'recommend' in request.args and request.args.get('recommend') == 'service' %} style="display: block;" {% endif %}>
             <label for="associated">{{ _('AssociatedWithDepartment') }}</label>
             <br>
-            <select id="associated" name="associated">
+            <select class="text-rtl" id="associated" name="associated" {% if get_locale() == 'ar' %} dir="rtl" {% endif %}>
                 <option value="none">{{ _('NoAssociation') }}</option>
                 {% for department in departments %}
                     <option value="{{ department.id }}">{{ department.title }}</option>

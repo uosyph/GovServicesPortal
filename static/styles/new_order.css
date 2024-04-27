@@ -141,7 +141,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	margin-left: 25px;
+	margin-inline: 25px;
 }
 
 .file-item {
@@ -175,7 +175,7 @@
 	font-weight: bold;
 	color: #2d3436;
 	text-align: center;
-	margin-left: 15px;
+	margin-inline: 15px;
 	max-width: 100%;
 }
 
@@ -186,7 +186,7 @@
 .file-size {
 	color: #666;
 	font-size: 13px;
-	margin-left: 5px;
+	margin-inline: 5px;
 }
 
 .order-box form .submit-btn {
