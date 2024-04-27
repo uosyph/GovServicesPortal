@@ -4,6 +4,9 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/new.css') }}">
+{% if get_locale() == 'ar' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/arabic.css') }}">
+{% endif %}
 {% endblock %}
 
 {% block body %}
