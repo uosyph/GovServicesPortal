@@ -294,7 +294,7 @@ msgid "ClickHere"
 msgstr "Click here"
 
 msgid "ToAccessProfileEditingPage"
-msgstr "to access the profile editing page"
+msgstr "to access the profile editing page."
 
 msgid "Logout"
 msgstr "Logout"

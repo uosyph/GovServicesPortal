@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="account-box">
+<div class="account-box text-rtl">
     <h2 class="account-title">{{ _('AccountSettings') }}</h2>
     <p class="account-description">{{ _('ManageProfileAccountPreferences') }}</p>
     <a href="{{ url_for('profile', id=user.id) }}" class="profile-url">
@@ -24,7 +24,7 @@
     {% if msg: %}<div class="form-msg">{{ msg }}</div>{% endif %}
 
     <div class="settings-container">
-        <div class="navigation">
+        <div class="navigation text-ltr">
             <ul>
                 <li>
                     <a href="#general" class="nav-link active">
@@ -67,23 +67,23 @@
                     <input type="hidden" name="action" value="update_info">
                     <div class="input-box">
                         <label for="national_id">{{ _('NationalID') }}</label>
-                        <input class="form-field" type="text" name="national_id" value="{{ user.id }}" disabled>
+                        <input class="form-field text-rtl" type="text" name="national_id" value="{{ user.id }}" disabled>
                     </div>
                     <div class="input-box">
                         <label for="fullname">{{ _('FullName') }}</label>
-                        <input required class="form-field" type="text" name="fullname" value="{{ user.name }}">
+                        <input required class="form-field text-rtl" type="text" name="fullname" value="{{ user.name }}">
                     </div>
                     <div class="input-box">
                         <label for="phone">{{ _('PhoneNumber') }}</label>
-                        <input required class="form-field" type="text" name="phone" value="{{ user.phone }}">
+                        <input required class="form-field text-rtl" type="text" name="phone" value="{{ user.phone }}">
                     </div>
                     <div class="input-box">
                         <label for="email">{{ _('Email') }}</label>
-                        <input required class="form-field" type="text" name="email" value="{{ user.email }}">
+                        <input required class="form-field text-rtl" type="text" name="email" value="{{ user.email }}">
                     </div>
                     <div class="input-box">
                         <label for="address">{{ _('Address') }}</label>
-                        <input required class="form-field" type="text" name="address" value="{{ user.address }}">
+                        <input required class="form-field text-rtl" type="text" name="address" value="{{ user.address }}">
                     </div>
                     <input id="submitButton" class="form-btn" type="submit" value="{{ _('UpdatePersonalInfo') }}" disabled>
                 </form>
@@ -96,15 +96,15 @@
                     <input type="hidden" name="action" value="update_password">
                     <div class="input-box">
                         <label for="old_password">{{ _('OldPassword') }}</label>
-                        <input required class="form-field" type="text" name="old_password">
+                        <input required class="form-field text-rtl" type="text" name="old_password">
                     </div>
                     <div class="input-box">
                         <label for="new_password">{{ _('NewPassword') }}</label>
-                        <input required class="form-field" type="text" name="new_password">
+                        <input required class="form-field text-rtl" type="text" name="new_password">
                     </div>
                     <div class="input-box">
                         <label for="confirm_password">{{ _('ConfirmPassword') }}</label>
-                        <input required class="form-field" type="text" name="confirm_password">
+                        <input required class="form-field text-rtl" type="text" name="confirm_password">
                     </div>
                     <input class="form-btn" type="submit" value="{{ _('UpdatePassword') }}">
                 </form>
@@ -117,11 +117,16 @@
                     <input type="hidden" name="action" value="delete_account">
                     <div class="input-box">
                         <label for="password">{{ _('EnterYourPassword') }}</label>
-                        <input required class="form-field" type="text" name="password">
+                        <input required class="form-field text-rtl" type="text" name="password">
                     </div>
                     <p class="attention-msg">
-                        <span>*</span>
-                        {{ _('NoteDeleteAccount') }}
+                        {% if get_locale() == 'ar' %}
+                            {{ _('NoteDeleteAccount') }}
+                            <span>*</span>
+                        {% else %}
+                            <span>*</span>
+                            {{ _('NoteDeleteAccount') }}
+                        {% endif %}
                     </p>
                     <input class="form-btn danger" type="submit" value="{{ _('DeleteAccount') }}">
                 </form>

@@ -85,8 +85,8 @@
     {% endif %}
 
     {% if user.id == session["id"] %}
-        <div class="redirect-box">
-            {{ _('WouldYouLikeToEditProfile') }} <a href="{{ url_for('account') }}">{{ _('ClickHere') }}</a> {{ _('ToAccessProfileEditingPage') }}.
+        <div class="redirect-box text-rtl">
+            {{ _('WouldYouLikeToEditProfile') }} <a href="{{ url_for('account') }}">{{ _('ClickHere') }}</a> {{ _('ToAccessProfileEditingPage') }}
         </div>
 
         <form action="{{ url_for('profile', id=user.id) }}" method="post">
