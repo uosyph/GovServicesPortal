@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="profile-box">
+<div class="profile-box" {% if get_locale() == 'ar' %} dir="rtl" {% endif %}>
     <h2>{{ _('UserProfile') }}</h2>
 
     <div class="profile-info-section">
@@ -89,7 +89,7 @@
             {{ _('WouldYouLikeToEditProfile') }} <a href="{{ url_for('account') }}">{{ _('ClickHere') }}</a> {{ _('ToAccessProfileEditingPage') }}
         </div>
 
-        <form action="{{ url_for('profile', id=user.id) }}" method="post">
+        <form class="text-rtl" action="{{ url_for('profile', id=user.id) }}" method="post">
             <input type="hidden" name="action" value="logout">
             <input class="form-btn" type="submit" value="{{ _('Logout') }}">
         </form>

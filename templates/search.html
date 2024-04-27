@@ -31,12 +31,12 @@
 {% if msg: %}<h1 class="msg">{{ msg }}</h1>{% endif %}
 
 {% if departments %}
-    <div class="list_details">
+    <div class="list_details text-rtl">
         <h1 class="list_title">{{ _('Departments') }}</h1>
         <p class="list_description">{{ _('DepartmentsMatchSearch') }}</p>
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper text-rtl">
         <ul class="cards">
             {% for department in departments %}
                 <a href="{{ url_for('department', id=department.id) }}">
@@ -53,12 +53,12 @@
 {% endif %}
 
 {% if services %}
-    <div class="list_details">
+    <div class="list_details text-rtl">
         <h1 class="list_title">{{ _('Services') }}</h1>
         <p class="list_description">{{ _('ServicesMatchSearch') }}</p>
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper text-rtl">
         <ul class="cards">
             {% for service in services %}
                 <a href="{{ url_for('service', id=service.id) }}">

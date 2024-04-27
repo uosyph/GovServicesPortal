@@ -165,12 +165,27 @@
 	cursor: pointer;
 }
 
+.image-container {
+	position: relative;
+	display: inline-block;
+}
+
+.order-image {
+	max-width: 100%;
+	height: auto;
+}
+
 .order-box .zoom-button {
 	position: absolute;
-	margin-top: 128px;
-	margin-left: -43px;
 	background-color: transparent;
 	border: none;
+	margin-inline: 20px;
+	padding: 5px;
+	bottom: 30px;
+	right: 0;
+	left: 0;
+	cursor: pointer;
+	z-index: 1;
 	transition: all 0.3s;
 }
 

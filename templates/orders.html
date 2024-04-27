@@ -10,16 +10,21 @@
 {% endblock %}
 
 {% block body %}
-<div class="page_details">
+<div class="page_details text-rtl">
     <h1 class="page_title">{{ _('UserOrdersTitle') }}</h1>
     <p class="page_description">{{ _('UserOrdersDescription') }}</p>
 </div>
 
 {% with msg = get_flashed_messages() %}
     {% if msg: %}
-        <div class="order-msg">
-            <span class="attention">*</span>
-            {{ msg[0] | safe }}
+        <div class="order-msg text-rtl">
+            {% if get_locale() == 'en' %}
+                <span class="attention">*</span>
+                {{ msg[0] | safe }}
+            {% else %}
+                {{ msg[0] | safe }}
+                <span class="attention">*</span>
+            {% endif %}
         </div>
     {% endif %}
 {% endwith %}
@@ -40,9 +45,11 @@
                         </div>
                         <p style="font-size: 15px;"><b>{{ _('ReferenceNumber')}}</b> {{ order.id }}</p>
                         <p>
-                            {% if get_locale() == 'en' %}<b>{{ _('OrderAt')}}</b>{% endif %}
-                            {{ naturaltime(order.start_date) }}
-                            -
+                            <b>{{ _('OrderAt')}}</b>
+                            {% if get_locale() == 'en' %}
+                                {{ naturaltime(order.start_date) }}
+                                -
+                            {% endif %}
                             {% set time = strptime(str(order.start_date), "%Y-%m-%d %H:%M:%S") %}
                             {{ time.strftime("%d %b, %Y at %I:%M %p") }}
                         </p>

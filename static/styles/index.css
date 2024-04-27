@@ -47,17 +47,18 @@ nav li .register_btn {
 }
 
 .header-description {
+	position: absolute;
 	color: #ffffffc0;
 	font-size: 44px;
 	font-weight: bold;
 	padding-left: 100px;
 	margin-top: -235px;
-	max-width: 58%;
+	margin-right: 42%;
 }
 
 @media (max-width: 1400px) {
 	.header-description {
-		max-width: 65%;
+		margin-right: 35%;
 	}
 }
 
@@ -112,7 +113,7 @@ nav li .register_btn {
 
 .nav-menu {
 	margin-top: 90px;
-	margin-left: 100px;
+	margin-inline: 100px;
 	margin-bottom: 75px;
 }
 
@@ -136,7 +137,6 @@ nav li .register_btn {
 .nav-menu .links li {
 	font-size: 16px;
 	margin-bottom: 15px;
-	max-width: 80%;
 }
 
 .list_details {

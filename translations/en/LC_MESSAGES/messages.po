@@ -579,6 +579,9 @@ msgstr "You currently do not have any orders."
 msgid "CreateNewDefaultDescription"
 msgstr "Create a new service or a department."
 
+msgid "CreateNewDescription"
+msgstr "Create a new"
+
 msgid "Department"
 msgstr "Department"
 

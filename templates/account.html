@@ -11,12 +11,12 @@
 {% endblock %}
 
 {% block body %}
-<div class="account-box text-rtl">
+<div class="account-box text-rtl" {% if get_locale() == 'ar' %} dir="rtl" {% endif %}>
     <h2 class="account-title">{{ _('AccountSettings') }}</h2>
     <p class="account-description">{{ _('ManageProfileAccountPreferences') }}</p>
     <a href="{{ url_for('profile', id=user.id) }}" class="profile-url">
         {{ _('VisitYourProfile') }}
-        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" {% if get_locale() == 'ar' %} style="transform: scaleX(-1);" {% endif %}>
             <path fill="currentColor" d="M6 6v2h8.59L5 17.59L6.41 19L16 9.41V18h2V6z"/>
         </svg>
     </a>    
@@ -24,7 +24,7 @@
     {% if msg: %}<div class="form-msg">{{ msg }}</div>{% endif %}
 
     <div class="settings-container">
-        <div class="navigation text-ltr">
+        <div class="navigation text-rtl">
             <ul>
                 <li>
                     <a href="#general" class="nav-link active">
@@ -120,13 +120,8 @@
                         <input required class="form-field text-rtl" type="text" name="password">
                     </div>
                     <p class="attention-msg">
-                        {% if get_locale() == 'ar' %}
-                            {{ _('NoteDeleteAccount') }}
-                            <span>*</span>
-                        {% else %}
-                            <span>*</span>
-                            {{ _('NoteDeleteAccount') }}
-                        {% endif %}
+                        <span>*</span>
+                        {{ _('NoteDeleteAccount') }}
                     </p>
                     <input class="form-btn danger" type="submit" value="{{ _('DeleteAccount') }}">
                 </form>
