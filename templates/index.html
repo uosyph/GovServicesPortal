@@ -76,127 +76,101 @@
     </div>
 </div>
 
-{% if get_locale() == 'en' %}
-    <menu class="nav-menu">
-        <h2 class="title"><b>{{ _('PortalNavigation') }}</b></h2>
-        <ul class="footer-links links">
-            <li>
-                <a href="{{ url_for('index') }}">&#8618; {{ _('Home') }}:</a>
-                {{ _('AccessEssentialServices') }}
-            </li>
-            <li>
-                <a href="{{ url_for('departments') }}">&#8618; {{ _('Departments') }}:</a>
-                {{ _('DiscoverDepartments') }}
-            </li>
-            <li>
-                <a href="{{ url_for('services') }}">&#8618; {{ _('Services') }}:</a>
-                {{ _('ExploreServices') }}
-            </li>
-            {% if session["loggedin"] == True: %}
-                {% if session["is_admin"] == False %}
-                    <li>
-                        <a href="{{ url_for('new_order') }}">&#8618; {{ _('NewOrder') }}:</a>
-                        {{ _('InitiateNewOrder') }}
-                    </li>
-                    <li>
-                        <a href="{{ url_for('my_orders') }}">&#8618; {{ _('MyOrders') }}:</a>
-                        {{ _('ViewManageOrders') }}
-                    </li>
-                {% elif session["is_admin"] == True %}
-                    <li>
-                        <a href="{{ url_for('new') }}">&#8618; {{ _('New') }}:</a>
-                        {{ _('AddNewDepartmentService') }}
-                    </li>
-                    <li>
-                        <a href="{{ url_for('orders') }}">&#8618; {{ _('Orders') }}:</a>
-                        {{ _('AccessOrders') }}
-                    </li>
-                {% endif %}
+<menu class="nav-menu" {% if get_locale() == 'ar' %} dir="rtl" {% endif %}>
+    <h2 class="title"><b>{{ _('PortalNavigation') }}</b></h2>
+    <ul class="footer-links links">
+        <li>
+            <a href="{{ url_for('index') }}">
+                {% if get_locale() == 'en' %} &#8618; {% else %} &#8617; {% endif %}
+                {{ _('Home') }}:
+            </a>
+            {{ _('AccessEssentialServices') }}
+        </li>
+        <li>
+            <a href="{{ url_for('departments') }}">
+                {% if get_locale() == 'en' %} &#8618; {% else %} &#8617; {% endif %}
+                {{ _('Departments') }}:
+            </a>
+            {{ _('DiscoverDepartments') }}
+        </li>
+        <li>
+            <a href="{{ url_for('services') }}">
+                {% if get_locale() == 'en' %} &#8618; {% else %} &#8617; {% endif %}
+                {{ _('Services') }}:
+            </a>
+            {{ _('ExploreServices') }}
+        </li>
+        {% if session["loggedin"] == True: %}
+            {% if session["is_admin"] == False %}
                 <li>
-                    <a href="{{ url_for('profile', id=session['id']) }}">&#8618; {{ _('Profile') }}:</a>
-                    {{ _('AccessUpdateProfile') }}
+                    <a href="{{ url_for('new_order') }}">
+                        {% if get_locale() == 'en' %} &#8618; {% else %} &#8617; {% endif %}
+                        {{ _('NewOrder') }}:
+                    </a>
+                    {{ _('InitiateNewOrder') }}
                 </li>
                 <li>
-                    <a href="{{ url_for('account') }}">&#8618; {{ _('AccountSettings') }}:</a>
-                    {{ _('CustomizeAccountSettings') }}
+                    <a href="{{ url_for('my_orders') }}">
+                        {% if get_locale() == 'en' %} &#8618; {% else %} &#8617; {% endif %}
+                        {{ _('MyOrders') }}:
+                    </a>
+                    {{ _('ViewManageOrders') }}
                 </li>
-            {% else: %}
+            {% elif session["is_admin"] == True %}
                 <li>
-                    <a href="{{ url_for('register') }}">&#8618; {{ _('SignUp') }}:</a>
-                    {{ _('RegisterForPortal') }}
-                </li>
-                <li>
-                    <a href="{{ url_for('login') }}">&#8618; {{ _('Login') }}:</a>
-                    {{ _('AccessAccountServices') }}
-                </li>
-            {% endif %}
-            <li>
-                <a href="{{ url_for('contact') }}">&#8618; {{ _('ContactUs') }}:</a>
-                {{ _('ReachOutSupport') }}
-            </li>
-        </ul>
-    </menu>
-{% else %}
-    <menu class="nav-menu">
-        <h2 class="title"><b>{{ _('PortalNavigation') }}</b></h2>
-        <ul class="footer-links links">
-            <li>
-                <a href="{{ url_for('index') }}">{{ _('Home') }}:</a>
-                {{ _('AccessEssentialServices') }} <span class="nav-link-symbol">&#8617;</span>
-            </li>
-            <li>
-                <a href="{{ url_for('departments') }}">{{ _('Departments') }}:</a>
-                {{ _('DiscoverDepartments') }} <span class="nav-link-symbol">&#8617;</span>
-            </li>
-            <li>
-                <a href="{{ url_for('services') }}">{{ _('Services') }}:</a>
-                {{ _('ExploreServices') }} <span class="nav-link-symbol">&#8617;</span>
-            </li>
-            {% if session["loggedin"] == True: %}
-                {% if session["is_admin"] == False %}
-                    <li>
-                        <a href="{{ url_for('new_order') }}">{{ _('NewOrder') }}:</a>
-                        {{ _('InitiateNewOrder') }} <span class="nav-link-symbol">&#8617;</span>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('my_orders') }}">{{ _('MyOrders') }}:</a>
-                        {{ _('ViewManageOrders') }} <span class="nav-link-symbol">&#8617;</span>
-                    </li>
-                {% elif session["is_admin"] == True %}
-                    <li>
-                        <a href="{{ url_for('new') }}">{{ _('New') }}:</a>
-                        {{ _('AddNewDepartmentService') }} <span class="nav-link-symbol">&#8617;</span>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('orders') }}">{{ _('Orders') }}:</a>
-                        {{ _('AccessOrders') }} <span class="nav-link-symbol">&#8617;</span>
-                    </li>
-                {% endif %}
-                <li>
-                    <a href="{{ url_for('profile', id=session['id']) }}">{{ _('Profile') }}:</a>
-                    {{ _('AccessUpdateProfile') }} <span class="nav-link-symbol">&#8617;</span>
+                    <a href="{{ url_for('new') }}">
+                        {% if get_locale() == 'en' %} &#8618; {% else %} &#8617; {% endif %}
+                        {{ _('New') }}:
+                    </a>
+                    {{ _('AddNewDepartmentService') }}
                 </li>
                 <li>
-                    <a href="{{ url_for('account') }}">{{ _('AccountSettings') }}:</a>
-                    {{ _('CustomizeAccountSettings') }} <span class="nav-link-symbol">&#8617;</span>
-                </li>
-            {% else: %}
-                <li>
-                    <a href="{{ url_for('register') }}">{{ _('SignUp') }}:</a>
-                    {{ _('RegisterForPortal') }} <span class="nav-link-symbol">&#8617;</span>
-                </li>
-                <li>
-                    <a href="{{ url_for('login') }}">{{ _('Login') }}:</a>
-                    {{ _('AccessAccountServices') }} <span class="nav-link-symbol">&#8617;</span>
+                    <a href="{{ url_for('orders') }}">
+                        {% if get_locale() == 'en' %} &#8618; {% else %} &#8617; {% endif %}
+                        {{ _('Orders') }}:
+                    </a>
+                    {{ _('AccessOrders') }}
                 </li>
             {% endif %}
             <li>
-                <a href="{{ url_for('contact') }}">{{ _('ContactUs') }}:</a>
-                {{ _('ReachOutSupport') }} <span class="nav-link-symbol">&#8617;</span>
+                <a href="{{ url_for('profile', id=session['id']) }}">
+                    {% if get_locale() == 'en' %} &#8618; {% else %} &#8617; {% endif %}
+                    {{ _('Profile') }}:
+                </a>
+                {{ _('AccessUpdateProfile') }}
             </li>
-        </ul>
-    </menu>
-{% endif %}
+            <li>
+                <a href="{{ url_for('account') }}">
+                    {% if get_locale() == 'en' %} &#8618; {% else %} &#8617; {% endif %}
+                    {{ _('AccountSettings') }}:
+                </a>
+                {{ _('CustomizeAccountSettings') }}
+            </li>
+        {% else: %}
+            <li>
+                <a href="{{ url_for('register') }}">
+                    {% if get_locale() == 'en' %} &#8618; {% else %} &#8617; {% endif %}
+                    {{ _('SignUp') }}:
+                </a>
+                {{ _('RegisterForPortal') }}
+            </li>
+            <li>
+                <a href="{{ url_for('login') }}">
+                    {% if get_locale() == 'en' %} &#8618; {% else %} &#8617; {% endif %}
+                    {{ _('Login') }}:
+                </a>
+                {{ _('AccessAccountServices') }}
+            </li>
+        {% endif %}
+        <li>
+            <a href="{{ url_for('contact') }}">
+                {% if get_locale() == 'en' %} &#8618; {% else %} &#8617; {% endif %}
+                {{ _('ContactUs') }}:
+            </a>
+            {{ _('ReachOutSupport') }}
+        </li>
+    </ul>
+</menu>
 
 {% if services %}
     <div class="list_details text-rtl">

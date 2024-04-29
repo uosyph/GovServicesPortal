@@ -1,0 +1,183 @@
+@media screen and (max-width: 1400px) {
+	.logo {
+		line-height: 100px;
+		height: 100px;
+	}
+	.logo a p {
+		float: none;
+		text-align: center;
+		margin: 0 !important;
+		margin-top: 0 !important;
+		font-size: 26px !important;
+	}
+	.logo a p span {
+		font-size: 36px !important;
+	}
+
+	nav {
+		padding: 0 !important;
+		margin-bottom: 120px !important;
+	}
+
+	nav ul {
+		height: 50px;
+		line-height: 50px;
+		float: none;
+		padding-inline: 25px;
+		text-align: center;
+	}
+
+	.header-description {
+		background-color: #6db6c0;
+		font-size: 2em !important;
+		left: 0;
+		right: 0;
+		padding: 0 25px 50px 25px !important;
+		margin: -300px 0 !important;
+		text-align: center !important;
+	}
+}
+
+@media screen and (max-width: 1150px) {
+	.arrow {
+		display: none;
+	}
+	.steps-container {
+		display: block !important;
+		padding-inline: 5% !important;
+		padding-block: 45px !important;
+	}
+	.steps-container .item {
+		margin-block: 50px !important;
+	}
+	.steps-container .item:first-child,
+	.steps-container .item:last-child {
+		margin-block: 0 !important;
+	}
+	.steps-container .text {
+		margin-top: 15px !important;
+		width: 90% !important;
+	}
+
+	.form-box,
+	.profile-box {
+		width: 55% !important;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.now-container {
+		margin-inline: 25px !important;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.page_details,
+	.list_details,
+	.admin {
+		padding-inline: 5% !important;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.now-card {
+		width: calc(50% - 20px) !important;
+		margin-bottom: 20px !important;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.form-box,
+	.profile-box {
+		width: 75% !important;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.footer-social-icons {
+		padding-right: 0 !important;
+	}
+	.search-form {
+		margin-left: 0% !important;
+		margin-inline: 5% !important;
+	}
+	.search-title {
+		font-size: 2em;
+		margin-inline: 25px;
+	}
+
+	.cards {
+		grid-template-columns: repeat(1, 1fr) !important;
+	}
+
+	.settings-container .navigation li {
+		padding-inline: 15px !important;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.download-btn {
+		margin-bottom: 50px !important;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.item-box {
+		width: 95% !important;
+		padding-inline: 20px !important;
+	}
+
+	.order-image {
+		width: 200px !important;
+	}
+
+	.order-box {
+		padding-inline: 20px !important;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	nav {
+		margin-bottom: 170px !important;
+	}
+
+	.form-box,
+	.profile-box {
+		width: 90% !important;
+	}
+
+	.settings-container .navigation li {
+		padding-inline: 5px !important;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.account-box {
+		padding: 30px 10px 10px 10px !important;
+	}
+
+	.account-title,
+	.account-description,
+	.profile-url,
+	.profile-msg {
+		padding-inline: 20px !important;
+	}
+
+	.settings-container .navigation {
+		display: none;
+	}
+
+	.settings-container .settings {
+		width: 100% !important;
+	}
+
+	.settings-section {
+		padding: 0 !important;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.order-image {
+		width: 100px !important;
+	}
+}
