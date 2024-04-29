@@ -153,9 +153,10 @@ nav li .register_btn {
 
 .now-container {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
-	margin-inline: 200px;
 	margin-bottom: 100px;
+	margin-inline: 250px;
 }
 
 .now-card {
