@@ -1,10 +1,3 @@
-@media screen and (max-width: 1600px) {
-	.form-box,
-	.profile-box {
-		width: 50% !important;
-	}
-}
-
 @media screen and (max-width: 1400px) {
 	.logo {
 		line-height: 100px;
@@ -43,11 +36,6 @@
 		margin: -300px 0 !important;
 		text-align: center !important;
 	}
-
-	.form-box,
-	.profile-box {
-		width: 60% !important;
-	}
 }
 
 @media screen and (max-width: 1150px) {
@@ -69,6 +57,11 @@
 	.steps-container .text {
 		margin-top: 15px !important;
 		width: 90% !important;
+	}
+
+	.form-box,
+	.profile-box {
+		width: 55% !important;
 	}
 }
 
@@ -118,6 +111,27 @@
 	}
 }
 
+@media screen and (max-width: 700px) {
+	.download-btn {
+		margin-bottom: 50px !important;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.item-box {
+		width: 95% !important;
+		padding-inline: 20px !important;
+	}
+
+	.order-image {
+		width: 200px !important;
+	}
+
+	.order-box {
+		padding-inline: 20px !important;
+	}
+}
+
 @media screen and (max-width: 500px) {
 	nav {
 		margin-bottom: 170px !important;
@@ -126,5 +140,11 @@
 	.form-box,
 	.profile-box {
 		width: 90% !important;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.order-image {
+		width: 100px !important;
 	}
 }
