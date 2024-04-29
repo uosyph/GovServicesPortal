@@ -109,6 +109,10 @@
 	.cards {
 		grid-template-columns: repeat(1, 1fr) !important;
 	}
+
+	.settings-container .navigation li {
+		padding-inline: 15px !important;
+	}
 }
 
 @media screen and (max-width: 700px) {
@@ -140,6 +144,35 @@
 	.form-box,
 	.profile-box {
 		width: 90% !important;
+	}
+
+	.settings-container .navigation li {
+		padding-inline: 5px !important;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.account-box {
+		padding: 30px 10px 10px 10px !important;
+	}
+
+	.account-title,
+	.account-description,
+	.profile-url,
+	.profile-msg {
+		padding-inline: 20px !important;
+	}
+
+	.settings-container .navigation {
+		display: none;
+	}
+
+	.settings-container .settings {
+		width: 100% !important;
+	}
+
+	.settings-section {
+		padding: 0 !important;
 	}
 }
 
