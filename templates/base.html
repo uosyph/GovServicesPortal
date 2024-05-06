@@ -100,7 +100,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-8 text-left">
                     <h6>{{ _('About') }}</h6>
-                    <p class="text-justify" dir="rtl">{{ _('AboutInfo') }}</p>
+                    <p class="text-justify" {% if get_locale() == 'ar' %} dir="rtl" {% endif %}>{{ _('AboutInfo') }}</p>
                 </div>
                 <div class="col-xs-4 col-md-4 text-right quick-links">
                     <h6>{{ _('QuickLinks') }}</h6>

@@ -93,15 +93,15 @@
                     <input type="hidden" name="action" value="update_password">
                     <div class="input-box">
                         <label for="old_password">{{ _('OldPassword') }}</label>
-                        <input required class="form-field text-rtl" type="text" name="old_password">
+                        <input required class="form-field text-rtl" type="password" name="old_password">
                     </div>
                     <div class="input-box">
                         <label for="new_password">{{ _('NewPassword') }}</label>
-                        <input required class="form-field text-rtl" type="text" name="new_password">
+                        <input required class="form-field text-rtl" type="password" name="new_password">
                     </div>
                     <div class="input-box">
                         <label for="confirm_password">{{ _('ConfirmPassword') }}</label>
-                        <input required class="form-field text-rtl" type="text" name="confirm_password">
+                        <input required class="form-field text-rtl" type="password" name="confirm_password">
                     </div>
                     <input class="form-btn" type="submit" value="{{ _('UpdatePassword') }}">
                 </form>
@@ -114,7 +114,7 @@
                     <input type="hidden" name="action" value="delete_account">
                     <div class="input-box">
                         <label for="password">{{ _('EnterYourPassword') }}</label>
-                        <input required class="form-field text-rtl" type="text" name="password">
+                        <input required class="form-field text-rtl" type="password" name="password">
                     </div>
                     <p class="attention-msg">
                         <span>*</span>
