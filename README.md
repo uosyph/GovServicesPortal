@@ -43,6 +43,8 @@ Note: This project is a simulation created for educational purposes and is not a
 
 - **Delete Account**: Permanently delete user account and associated data from the system.
 
+- **Chatbot Assistance**: Use the integrated chatbot to ask questions related to the Portal, navigate through it, and easily find specific information.
+
 ### For Admins
 
 - **View User Profiles**: Access and view detailed user profiles, including personal information and order history.
