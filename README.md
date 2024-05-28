@@ -45,6 +45,8 @@ Note: This project is a simulation created for educational purposes and is not a
 
 - **Chatbot Assistance**: Use the integrated chatbot to ask questions related to the Portal, navigate through it, and easily find specific information.
 
+- **Multilingual Support**: Access the Portal in both English and Arabic for a more inclusive user experience.
+
 ### For Admins
 
 - **View User Profiles**: Access and view detailed user profiles, including personal information and order history.
