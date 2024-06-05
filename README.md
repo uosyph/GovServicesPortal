@@ -13,6 +13,7 @@ Note: This project is a simulation created for educational purposes and is not a
 ## Table of Contents
 
 - [Features](#features)
+- [Overview Video](#overview-video)
 - [Technical Stack](#technical-stack)
 - [Acknowledgement](#acknowledgement)
 - [Contributing](#contributing)
@@ -65,6 +66,10 @@ Note: This project is a simulation created for educational purposes and is not a
 
 These features collectively provide a comprehensive platform for users to access government services conveniently and securely,
 while administrators can manage various aspects of the system.
+
+## Overview Video
+
+https://github.com/uosyph/GovServicesPortal/assets/107230184/39d960a9-b53f-463e-90d0-c5e55f95f596
 
 ## Technical Stack
 
